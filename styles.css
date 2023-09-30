@@ -11,36 +11,87 @@ If your plugin does not need CSS, delete this file.
 	font-family: "Courier New", "Courier", monospace;
 }
 
-.cm-scene-heading {
+.cm-fountain-scene-heading {
 	font-weight: var(--font-bold);
 }
 
-.cm-synopsis {
-	color: var(--text-muted);
+.cm-fountain-synopsis {
+	/* color: var(--text-muted); */
 	font-family: var(--font-text);
 }
 
-.cm-character,
-.cm-dialogue,
-.cm-parenthetical {
-	display: block;
-	max-width: 50ch;
-	margin: auto;
-	text-align: center;
-}
-
-.cm-parenthetical {
+.cm-fountain-parenthetical {
 	font-style: italic;
 }
 
-.cm-transition {
+.cm-fountain-transition {
 	font-weight: var(--font-bold);
 	text-align: right;
-	display: block;
+}
+.cm-line:has(.cm-fountain-transition) {
+	text-align: right;
 }
 
-.cm-centered {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+	font-style: normal;
+	background-color: inherit;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
+.markdown-source-view.mod-cm6 .cm-blockquote-border:before {
+	display: none;
+}
+
+.cm-fountain-centered {
 	font-weight: var(--font-bold);
 	text-align: center;
+	/* display: block; */
+}
+.cm-line:has(.cm-fountain-centered) {
+	text-align: center;
+}
+
+/* formatting */
+
+.cm-formatting-fountain-action,
+.cm-formatting-fountain-synopsis,
+.cm-formatting-fountain-centered {
+	color: var(--text-faint);
+}
+
+.cm-line:not(.cm-active) .cm-formatting-fountain-centered {
+	color: transparent;
+}
+.cm-line:not(.cm-active) .cm-formatting-fountain-action,
+.cm-line:not(.cm-active) .cm-formatting-fountain-scene-heading,
+.cm-line:not(.cm-active) .cm-formatting-fountain-synopsis {
+	display: none;
+}
+
+.cm-content
+	.cm-line:has(
+		:is(
+				.cm-fountain-character,
+				.cm-fountain-dialogue,
+				.cm-fountain-parenthetical
+			)
+	) {
 	display: block;
+	/* max-width: var(--fountain-max-width); */
+	margin: auto !important;
+	text-align: center;
+}
+
+.cm-line:has(.cm-fountain-character) {
+	--file-line-width: 30ch;
+}
+.cm-line:has(:is(.cm-fountain-dialogue, .cm-fountain-parenthetical)) {
+	--file-line-width: 45ch;
+}
+
+/* boneyard */
+
+.cm-fountain-formatting-boneyard-start,
+.cm-fountain-formatting-boneyard-end,
+.cm-fountain-boneyard {
+	color: var(--text-faint);
 }

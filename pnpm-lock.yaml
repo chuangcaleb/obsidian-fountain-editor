@@ -5,6 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@codemirror/language':
+    specifier: ^6.9.1
+    version: 6.9.1
+  '@codemirror/state':
+    specifier: ^6.2.1
+    version: 6.2.1
+  '@codemirror/view':
+    specifier: ^6.21.0
+    version: 6.21.0
   codemirror-lang-fountain:
     specifier: file:../../../../codemirror-lang-fountain
     version: file:../../../../codemirror-lang-fountain

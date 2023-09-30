@@ -1,13 +1,11 @@
+// import { fountain } from "codemirror-lang-fountain";
+import { fountainPlugin } from "decorations";
 import { Plugin } from "obsidian";
-import { fountain } from "codemirror-lang-fountain";
-// Remember to rename these classes and interfaces!
 
 export default class FountainPlugin extends Plugin {
 	async onload() {
-		const statusBarItemEl = this.addStatusBarItem();
-		statusBarItemEl.setText("Fountain");
-
-		this.registerEditorExtension(fountain());
+		// this.registerEditorExtension(fountain());
+		this.registerEditorExtension(fountainPlugin);
 	}
 
 	onunload() {}
