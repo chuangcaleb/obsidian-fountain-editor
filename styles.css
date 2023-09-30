@@ -8,7 +8,7 @@ If your plugin does not need CSS, delete this file.
 */
 
 .cm-content {
-	/* font-family: "Courier New", "Courier", monospace; */
+	font-family: "Courier New", "Courier", monospace;
 }
 
 .cm-scene-heading {
