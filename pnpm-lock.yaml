@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  codemirror-lang-fountain:
+    specifier: file:../../../../codemirror-lang-fountain
+    version: file:../../../../codemirror-lang-fountain
+
 devDependencies:
   '@types/node':
     specifier: ^16.11.6
@@ -40,9 +45,19 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /@codemirror/language@6.9.1:
+    resolution: {integrity: sha512-lWRP3Y9IUdOms6DXuBpoWwjkR7yRmnS0hKYCbSfPz9v6Em1A1UCRujAkDiCrdYfs1Z0Eu4dGtwovNPStIfkgNA==}
+    dependencies:
+      '@codemirror/state': 6.2.1
+      '@codemirror/view': 6.21.0
+      '@lezer/common': 1.1.0
+      '@lezer/highlight': 1.1.6
+      '@lezer/lr': 1.3.12
+      style-mod: 4.1.0
+    dev: false
+
   /@codemirror/state@6.2.1:
     resolution: {integrity: sha512-RupHSZ8+OjNT38zU9fKH2sv+Dnlr8Eb8sl4NOnnqz95mCFTZUaiRP8Xv5MeeaG0px2b8Bnfe7YGwCV3nsBhbuw==}
-    dev: true
 
   /@codemirror/view@6.21.0:
     resolution: {integrity: sha512-JI3asAk/fZ7h2ATjY9ErDFGWoWe4Bu7XgzR31G26RU3M/DLjfdQK8Im7hL1P/PAyprfVrf0uRNqxu02TkBcm3g==}
@@ -50,7 +65,6 @@ packages:
       '@codemirror/state': 6.2.1
       style-mod: 4.1.0
       w3c-keyname: 2.2.8
-    dev: true
 
   /@esbuild/android-arm64@0.17.3:
     resolution: {integrity: sha512-XvJsYo3dO3Pi4kpalkyMvfQsjxPWHYjoX4MDiB/FUM4YMfWcXa5l4VCwFWVYI1+92yxqjuqrhNg0CZg3gSouyQ==}
@@ -306,6 +320,22 @@ packages:
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@lezer/common@1.1.0:
+    resolution: {integrity: sha512-XPIN3cYDXsoJI/oDWoR2tD++juVrhgIago9xyKhZ7IhGlzdDM9QgC8D8saKNCz5pindGcznFr2HBSsEQSWnSjw==}
+    dev: false
+
+  /@lezer/highlight@1.1.6:
+    resolution: {integrity: sha512-cmSJYa2us+r3SePpRCjN5ymCqCPv+zyXmDl0ciWtVaNiORT/MxM7ZgOMQZADD0o51qOaOg24qc/zBViOIwAjJg==}
+    dependencies:
+      '@lezer/common': 1.1.0
+    dev: false
+
+  /@lezer/lr@1.3.12:
+    resolution: {integrity: sha512-5nwY1JzCueUdRtlMBnlf1SUi69iGCq2ABq7WQFQMkn/kxPvoACAEnTp4P17CtXxYr7WCwtYPLL2AEvxKPuF1OQ==}
+    dependencies:
+      '@lezer/common': 1.1.0
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1192,7 +1222,6 @@ packages:
 
   /style-mod@4.1.0:
     resolution: {integrity: sha512-Ca5ib8HrFn+f+0n4N4ScTIA9iTOQ7MaGS1ylHcoVqW9J7w2w8PzN6g9gKmTYgGEBH8e120+RCmhpje6jC5uGWA==}
-    dev: true
 
   /supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -1256,7 +1285,6 @@ packages:
 
   /w3c-keyname@2.2.8:
     resolution: {integrity: sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==}
-    dev: true
 
   /which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -1278,3 +1306,13 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  file:../../../../codemirror-lang-fountain:
+    resolution: {directory: ../../../../codemirror-lang-fountain, type: directory}
+    name: codemirror-lang-fountain
+    dependencies:
+      '@codemirror/language': 6.9.1
+      '@codemirror/state': 6.2.1
+      '@codemirror/view': 6.21.0
+      '@lezer/highlight': 1.1.6
+    dev: false

@@ -6,3 +6,41 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 
 */
+
+.cm-content {
+	/* font-family: "Courier New", "Courier", monospace; */
+}
+
+.cm-scene-heading {
+	font-weight: var(--font-bold);
+}
+
+.cm-synopsis {
+	color: var(--text-muted);
+	font-family: var(--font-text);
+}
+
+.cm-character,
+.cm-dialogue,
+.cm-parenthetical {
+	display: block;
+	max-width: 50ch;
+	margin: auto;
+	text-align: center;
+}
+
+.cm-parenthetical {
+	font-style: italic;
+}
+
+.cm-transition {
+	font-weight: var(--font-bold);
+	text-align: right;
+	display: block;
+}
+
+.cm-centered {
+	font-weight: var(--font-bold);
+	text-align: center;
+	display: block;
+}
