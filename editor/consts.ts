@@ -5,6 +5,7 @@ export const TOKEN_NAMES = {
 	character: "character",
 	dialogue: "dialogue",
 	parenthetical: "parenthetical",
+	lyrics: "lyrics",
 	centered: "centered",
 	transition: "transition",
 	synopsis: "synopsis",
@@ -19,6 +20,7 @@ export const TOKEN_CLASSES = {
 	fSynopsis: "cm-formatting cm-formatting-fountain-synopsis",
 	fAction: "cm-formatting cm-formatting-fountain-action",
 	fCharacter: "cm-formatting cm-formatting-fountain-character",
-	fCentered: "cm-formatting cm-formatting-fountain-centered",
 	characterExtension: "cm-character-extension",
+	fLyrics: "cm-formatting cm-formatting-fountain-lyrics",
+	fCentered: "cm-formatting cm-formatting-fountain-centered",
 };

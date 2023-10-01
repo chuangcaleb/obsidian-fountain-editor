@@ -11,6 +11,7 @@ const TOKENS: Record<string, RegExp> = {
 	[t.character]: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+( \([^)]*\))?|@.*)$/,
 	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
 	[t.parenthetical]: /^\s*(\(.+\))$/,
+	[t.lyrics]: /^~.*$/,
 
 	[t.centered]: /^>[^<>\n]+<$/g,
 	[t.transition]: /^(>[^<\n\r]*|[A-Z ]+ TO:)$/,
@@ -149,6 +150,9 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			}
 			if (type === t.sceneHeading && firstChar === ".") {
 				markDeco(start, start + 1, c.fSceneHeading);
+			}
+			if (type === t.lyrics && firstChar === "~") {
+				markDeco(start, start + 1, c.fLyrics);
 			}
 			if (type === t.synopsis && firstChar === "=") {
 				markDeco(start, start + 2, c.fSynopsis);

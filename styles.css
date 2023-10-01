@@ -61,7 +61,9 @@ body {
 	font-family: var(--font-text);
 }
 
-.cm-fountain-parenthetical {
+.cm-fountain-parenthetical,
+.cm-character-extension,
+.cm-fountain-lyrics {
 	font-style: italic;
 }
 
@@ -74,10 +76,6 @@ body {
 	font-weight: var(--font-bold);
 	text-align: center;
 	/* display: block; */
-}
-
-.cm-character-extension {
-	font-style: italic;
 }
 
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-character {
@@ -108,10 +106,7 @@ body {
 	visibility: hidden;
 }
 
-.cm-line:not(.cm-active) .cm-formatting-fountain-action,
-.cm-line:not(.cm-active) .cm-formatting-fountain-character,
-.cm-line:not(.cm-active) .cm-formatting-fountain-scene-heading,
-.cm-line:not(.cm-active) .cm-formatting-fountain-synopsis {
+.cm-line:not(.cm-active) [class*="cm-formatting-fountain-"] {
 	display: none;
 }
 
