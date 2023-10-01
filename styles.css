@@ -30,13 +30,13 @@ Adapted from
 
 body {
 	/* --file-line-width: 6in; */
-	--content-width: 6in;
-	--char-left: 2.7in;
-	/* --char-right: 1in; */
-	--dialogue-left: 1.4in;
-	--dialogue-right: 1.3in;
-	--paren-left: 2.1in;
-	--paren-right: 1.9in;
+	--fountain-file-line-width: 6in;
+	--fountain-character-left: 2.7in;
+	/* --fountain-character-right: 1in; */
+	--fountain-dialogue-left: 1.4in;
+	--fountain-dialogue-right: 1.3in;
+	--fountain-parenthesis-left: 2.1in;
+	--fountain-parenthesis-right: 1.9in;
 }
 
 .cm-sizer {
@@ -46,10 +46,10 @@ body {
 	/* * unconstrained: no styles */
 
 	/*  *left unconstrained */
-	/* max-width: var(--content-width); */
+	/* max-width: var(--fountain-file-line-width); */
 
 	/* * centered constrained */
-	/* width: var(--content-width);
+	/* width: var(--fountain-file-line-width);
 	margin-inline: auto; */
 }
 
@@ -85,18 +85,18 @@ body {
 
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-character {
 	/* padding-left: 2.2in; */
-	padding-left: var(--char-left);
-	padding-right: var(--char-right);
+	padding-left: var(--fountain-character-left);
+	padding-right: var(--fountain-character-right);
 }
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-lyrics,
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-dialogue {
-	padding-left: var(--dialogue-left);
-	padding-right: var(--dialogue-right);
+	padding-left: var(--fountain-dialogue-left);
+	padding-right: var(--fountain-dialogue-right);
 	/* padding-left: 1.5in; */
 }
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-parenthetical {
-	padding-left: var(--paren-left);
-	padding-right: var(--paren-right);
+	padding-left: var(--fountain-parenthesis-left);
+	padding-right: var(--fountain-parenthesis-right);
 	/* padding-left: 1.6in; */
 }
 
