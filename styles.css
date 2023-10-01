@@ -83,6 +83,7 @@ body {
 	padding-left: var(--char-left);
 	padding-right: var(--char-right);
 }
+.markdown-source-view.mod-cm6 .cm-line.cm-fountain-lyrics,
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-dialogue {
 	padding-left: var(--dialogue-left);
 	padding-right: var(--dialogue-right);
