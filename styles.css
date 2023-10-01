@@ -75,8 +75,9 @@ body {
 	text-align: center;
 	/* display: block; */
 }
-.cm-line:has(.cm-fountain-centered) {
-	text-align: center;
+
+.cm-character-extension {
+	font-style: italic;
 }
 
 .markdown-source-view.mod-cm6 .cm-line.cm-fountain-character {

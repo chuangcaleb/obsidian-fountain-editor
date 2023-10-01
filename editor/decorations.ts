@@ -8,7 +8,7 @@ const TOKENS: Record<string, RegExp> = {
 	// scene_number: /( *#(.+)# *)/,
 
 	[t.action]: /^!.*$/,
-	[t.character]: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+( \(.*\))?|@.*)$/,
+	[t.character]: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+( \([^)]*\))?|@.*)$/,
 	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
 	[t.parenthetical]: /^\s*(\(.+\))$/,
 
@@ -156,6 +156,13 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			if (type === t.character) {
 				if (firstChar === "@") {
 					markDeco(start, start + 1, c.fCharacter);
+				}
+				if (lastChar === ")") {
+					const charExt = line.match(/(\([^)]*\))$/g);
+					if (charExt === null) continue;
+					const charExtLength = charExt[0].length;
+					const charExtStart = end - charExtLength;
+					markDeco(charExtStart, end, c.characterExtension);
 				}
 			}
 			if (type === t.centered && lastChar === "<") {
