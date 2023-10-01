@@ -13,8 +13,8 @@ const TOKENS: Record<string, RegExp> = {
 	[t.parenthetical]: /^\s*(\(.+\))$/,
 	[t.lyrics]: /^~.*$/,
 
-	[t.centered]: /^>[^<>\n]+<$/g,
-	[t.transition]: /^(>[^<\n\r]*|[A-Z ]+ TO:)$/,
+	[t.centered]: /^\s*>[^<>\n]+<$/g,
+	[t.transition]: /^\s*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
 
 	// section: /^(#+)(?: *)(.*)/,
 	[t.synopsis]: /^(?:=(?!=+) *)(.*)$/,
@@ -91,6 +91,10 @@ export function buildDecorations(view: EditorView): DecorationSet {
 					} else {
 						break;
 					}
+				}
+
+				if (type === t.transition) {
+					if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
 				}
 
 				return type;
