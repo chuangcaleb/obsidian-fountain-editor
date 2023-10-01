@@ -28,7 +28,17 @@ const tokenTypes: Record<string, RegExp> = {
 interface FountainState {
 	inDialogue: boolean;
 	inBoneyard: boolean;
+}
+interface FountainContext {
 	afterEmptyLine: boolean;
+	beforeEmptyLine: boolean;
+}
+
+function getContext(lines: string[], index: number): FountainContext {
+	return {
+		afterEmptyLine: lines[index - 1] === "",
+		beforeEmptyLine: lines[index + 1] === "",
+	};
 }
 
 export function buildDecorations(view: EditorView): DecorationSet {
@@ -43,29 +53,37 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		builder.add(start, end, deco);
 	}
 
-	function getLineFormat(state: FountainState, line: string) {
+	function getLineFormat(
+		line: string,
+		state: FountainState,
+		ctx: FountainContext,
+	) {
 		if (!line) {
 			state.inDialogue = false;
-			state.afterEmptyLine = true;
 			return null;
 		}
 
 		for (const type in tokenTypes) {
 			if (tokenTypes[type].test(line)) {
-				if (type === "character") {
-					if (state.afterEmptyLine) {
-						state.inDialogue = true;
-					} else {
-						break;
-					}
+				if (type === "formatting-boneyard-end") {
+					state.inBoneyard = false;
+				}
+				if (state.inBoneyard) {
+					return "boneyard";
 				}
 				if (type === "formatting-boneyard-start") {
 					state.inDialogue = false;
 					state.inBoneyard = true;
 				}
-				if (type === "formatting-boneyard-end") {
-					state.inBoneyard = false;
+
+				if (type === "character") {
+					if (ctx.afterEmptyLine) {
+						state.inDialogue = true;
+					} else {
+						break;
+					}
 				}
+
 				return type;
 			}
 		}
@@ -82,7 +100,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		const visibleText = view.state.sliceDoc(from, to);
 		const visibleLines = visibleText.split("\n");
 
-		const charCounts = visibleLines.reduce<number[]>(
+		const charCountMarkers = visibleLines.reduce<number[]>(
 			(accu, curr, index) => {
 				if (!curr.trim().length) {
 					accu.push(accu[index] + 1);
@@ -97,17 +115,18 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		const state: FountainState = {
 			inDialogue: false,
 			inBoneyard: false,
-			afterEmptyLine: false,
 		};
 
 		for (const [index, line] of visibleLines.entries()) {
-			const type = getLineFormat(state, line);
+			const type = getLineFormat(
+				line,
+				state,
+				getContext(visibleLines, index),
+			);
 
 			if (!type) continue;
 
-			state.afterEmptyLine = false;
-
-			const start = from + charCounts[index];
+			const start = from + charCountMarkers[index];
 			const end = start + visibleLines[index].length;
 
 			// Line decorations
