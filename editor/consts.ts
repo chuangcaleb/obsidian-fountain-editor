@@ -20,6 +20,5 @@ export const TOKEN_CLASSES = {
 	fAction: "cm-formatting cm-formatting-fountain-action",
 	fCharacter: "cm-formatting cm-formatting-fountain-character",
 	fCentered: "cm-formatting cm-formatting-fountain-centered",
-	characterExtension: "cm-formatting cm-character-extension",
-	fCharacterExtension: "cm-formatting cm-formatting-character-extension",
+	characterExtension: "cm-character-extension",
 };

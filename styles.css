@@ -100,10 +100,7 @@ body {
 /*                             formatting symbols                             */
 /* -------------------------------------------------------------------------- */
 
-.cm-formatting-fountain-action,
-.cm-formatting-fountain-character,
-.cm-formatting-fountain-synopsis,
-.cm-formatting-fountain-centered {
+[class*="cm-formatting-fountain-"].cm-formatting {
 	color: var(--text-faint);
 }
 
@@ -136,13 +133,13 @@ body {
 - marked
 - unmarked
 */
-.markdown-source-view.mod-cm6 [class^="cm-fountain-"] .cm-indent::before {
+.markdown-source-view.mod-cm6 [class*="cm-fountain-"] .cm-indent::before {
 	display: inline-block;
 	content: "→";
 	font-family: var(--font-monospace);
 	color: var(--text-faint);
 }
-.markdown-source-view.mod-cm6 [class^="cm-fountain-"] .cm-indent {
+.markdown-source-view.mod-cm6 [class*="cm-fountain-"] .cm-indent {
 	/* display: none; */
 	tab-size: 2;
 }
