@@ -77,16 +77,32 @@ If your plugin does not need CSS, delete this file.
 	) {
 	display: block;
 	/* max-width: var(--fountain-max-width); */
-	margin: auto !important;
-	text-align: center;
+	/* margin: auto !important; */
+	/* text-align: center; */
 }
 
-.cm-line:has(.cm-fountain-character) {
-	--file-line-width: 30ch;
+.cm-content .cm-line:has(.cm-fountain-character) {
+	/* text-align: center; */
+	margin-left: 30ch !important;
+	--file-line-width: 25ch;
+	margin-inline: auto !important;
 }
-.cm-line:has(:is(.cm-fountain-dialogue, .cm-fountain-parenthetical)) {
+.cm-content .cm-line:has(.cm-fountain-dialogue) {
+	/* text-align: center; */
+	--file-line-width: 40ch;
+	margin-inline: auto !important;
+	/* margin-left: 0ch !important; */
+}
+.cm-content .cm-line:has(.cm-fountain-parenthetical) {
+	margin-left: 20 ch !important;
+	--file-line-width: 35ch;
+	margin-inline-end: auto !important;
+
+	/* --file-line-width: 30ch; */
+}
+/* .cm-line:has(:is(.cm-fountain-dialogue, .cm-fountain-parenthetical)) {
 	--file-line-width: 45ch;
-}
+} */
 
 /* boneyard */
 

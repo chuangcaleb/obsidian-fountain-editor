@@ -125,13 +125,19 @@ class FountainPlugin implements PluginValue {
 
 			for (const [index, line] of visibleLines.entries()) {
 				const type = getLineFormat(state, line);
-				if (type) state.afterEmptyLine = false;
+
+				if (!type) continue;
+
+				state.afterEmptyLine = false;
 
 				const start = from + charCounts[index];
 				const end = start + visibleLines[index].length;
 
-				markDeco(start, end, "cm-fountain-" + type);
+				// Line decorations
+				const deco = Decoration.line({ class: "cm-fountain-" + type });
+				builder.add(start, start, deco);
 
+				// Mark Decorations
 				const firstChar = line[0];
 				const lastChar = line[line.length - 1];
 				if (type === "scene-heading" && firstChar === ".") {
