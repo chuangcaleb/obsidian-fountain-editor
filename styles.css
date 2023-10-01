@@ -1,11 +1,52 @@
+/* -------------------------------------------------------------------------- */
+/*                                  override                                  */
+/* -------------------------------------------------------------------------- */
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+	font-style: normal;
+	background-color: inherit;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
+.markdown-source-view.mod-cm6 .cm-blockquote-border:before {
+	display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    main                                    */
+/* -------------------------------------------------------------------------- */
 /*
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
+Adapted from
+[Screenplay Format: Everything You Need to Know - NFI](https://www.nfi.edu/screenplay-format/)
+[Screenplay Format Guide: Margin Settings - Story Sense®](https://www.storysense.com/format/margins.htm)
 
 */
+
+body {
+	/* --file-line-width: 6in; */
+	--content-width: 6in;
+	--char-left: 2.7in;
+	/* --char-right: 1in; */
+	--dialogue-left: 1.4in;
+	--dialogue-right: 1.3in;
+	--paren-left: 2.1in;
+	--paren-right: 1.9in;
+}
+
+.cm-sizer {
+	align-items: center;
+}
+.cm-contentContainer {
+	/* * unconstrained: no styles */
+
+	/*  *left unconstrained */
+	/* max-width: var(--content-width); */
+
+	/* * centered constrained */
+	width: var(--content-width);
+	margin-inline: auto;
+}
 
 .cm-content {
 	font-family: "Courier New", "Courier", monospace;
@@ -28,18 +69,6 @@ If your plugin does not need CSS, delete this file.
 	font-weight: var(--font-bold);
 	text-align: right;
 }
-.cm-line:has(.cm-fountain-transition) {
-	text-align: right;
-}
-
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-	font-style: normal;
-	background-color: inherit;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
-.markdown-source-view.mod-cm6 .cm-blockquote-border:before {
-	display: none;
-}
 
 .cm-fountain-centered {
 	font-weight: var(--font-bold);
@@ -50,7 +79,25 @@ If your plugin does not need CSS, delete this file.
 	text-align: center;
 }
 
-/* formatting */
+.markdown-source-view.mod-cm6 .cm-line.cm-fountain-character {
+	/* padding-left: 2.2in; */
+	padding-left: var(--char-left);
+	padding-right: var(--char-right);
+}
+.markdown-source-view.mod-cm6 .cm-line.cm-fountain-dialogue {
+	padding-left: var(--dialogue-left);
+	padding-right: var(--dialogue-right);
+	/* padding-left: 1.5in; */
+}
+.markdown-source-view.mod-cm6 .cm-line.cm-fountain-parenthetical {
+	padding-left: var(--paren-left);
+	padding-right: var(--paren-right);
+	/* padding-left: 1.6in; */
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             formatting symbols                             */
+/* -------------------------------------------------------------------------- */
 
 .cm-formatting-fountain-action,
 .cm-formatting-fountain-synopsis,
@@ -58,51 +105,15 @@ If your plugin does not need CSS, delete this file.
 	color: var(--text-faint);
 }
 
-.cm-line:not(.cm-active) .cm-formatting-fountain-centered {
-	color: transparent;
+.cm-line:not(.cm-active).cm-formatting-fountain-centered {
+	visibility: hidden;
 }
+
 .cm-line:not(.cm-active) .cm-formatting-fountain-action,
 .cm-line:not(.cm-active) .cm-formatting-fountain-scene-heading,
 .cm-line:not(.cm-active) .cm-formatting-fountain-synopsis {
 	display: none;
 }
-
-.cm-content
-	.cm-line:has(
-		:is(
-				.cm-fountain-character,
-				.cm-fountain-dialogue,
-				.cm-fountain-parenthetical
-			)
-	) {
-	display: block;
-	/* max-width: var(--fountain-max-width); */
-	/* margin: auto !important; */
-	/* text-align: center; */
-}
-
-.cm-content .cm-line:has(.cm-fountain-character) {
-	/* text-align: center; */
-	margin-left: 30ch !important;
-	--file-line-width: 25ch;
-	margin-inline: auto !important;
-}
-.cm-content .cm-line:has(.cm-fountain-dialogue) {
-	/* text-align: center; */
-	--file-line-width: 40ch;
-	margin-inline: auto !important;
-	/* margin-left: 0ch !important; */
-}
-.cm-content .cm-line:has(.cm-fountain-parenthetical) {
-	margin-left: 20 ch !important;
-	--file-line-width: 35ch;
-	margin-inline-end: auto !important;
-
-	/* --file-line-width: 30ch; */
-}
-/* .cm-line:has(:is(.cm-fountain-dialogue, .cm-fountain-parenthetical)) {
-	--file-line-width: 45ch;
-} */
 
 /* boneyard */
 
