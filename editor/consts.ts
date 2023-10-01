@@ -18,5 +18,6 @@ export const TOKEN_CLASSES = {
 	fSceneHeading: "cm-formatting cm-formatting-fountain-scene-heading",
 	fSynopsis: "cm-formatting cm-formatting-fountain-synopsis",
 	fAction: "cm-formatting cm-formatting-fountain-action",
+	fCharacter: "cm-formatting cm-formatting-fountain-character",
 	fCentered: "cm-formatting cm-formatting-fountain-centered",
 };

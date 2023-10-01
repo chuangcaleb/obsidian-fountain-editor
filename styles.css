@@ -48,8 +48,8 @@ body {
 	margin-inline: auto; */
 }
 
-.cm-content {
-	font-family: "Courier New", "Courier", monospace;
+.cm-scroller {
+	--font-text: "Courier New", "Courier", monospace;
 }
 
 .cm-fountain-scene-heading {
@@ -100,6 +100,7 @@ body {
 /* -------------------------------------------------------------------------- */
 
 .cm-formatting-fountain-action,
+.cm-formatting-fountain-character,
 .cm-formatting-fountain-synopsis,
 .cm-formatting-fountain-centered {
 	color: var(--text-faint);
@@ -110,6 +111,7 @@ body {
 }
 
 .cm-line:not(.cm-active) .cm-formatting-fountain-action,
+.cm-line:not(.cm-active) .cm-formatting-fountain-character,
 .cm-line:not(.cm-active) .cm-formatting-fountain-scene-heading,
 .cm-line:not(.cm-active) .cm-formatting-fountain-synopsis {
 	display: none;
@@ -121,4 +123,25 @@ body {
 .cm-fountain-formatting-boneyard-end,
 .cm-fountain-boneyard {
 	color: var(--text-faint);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   options                                  */
+/* -------------------------------------------------------------------------- */
+
+/* ! Give option to suppress indents */
+/*
+- hidden
+- marked
+- unmarked
+*/
+.markdown-source-view.mod-cm6 [class^="cm-fountain-"] .cm-indent::before {
+	display: inline-block;
+	content: "→";
+	font-family: var(--font-monospace);
+	color: var(--text-faint);
+}
+.markdown-source-view.mod-cm6 [class^="cm-fountain-"] .cm-indent {
+	/* display: none; */
+	tab-size: 2;
 }

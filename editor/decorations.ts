@@ -4,9 +4,10 @@ import { TOKEN_NAMES as t, TOKEN_CLASSES as c } from "./consts";
 
 const TOKENS: Record<string, RegExp> = {
 	[t.sceneHeading]:
-		/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
+		/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e|int\/ext)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
 	// scene_number: /( *#(.+)# *)/,
 
+	[t.action]: /^!.*$/,
 	[t.character]: /^\s*([A-Z][A-Z0-9 \t]+|@.*)$/,
 	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
 	[t.parenthetical]: /^\s*(\(.+\))$/,
@@ -70,7 +71,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 					state.inBoneyard = false;
 				}
 				if (state.inBoneyard) {
-					return "boneyard";
+					return t.boneyard;
 				}
 				if (type === t.formattingBoneyardStart) {
 					state.inDialogue = false;
@@ -78,7 +79,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 
 				if (type === t.character) {
-					if (ctx.afterEmptyLine) {
+					if (ctx.afterEmptyLine && !ctx.beforeEmptyLine) {
 						state.inDialogue = true;
 					} else {
 						break;
@@ -137,6 +138,9 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			// Mark Decorations
 			const firstChar = line[0];
 			const lastChar = line[line.length - 1];
+			if (type === t.action && firstChar === "!") {
+				markDeco(start, start + 1, c.fAction);
+			}
 			if (type === t.sceneHeading && firstChar === ".") {
 				markDeco(start, start + 1, c.fSceneHeading);
 			}
@@ -144,7 +148,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				markDeco(start, start + 2, c.fSynopsis);
 			}
 			if (type === t.character && firstChar === "@") {
-				markDeco(start, start + 1, c.fAction);
+				markDeco(start, start + 1, c.fCharacter);
 			}
 			if (type === t.centered && lastChar === "<") {
 				markDeco(end - 2, end, c.fCentered);
