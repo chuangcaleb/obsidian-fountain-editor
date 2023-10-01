@@ -8,7 +8,7 @@ const TOKENS: Record<string, RegExp> = {
 	// scene_number: /( *#(.+)# *)/,
 
 	[t.action]: /^!.*$/,
-	[t.character]: /^\s*([A-Z][A-Z0-9 \t]+|@.*)$/,
+	[t.character]: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+( \(.*\))?|@.*)$/,
 	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
 	[t.parenthetical]: /^\s*(\(.+\))$/,
 
@@ -34,12 +34,14 @@ interface FountainState {
 interface FountainContext {
 	afterEmptyLine: boolean;
 	beforeEmptyLine: boolean;
+	isLastLine: boolean;
 }
 
 function getContext(lines: string[], index: number): FountainContext {
 	return {
 		afterEmptyLine: lines[index - 1] === "",
 		beforeEmptyLine: lines[index + 1] === "",
+		isLastLine: lines.length === index + 1,
 	};
 }
 
@@ -79,7 +81,11 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 
 				if (type === t.character) {
-					if (ctx.afterEmptyLine && !ctx.beforeEmptyLine) {
+					if (
+						ctx.afterEmptyLine &&
+						!ctx.beforeEmptyLine &&
+						!ctx.isLastLine
+					) {
 						state.inDialogue = true;
 					} else {
 						break;
@@ -147,8 +153,10 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			if (type === t.synopsis && firstChar === "=") {
 				markDeco(start, start + 2, c.fSynopsis);
 			}
-			if (type === t.character && firstChar === "@") {
-				markDeco(start, start + 1, c.fCharacter);
+			if (type === t.character) {
+				if (firstChar === "@") {
+					markDeco(start, start + 1, c.fCharacter);
+				}
 			}
 			if (type === t.centered && lastChar === "<") {
 				markDeco(end - 2, end, c.fCentered);
