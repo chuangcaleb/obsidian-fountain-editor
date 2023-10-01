@@ -1,5 +1,5 @@
 // import { fountain } from "codemirror-lang-fountain";
-import { fountainPlugin } from "decorations";
+import { fountainPlugin } from "editor/plugin";
 import { Plugin } from "obsidian";
 
 export default class FountainPlugin extends Plugin {
