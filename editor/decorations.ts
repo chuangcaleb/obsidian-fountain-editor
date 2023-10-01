@@ -1,6 +1,8 @@
 import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
 import { TOKEN_NAMES as t, TOKEN_CLASSES as c } from "./consts";
+import { getContext, getCumulativeCount } from "./utils";
+import { FountainContext, FountainState } from "./interface";
 
 const TOKENS: Record<string, RegExp> = {
 	[t.sceneHeading]:
@@ -27,24 +29,6 @@ const TOKENS: Record<string, RegExp> = {
 
 	[t.pageBreak]: /^={3,}$/,
 };
-
-interface FountainState {
-	inDialogue: boolean;
-	inBoneyard: boolean;
-}
-interface FountainContext {
-	afterEmptyLine: boolean;
-	beforeEmptyLine: boolean;
-	isLastLine: boolean;
-}
-
-function getContext(lines: string[], index: number): FountainContext {
-	return {
-		afterEmptyLine: lines[index - 1] === "",
-		beforeEmptyLine: lines[index + 1] === "",
-		isLastLine: lines.length === index + 1,
-	};
-}
 
 export function buildDecorations(view: EditorView): DecorationSet {
 	// if (!view.state.field(editorLivePreviewField)) {
@@ -113,17 +97,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		const visibleText = view.state.sliceDoc(from, to);
 		const visibleLines = visibleText.split("\n");
 
-		const charCountMarkers = visibleLines.reduce<number[]>(
-			(accu, curr, index) => {
-				if (!curr.trim().length) {
-					accu.push(accu[index] + 1);
-				} else {
-					accu.push(accu[index] + curr.length + 1);
-				}
-				return accu;
-			},
-			[0],
-		);
+		const charCountMarkers = getCumulativeCount(visibleLines);
 
 		const state: FountainState = {
 			inDialogue: false,
