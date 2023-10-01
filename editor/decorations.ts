@@ -15,7 +15,7 @@ const TOKENS: Record<string, RegExp> = {
 	[t.parenthetical]: /^\s*(\(.+\))$/,
 	[t.lyrics]: /^~.*$/,
 
-	[t.centered]: /^\s*>[^<>\n]+<$/g,
+	[t.centered]: /^\s*>[^<>]+<$/,
 	[t.transition]: /^\s*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
 
 	// section: /^(#+)(?: *)(.*)/,
@@ -148,7 +148,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 			}
 			if (type === t.centered && lastChar === "<") {
-				markDeco(end - 2, end, c.fCentered);
+				markDeco(end - 1, end, c.fCentered);
 			}
 		}
 	}
