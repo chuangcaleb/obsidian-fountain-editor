@@ -44,8 +44,8 @@ body {
 	/* max-width: var(--content-width); */
 
 	/* * centered constrained */
-	width: var(--content-width);
-	margin-inline: auto;
+	/* width: var(--content-width);
+	margin-inline: auto; */
 }
 
 .cm-content {
@@ -105,7 +105,7 @@ body {
 	color: var(--text-faint);
 }
 
-.cm-line:not(.cm-active).cm-formatting-fountain-centered {
+.cm-line:not(.cm-active) .cm-formatting-fountain-centered {
 	visibility: hidden;
 }
 

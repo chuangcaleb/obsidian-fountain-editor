@@ -1,28 +1,29 @@
 import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
+import { TOKEN_NAMES as t, TOKEN_CLASSES as c } from "./consts";
 
-const tokenTypes: Record<string, RegExp> = {
-	"scene-heading":
+const TOKENS: Record<string, RegExp> = {
+	[t.sceneHeading]:
 		/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
 	// scene_number: /( *#(.+)# *)/,
 
-	character: /^\s*([A-Z][A-Z0-9 \t]+|@.*)$/,
-	dialogue: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
-	parenthetical: /^\s*(\(.+\))$/,
+	[t.character]: /^\s*([A-Z][A-Z0-9 \t]+|@.*)$/,
+	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
+	[t.parenthetical]: /^\s*(\(.+\))$/,
 
-	centered: /^>[^<>\n]+<$/g,
-	transition: /^(>[^<\n\r]*|[A-Z ]+ TO:)$/,
+	[t.centered]: /^>[^<>\n]+<$/g,
+	[t.transition]: /^(>[^<\n\r]*|[A-Z ]+ TO:)$/,
 
 	// section: /^(#+)(?: *)(.*)/,
-	synopsis: /^(?:=(?!=+) *)(.*)$/,
+	[t.synopsis]: /^(?:=(?!=+) *)(.*)$/,
 
 	// note: /^(?:\[{2}(?!\[+))(.+)(?:\]{2}(?!\[+))$/,
 	// note_inline: /(?:\[{2}(?!\[+))([\s\S]+?)(?:\]{2}(?!\[+))/g,
 	// boneyard: /(^\/\*|^\*\/)$/g,
-	"formatting-boneyard-start": /(^\/\*$)/g,
-	"formatting-boneyard-end": /(^\*\/$)/g,
+	[t.formattingBoneyardStart]: /(^\/\*$)/g,
+	[t.formattingBoneyardEnd]: /(^\*\/$)/g,
 
-	page_break: /^={3,}$/,
+	[t.pageBreak]: /^={3,}$/,
 };
 
 interface FountainState {
@@ -63,20 +64,20 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			return null;
 		}
 
-		for (const type in tokenTypes) {
-			if (tokenTypes[type].test(line)) {
-				if (type === "formatting-boneyard-end") {
+		for (const type in TOKENS) {
+			if (TOKENS[type].test(line)) {
+				if (type === t.formattingBoneyardEnd) {
 					state.inBoneyard = false;
 				}
 				if (state.inBoneyard) {
 					return "boneyard";
 				}
-				if (type === "formatting-boneyard-start") {
+				if (type === t.formattingBoneyardStart) {
 					state.inDialogue = false;
 					state.inBoneyard = true;
 				}
 
-				if (type === "character") {
+				if (type === t.character) {
 					if (ctx.afterEmptyLine) {
 						state.inDialogue = true;
 					} else {
@@ -88,12 +89,12 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			}
 		}
 		if (state.inDialogue) {
-			return "dialogue";
+			return t.dialogue;
 		}
 		if (state.inBoneyard) {
-			return "boneyard";
+			return t.boneyard;
 		}
-		return "action";
+		return t.action;
 	}
 
 	for (const { from, to } of view.visibleRanges) {
@@ -136,33 +137,17 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			// Mark Decorations
 			const firstChar = line[0];
 			const lastChar = line[line.length - 1];
-			if (type === "scene-heading" && firstChar === ".") {
-				markDeco(
-					start,
-					start + 1,
-					"cm-formatting cm-formatting-fountain-scene-heading",
-				);
+			if (type === t.sceneHeading && firstChar === ".") {
+				markDeco(start, start + 1, c.fSceneHeading);
 			}
-			if (type === "synopsis" && firstChar === "=") {
-				markDeco(
-					start,
-					start + 2,
-					"cm-formatting cm-formatting-fountain-synopsis",
-				);
+			if (type === t.synopsis && firstChar === "=") {
+				markDeco(start, start + 2, c.fSynopsis);
 			}
-			if (type === "character" && firstChar === "@") {
-				markDeco(
-					start,
-					start + 1,
-					"cm-formatting cm-formatting-fountain-action",
-				);
+			if (type === t.character && firstChar === "@") {
+				markDeco(start, start + 1, c.fAction);
 			}
-			if (type === "centered" && lastChar === "<") {
-				markDeco(
-					end - 2,
-					end,
-					"cm-formatting cm-formatting-fountain-centered",
-				);
+			if (type === t.centered && lastChar === "<") {
+				markDeco(end - 2, end, c.fCentered);
 			}
 		}
 	}
