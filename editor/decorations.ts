@@ -1,34 +1,12 @@
 import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
-import { TOKEN_NAMES as t, TOKEN_CLASSES as c } from "./consts";
+import { TOKEN_NAMES as n, LINE_TOKENS } from "./consts";
 import { getContext, getCumulativeCount } from "./utils";
 import { FountainContext, FountainState } from "./interface";
 
-const TOKENS: Record<string, RegExp> = {
-	[t.sceneHeading]:
-		/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e|int\/ext)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
-	// scene_number: /( *#(.+)# *)/,
-
-	[t.action]: /^!.*$/,
-	[t.character]: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+( \([^)]*\))?|@.*)$/,
-	[t.dialogue]: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
-	[t.parenthetical]: /^\s*(\(.+\))$/,
-	[t.lyrics]: /^~.*$/,
-
-	[t.centered]: /^\s*>[^<>]+<$/,
-	[t.transition]: /^\s*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
-
-	// section: /^(#+)(?: *)(.*)/,
-	[t.synopsis]: /^(?:=(?!=+) *)(.*)$/,
-
-	// note: /^(?:\[{2}(?!\[+))(.+)(?:\]{2}(?!\[+))$/,
-	// note_inline: /(?:\[{2}(?!\[+))([\s\S]+?)(?:\]{2}(?!\[+))/g,
-	// boneyard: /(^\/\*|^\*\/)$/g,
-	[t.formattingBoneyardStart]: /(^\/\*$)/g,
-	[t.formattingBoneyardEnd]: /(^\*\/$)/g,
-
-	[t.pageBreak]: /^={3,}$/,
-};
+function composeFClass(t: string) {
+	return `cm-formatting cm-formatting-fountain-${t}`;
+}
 
 export function buildDecorations(view: EditorView): DecorationSet {
 	// if (!view.state.field(editorLivePreviewField)) {
@@ -52,20 +30,19 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			return null;
 		}
 
-		for (const type in TOKENS) {
-			if (TOKENS[type].test(line)) {
-				if (type === t.formattingBoneyardEnd) {
+		for (const { id: tId, regex: tRegex } of LINE_TOKENS) {
+			if (tRegex.test(line)) {
+				if (tId === n.formattingBoneyardEnd) {
 					state.inBoneyard = false;
 				}
 				if (state.inBoneyard) {
-					return t.boneyard;
+					return n.boneyard;
 				}
-				if (type === t.formattingBoneyardStart) {
+				if (tId === n.formattingBoneyardStart) {
 					state.inDialogue = false;
 					state.inBoneyard = true;
 				}
-
-				if (type === t.character) {
+				if (tId === n.character) {
 					if (
 						ctx.afterEmptyLine &&
 						!ctx.beforeEmptyLine &&
@@ -77,20 +54,20 @@ export function buildDecorations(view: EditorView): DecorationSet {
 					}
 				}
 
-				if (type === t.transition) {
+				if (tId === n.transition) {
 					if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
 				}
 
-				return type;
+				return tId;
 			}
 		}
 		if (state.inDialogue) {
-			return t.dialogue;
+			return n.dialogue;
 		}
 		if (state.inBoneyard) {
-			return t.boneyard;
+			return n.boneyard;
 		}
-		return t.action;
+		return n.action;
 	}
 
 	for (const { from, to } of view.visibleRanges) {
@@ -123,32 +100,36 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			// Mark Decorations
 			const firstChar = line[0];
 			const lastChar = line[line.length - 1];
-			if (type === t.action && firstChar === "!") {
-				markDeco(start, start + 1, c.fAction);
+			if (type === n.action && firstChar === "!") {
+				markDeco(start, start + 1, composeFClass(type));
 			}
-			if (type === t.sceneHeading && firstChar === ".") {
-				markDeco(start, start + 1, c.fSceneHeading);
+			if (type === n.sceneHeading && firstChar === ".") {
+				markDeco(start, start + 1, composeFClass(type));
 			}
-			if (type === t.lyrics && firstChar === "~") {
-				markDeco(start, start + 1, c.fLyrics);
+			if (type === n.lyrics && firstChar === "~") {
+				markDeco(start, start + 1, composeFClass(type));
 			}
-			if (type === t.synopsis && firstChar === "=") {
-				markDeco(start, start + 2, c.fSynopsis);
+			if (type === n.synopsis && firstChar === "=") {
+				markDeco(start, start + 2, composeFClass(type));
 			}
-			if (type === t.character) {
+			if (type === n.character) {
 				if (firstChar === "@") {
-					markDeco(start, start + 1, c.fCharacter);
+					markDeco(start, start + 1, composeFClass(type));
 				}
 				if (lastChar === ")") {
 					const charExt = line.match(/(\([^)]*\))$/g);
 					if (charExt === null) continue;
 					const charExtLength = charExt[0].length;
 					const charExtStart = end - charExtLength;
-					markDeco(charExtStart, end, c.characterExtension);
+					markDeco(
+						charExtStart,
+						end,
+						"cm-fountain-character-extension",
+					);
 				}
 			}
-			if (type === t.centered && lastChar === "<") {
-				markDeco(end - 1, end, c.fCentered);
+			if (type === n.centered && lastChar === "<") {
+				markDeco(end - 1, end, composeFClass(type));
 			}
 		}
 	}
