@@ -53,17 +53,17 @@ body {
 	margin-inline: auto; */
 }
 
-.cm-scroller {
+/* for some reason, we need to re-declare this at this level, since the declaration on .markdown-source-view.mod-cm6 .cm-scroller doesn't pick up the --font-text style */
+.cm-line {
+	font-family: var(--font-text);
+}
+
+.cm-line[class*="cm-fountain-"]:not(.cm-fountain-synopsis) {
 	--font-text: "Courier New", "Courier", monospace;
 }
 
 .cm-fountain-scene-heading {
 	font-weight: var(--font-bold);
-}
-
-.cm-fountain-synopsis {
-	/* color: var(--text-muted); */
-	font-family: var(--font-text);
 }
 
 .cm-fountain-parenthetical,
