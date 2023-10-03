@@ -44,9 +44,9 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 				if (tId === n.character) {
 					if (
-						ctx.afterEmptyLine &&
-						!ctx.beforeEmptyLine &&
-						!ctx.isLastLine
+						ctx.afterEmptyLine() &&
+						!ctx.beforeEmptyLine() &&
+						!ctx.isLastLine()
 					) {
 						state.inDialogue = true;
 					} else {
@@ -55,7 +55,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 
 				if (tId === n.transition) {
-					if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
+					if (!(ctx.afterEmptyLine() && ctx.beforeEmptyLine())) break;
 				}
 
 				return tId;

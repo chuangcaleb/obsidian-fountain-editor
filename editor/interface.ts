@@ -3,7 +3,7 @@ export interface FountainState {
 	inBoneyard: boolean;
 }
 export interface FountainContext {
-	afterEmptyLine: boolean;
-	beforeEmptyLine: boolean;
-	isLastLine: boolean;
+	afterEmptyLine: () => boolean;
+	beforeEmptyLine: () => boolean;
+	isLastLine: () => boolean;
 }
