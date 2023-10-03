@@ -13,8 +13,11 @@ export function getCumulativeCount(lines: string[]) {
 
 export function getContext(lines: string[], index: number): FountainContext {
 	return {
-		afterEmptyLine: () => lines[index - 1] === "",
-		beforeEmptyLine: () => lines[index + 1] === "",
-		isLastLine: () => lines.length === index + 1,
+		afterEmptyLine: lines[index - 1] === "",
+		beforeEmptyLine: lines[index + 1] === "",
+		isLastLine: lines.length === index + 1,
+		// afterEmptyLine: () => lines[index - 1] === "",
+		// beforeEmptyLine: () => lines[index + 1] === "",
+		// isLastLine: () => lines.length === index + 1,
 	};
 }

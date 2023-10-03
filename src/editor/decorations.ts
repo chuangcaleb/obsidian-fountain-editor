@@ -44,9 +44,9 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 				if (tId === n.character) {
 					if (
-						ctx.afterEmptyLine() &&
-						!ctx.beforeEmptyLine() &&
-						!ctx.isLastLine()
+						ctx.afterEmptyLine &&
+						!ctx.beforeEmptyLine &&
+						!ctx.isLastLine
 					) {
 						state.inDialogue = true;
 					} else {
@@ -55,7 +55,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 
 				if (tId === n.transition) {
-					if (!(ctx.afterEmptyLine() && ctx.beforeEmptyLine())) break;
+					if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
 				}
 
 				return tId;
@@ -70,68 +70,97 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		return n.action;
 	}
 
+	const state: FountainState = {
+		inDialogue: false,
+		inBoneyard: false,
+	};
+
 	for (const { from, to } of view.visibleRanges) {
 		const visibleText = view.state.sliceDoc(from, to);
-		const visibleLines = visibleText.split("\n");
+		const maxLines = view.state.doc.lines;
 
-		const charCountMarkers = getCumulativeCount(visibleLines);
+		for (let pos = from; pos <= to; ) {
+			const line = view.state.doc.lineAt(pos);
+			const relFrom = line.from - from;
+			const relTo = line.to - from;
+			const ctx = {
+				afterEmptyLine: visibleText[relFrom - 2] === "\n",
+				beforeEmptyLine: visibleText[relTo + 1] === "\n",
+				isLastLine: line.number === maxLines,
+			};
+			const token = getLineFormat(line.text, state, ctx);
 
-		const state: FountainState = {
-			inDialogue: false,
-			inBoneyard: false,
-		};
-
-		for (const [index, line] of visibleLines.entries()) {
-			const type = getLineFormat(
-				line,
-				state,
-				getContext(visibleLines, index),
-			);
-
-			if (!type) continue;
-
-			const start = from + charCountMarkers[index];
-			const end = start + visibleLines[index].length;
-
-			// Line decorations
-			const deco = Decoration.line({ class: "cm-fountain-" + type });
-			builder.add(start, start, deco);
-
-			// Mark Decorations
-			const firstChar = line[0];
-			const lastChar = line[line.length - 1];
-			if (type === n.action && firstChar === "!") {
-				markDeco(start, start + 1, composeFClass(type));
+			if (!token) {
+				pos = line.to + 1;
+				continue;
 			}
-			if (type === n.sceneHeading && firstChar === ".") {
-				markDeco(start, start + 1, composeFClass(type));
-			}
-			if (type === n.lyrics && firstChar === "~") {
-				markDeco(start, start + 1, composeFClass(type));
-			}
-			if (type === n.synopsis && firstChar === "=") {
-				markDeco(start, start + 2, composeFClass(type));
-			}
-			if (type === n.character) {
-				if (firstChar === "@") {
-					markDeco(start, start + 1, composeFClass(type));
-				}
-				if (lastChar === ")") {
-					const charExt = line.match(/(\([^)]*\))$/g);
-					if (charExt === null) continue;
-					const charExtLength = charExt[0].length;
-					const charExtStart = end - charExtLength;
-					markDeco(
-						charExtStart,
-						end,
-						"cm-fountain-character-extension",
-					);
-				}
-			}
-			if (type === n.centered && lastChar === "<") {
-				markDeco(end - 1, end, composeFClass(type));
-			}
+
+			const deco = Decoration.line({ class: "cm-fountain-" + token });
+			builder.add(line.from, line.from, deco);
+
+			pos = line.to + 1;
 		}
+		// const visibleText = view.state.sliceDoc(from, to);
+		// const visibleLines = visibleText.split("\n");
+
+		// const charCountMarkers = getCumulativeCount(visibleLines);
+
+		// const state: FountainState = {
+		// 	inDialogue: false,
+		// 	inBoneyard: false,
+		// };
+
+		// for (const [index, line] of visibleLines.entries()) {
+		// 	const type = getLineFormat(
+		// 		line,
+		// 		state,
+		// 		getContext(visibleLines, index),
+		// 	);
+
+		// 	if (!type) continue;
+
+		// 	const start = from + charCountMarkers[index];
+		// 	const end = start + visibleLines[index].length;
+
+		// 	// Line decorations
+		// 	const deco = Decoration.line({ class: "cm-fountain-" + type });
+		// 	builder.add(start, start, deco);
+
+		// 	// Mark Decorations
+		// 	const firstChar = line[0];
+		// 	const lastChar = line[line.length - 1];
+		// 	if (type === n.action && firstChar === "!") {
+		// 		markDeco(start, start + 1, composeFClass(type));
+		// 	}
+		// 	if (type === n.sceneHeading && firstChar === ".") {
+		// 		markDeco(start, start + 1, composeFClass(type));
+		// 	}
+		// 	if (type === n.lyrics && firstChar === "~") {
+		// 		markDeco(start, start + 1, composeFClass(type));
+		// 	}
+		// 	if (type === n.synopsis && firstChar === "=") {
+		// 		markDeco(start, start + 2, composeFClass(type));
+		// 	}
+		// 	if (type === n.character) {
+		// 		if (firstChar === "@") {
+		// 			markDeco(start, start + 1, composeFClass(type));
+		// 		}
+		// 		if (lastChar === ")") {
+		// 			const charExt = line.match(/(\([^)]*\))$/g);
+		// 			if (charExt === null) continue;
+		// 			const charExtLength = charExt[0].length;
+		// 			const charExtStart = end - charExtLength;
+		// 			markDeco(
+		// 				charExtStart,
+		// 				end,
+		// 				"cm-fountain-character-extension",
+		// 			);
+		// 		}
+		// 	}
+		// 	if (type === n.centered && lastChar === "<") {
+		// 		markDeco(end - 1, end, composeFClass(type));
+		// 	}
+		// }
 	}
 
 	return builder.finish();
