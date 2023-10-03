@@ -25,7 +25,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		state: FountainState,
 		ctx: FountainContext,
 	) {
-		if (!line) {
+		if (!line.trim()) {
 			state.inDialogue = false;
 			return null;
 		}
@@ -82,7 +82,6 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		};
 
 		for (const [index, line] of visibleLines.entries()) {
-			if (!line.trim()) continue;
 			const type = getLineFormat(
 				line,
 				state,
