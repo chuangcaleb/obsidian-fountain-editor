@@ -121,7 +121,12 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				}
 				if (lastChar === ")") {
 					const charExt = lText.match(/(\([^)]*\))$/g);
-					if (charExt === null) continue;
+					if (charExt === null) {
+						console.error(
+							"Character regex broken; char ext segment should exist",
+						);
+						continue;
+					}
 					const charExtLength = charExt[0].length;
 					const charExtStart = lTo - charExtLength;
 					markDeco(
