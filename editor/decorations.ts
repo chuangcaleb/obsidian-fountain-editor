@@ -82,6 +82,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 		};
 
 		for (const [index, line] of visibleLines.entries()) {
+			if (!line.trim()) continue;
 			const type = getLineFormat(
 				line,
 				state,

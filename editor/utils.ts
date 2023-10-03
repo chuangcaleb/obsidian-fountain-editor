@@ -3,7 +3,7 @@ import { FountainContext } from "./interface";
 export function getCumulativeCount(lines: string[]) {
 	return lines.reduce<number[]>(
 		(accu, curr, index) => {
-			const length = curr.trim().length ? curr.length : 0;
+			const length = curr.length ? curr.length : 0;
 			accu.push(accu[index] + length + 1);
 			return accu;
 		},
