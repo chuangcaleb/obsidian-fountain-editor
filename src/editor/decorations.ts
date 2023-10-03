@@ -13,7 +13,9 @@ function getLineFormat(
 	ctx: FountainContext,
 ) {
 	if (!line.trim()) {
-		state.inDialogue = false;
+		// at least two spaces to be considered
+		// https://fountain.io/syntax#line-breaks
+		if (line.length < 2) state.inDialogue = false;
 		return null;
 	}
 
@@ -48,6 +50,7 @@ function getLineFormat(
 			return tId;
 		}
 	}
+
 	if (state.inDialogue) {
 		return n.dialogue;
 	}
