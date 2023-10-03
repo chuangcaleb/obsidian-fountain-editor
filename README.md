@@ -4,7 +4,6 @@
 |-|
 
 [![banner](docs/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
-> **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
 ---
 
@@ -12,7 +11,9 @@
 
 Currently in beta, you may use [BRAT](https://github.com/TfTHacker/obsidian42-brat) to install it! This plugin should only extend your view and should never modify any local files, but to be safe, only install on test vaults until we reach a stable 1.0.0!
 
-Open any file and type away in [Fountain syntax](https://fountain.io/syntax/). You will get automatic formatting, as if you were using a typewriter.
+Open any file and type away: you will get automatic formatting according to the [Fountain syntax rules](https://fountain.io/syntax/)!
+
+> **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
 ---
 
@@ -41,7 +42,7 @@ In both these cases, we should favor the Fountain formatting over the Markdown f
 
 There's conflict, but we can have both. **Fountain-formatted notes should live in parallel with regular Obsidian Markdown notes.**
 
-We should be able to mark/define certain files to be Fountain-formatted, or to define some glob pattern for a group of files. (This is completely WIP.)
+We should be able to mark/define certain files to be Fountain-formatted, or to define some glob pattern for a group of files. *(This is completely WIP)*
 
 Then, Obsidian note-making is business as usual, until we come across a file that is marked for Fountain-formatting. That is the scope that this plugin will operate in.
 
