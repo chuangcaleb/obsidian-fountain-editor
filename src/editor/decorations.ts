@@ -1,7 +1,6 @@
 import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
-import { TOKEN_NAMES as n, LINE_TOKENS } from "./consts";
-import { getContext, getCumulativeCount } from "./utils";
+import { LINE_TOKENS, TOKEN_NAMES as n } from "./consts";
 import { FountainContext, FountainState } from "./interface";
 
 function composeFClass(t: string) {
@@ -81,86 +80,63 @@ export function buildDecorations(view: EditorView): DecorationSet {
 
 		for (let pos = from; pos <= to; ) {
 			const line = view.state.doc.lineAt(pos);
-			const relFrom = line.from - from;
-			const relTo = line.to - from;
+			const { from: lFrom, to: lTo, text: lText } = line;
+
+			const relFrom = lFrom - from;
+			const relTo = lTo - from;
+
 			const ctx = {
 				afterEmptyLine: visibleText[relFrom - 2] === "\n",
 				beforeEmptyLine: visibleText[relTo + 1] === "\n",
 				isLastLine: line.number === maxLines,
 			};
-			const token = getLineFormat(line.text, state, ctx);
+			const token = getLineFormat(lText, state, ctx);
 
 			if (!token) {
-				pos = line.to + 1;
+				pos = lTo + 1;
 				continue;
 			}
 
 			const deco = Decoration.line({ class: "cm-fountain-" + token });
-			builder.add(line.from, line.from, deco);
+			builder.add(lFrom, lFrom, deco);
+
+			// Mark Decorations
+			const firstChar = lText[0];
+			const lastChar = lText[line.length - 1];
+			if (token === n.action && firstChar === "!") {
+				markDeco(lFrom, lFrom + 1, composeFClass(token));
+			}
+			if (token === n.sceneHeading && firstChar === ".") {
+				markDeco(lFrom, lFrom + 1, composeFClass(token));
+			}
+			if (token === n.lyrics && firstChar === "~") {
+				markDeco(lFrom, lFrom + 1, composeFClass(token));
+			}
+			if (token === n.synopsis && firstChar === "=") {
+				markDeco(lFrom, lFrom + 2, composeFClass(token));
+			}
+			if (token === n.character) {
+				if (firstChar === "@") {
+					markDeco(lFrom, lFrom + 1, composeFClass(token));
+				}
+				if (lastChar === ")") {
+					const charExt = lText.match(/(\([^)]*\))$/g);
+					if (charExt === null) continue;
+					const charExtLength = charExt[0].length;
+					const charExtStart = lTo - charExtLength;
+					markDeco(
+						charExtStart,
+						lTo,
+						"cm-fountain-character-extension",
+					);
+				}
+			}
+			if (token === n.centered && lastChar === "<") {
+				markDeco(lTo - 1, lTo, composeFClass(token));
+			}
 
 			pos = line.to + 1;
 		}
-		// const visibleText = view.state.sliceDoc(from, to);
-		// const visibleLines = visibleText.split("\n");
-
-		// const charCountMarkers = getCumulativeCount(visibleLines);
-
-		// const state: FountainState = {
-		// 	inDialogue: false,
-		// 	inBoneyard: false,
-		// };
-
-		// for (const [index, line] of visibleLines.entries()) {
-		// 	const type = getLineFormat(
-		// 		line,
-		// 		state,
-		// 		getContext(visibleLines, index),
-		// 	);
-
-		// 	if (!type) continue;
-
-		// 	const start = from + charCountMarkers[index];
-		// 	const end = start + visibleLines[index].length;
-
-		// 	// Line decorations
-		// 	const deco = Decoration.line({ class: "cm-fountain-" + type });
-		// 	builder.add(start, start, deco);
-
-		// 	// Mark Decorations
-		// 	const firstChar = line[0];
-		// 	const lastChar = line[line.length - 1];
-		// 	if (type === n.action && firstChar === "!") {
-		// 		markDeco(start, start + 1, composeFClass(type));
-		// 	}
-		// 	if (type === n.sceneHeading && firstChar === ".") {
-		// 		markDeco(start, start + 1, composeFClass(type));
-		// 	}
-		// 	if (type === n.lyrics && firstChar === "~") {
-		// 		markDeco(start, start + 1, composeFClass(type));
-		// 	}
-		// 	if (type === n.synopsis && firstChar === "=") {
-		// 		markDeco(start, start + 2, composeFClass(type));
-		// 	}
-		// 	if (type === n.character) {
-		// 		if (firstChar === "@") {
-		// 			markDeco(start, start + 1, composeFClass(type));
-		// 		}
-		// 		if (lastChar === ")") {
-		// 			const charExt = line.match(/(\([^)]*\))$/g);
-		// 			if (charExt === null) continue;
-		// 			const charExtLength = charExt[0].length;
-		// 			const charExtStart = end - charExtLength;
-		// 			markDeco(
-		// 				charExtStart,
-		// 				end,
-		// 				"cm-fountain-character-extension",
-		// 			);
-		// 		}
-		// 	}
-		// 	if (type === n.centered && lastChar === "<") {
-		// 		markDeco(end - 1, end, composeFClass(type));
-		// 	}
-		// }
 	}
 
 	return builder.finish();
