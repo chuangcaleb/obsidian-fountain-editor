@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-fountain-live",
 	"name": "Fountain - Live Preview",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"minAppVersion": "0.15.0",
 	"description": "Formatting for the Fountain screenplay language syntax in Live Preview.",
 	"author": "Chuang Caleb",
