@@ -7,6 +7,56 @@ function composeFClass(t: string) {
 	return `cm-formatting cm-formatting-fountain-${t}`;
 }
 
+function getLineFormat(
+	line: string,
+	state: FountainState,
+	ctx: FountainContext,
+) {
+	if (!line.trim()) {
+		state.inDialogue = false;
+		return null;
+	}
+
+	for (const { id: tId, regex: tRegex } of LINE_TOKENS) {
+		if (tRegex.test(line)) {
+			if (tId === n.fBoneyardEnd) {
+				state.inBoneyard = false;
+			}
+			if (state.inBoneyard) {
+				return n.boneyard;
+			}
+			if (tId === n.fBoneyardStart) {
+				state.inDialogue = false;
+				state.inBoneyard = true;
+			}
+			if (tId === n.character) {
+				if (
+					ctx.afterEmptyLine &&
+					!ctx.beforeEmptyLine &&
+					!ctx.isLastLine
+				) {
+					state.inDialogue = true;
+				} else {
+					break;
+				}
+			}
+
+			if (tId === n.transition) {
+				if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
+			}
+
+			return tId;
+		}
+	}
+	if (state.inDialogue) {
+		return n.dialogue;
+	}
+	if (state.inBoneyard) {
+		return n.boneyard;
+	}
+	return n.action;
+}
+
 export function buildDecorations(view: EditorView): DecorationSet {
 	// if (!view.state.field(editorLivePreviewField)) {
 	// 	return null;
@@ -17,56 +67,6 @@ export function buildDecorations(view: EditorView): DecorationSet {
 	function markDeco(start: number, end: number, className: string) {
 		const deco = Decoration.mark({ class: className });
 		builder.add(start, end, deco);
-	}
-
-	function getLineFormat(
-		line: string,
-		state: FountainState,
-		ctx: FountainContext,
-	) {
-		if (!line.trim()) {
-			state.inDialogue = false;
-			return null;
-		}
-
-		for (const { id: tId, regex: tRegex } of LINE_TOKENS) {
-			if (tRegex.test(line)) {
-				if (tId === n.formattingBoneyardEnd) {
-					state.inBoneyard = false;
-				}
-				if (state.inBoneyard) {
-					return n.boneyard;
-				}
-				if (tId === n.formattingBoneyardStart) {
-					state.inDialogue = false;
-					state.inBoneyard = true;
-				}
-				if (tId === n.character) {
-					if (
-						ctx.afterEmptyLine &&
-						!ctx.beforeEmptyLine &&
-						!ctx.isLastLine
-					) {
-						state.inDialogue = true;
-					} else {
-						break;
-					}
-				}
-
-				if (tId === n.transition) {
-					if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
-				}
-
-				return tId;
-			}
-		}
-		if (state.inDialogue) {
-			return n.dialogue;
-		}
-		if (state.inBoneyard) {
-			return n.boneyard;
-		}
-		return n.action;
 	}
 
 	const state: FountainState = {

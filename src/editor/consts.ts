@@ -10,8 +10,8 @@ export const TOKEN_NAMES = {
 	transition: "transition",
 	synopsis: "synopsis",
 	boneyard: "boneyard",
-	formattingBoneyardStart: "formatting-boneyard-start",
-	formattingBoneyardEnd: "formatting-boneyard-end",
+	fBoneyardStart: "formatting-boneyard-start",
+	fBoneyardEnd: "formatting-boneyard-end",
 	pageBreak: "page-break",
 };
 
@@ -59,11 +59,11 @@ export const LINE_TOKENS = [
 	// note_inline: /(?:\[{2}(?!\[+))([\s\S]+?)(?:\]{2}(?!\[+))/g,
 	// boneyard: /(^\/\*|^\*\/)$/g,
 	{
-		id: n.formattingBoneyardStart,
+		id: n.fBoneyardStart,
 		regex: /(^\/\*$)/g,
 	},
 	{
-		id: n.formattingBoneyardEnd,
+		id: n.fBoneyardEnd,
 		regex: /(^\*\/$)/g,
 	},
 	{
