@@ -1,6 +1,6 @@
 // import { fountain } from "codemirror-lang-fountain";
-import { fountainPlugin } from "editor/plugin";
 import { Plugin } from "obsidian";
+import { fountainPlugin } from "./editor/plugin";
 
 export default class FountainPlugin extends Plugin {
 	async onload() {
