@@ -45,7 +45,7 @@ body {
 .cm-contentContainer {
 	/* * unconstrained: no styles */
 
-	/*  *left unconstrained */
+	/* * left unconstrained */
 	/* max-width: var(--fountain-file-line-width); */
 
 	/* * centered constrained */
@@ -58,7 +58,9 @@ body {
 	font-family: var(--font-text);
 }
 
-.cm-line[class*="cm-fountain-"]:not(.cm-fountain-synopsis) {
+.cm-line[class*="cm-fountain-"]:not(
+		:is(.cm-fountain-synopsis, .cm-fountain-section)
+	) {
 	--font-text: "Courier New", "Courier", monospace;
 }
 

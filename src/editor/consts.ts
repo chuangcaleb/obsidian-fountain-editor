@@ -8,6 +8,7 @@ export const TOKEN_NAMES = {
 	lyrics: "lyrics",
 	centered: "centered",
 	transition: "transition",
+	section: "section",
 	synopsis: "synopsis",
 	boneyard: "boneyard",
 	fBoneyardStart: "formatting-boneyard-start",
@@ -50,7 +51,10 @@ export const LINE_TOKENS = [
 		id: n.transition,
 		regex: /^\s*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
 	},
-	// section: /^(#+)(?: *)(.*)/,
+	{
+		id: n.section,
+		regex: /^(#+)(?: *)(.*)/,
+	},
 	{
 		id: n.synopsis,
 		regex: /^(?:=(?!=+) *)(.*)$/,
