@@ -29,15 +29,15 @@ export const LINE_TOKENS = [
 	},
 	{
 		id: n.character,
-		regex: /^\s*((?=.*[A-Z])[A-Z0-9 \t]+(\([^)]*\))?|@.*)$/,
+		regex: /^[^\S\r\n]*(?=.*[A-Z])[A-Z0-9 \t]+\s?(\(.*\))?$|@.*$/,
 	},
 	{
 		id: n.dialogue,
-		regex: /^\s*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
+		regex: /^[^\S\r\n]*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
 	},
 	{
 		id: n.parenthetical,
-		regex: /^\s*(\(.+\))$/,
+		regex: /^[^\S\r\n]*(\(.+\))$/,
 	},
 	{
 		id: n.lyrics,
@@ -45,11 +45,11 @@ export const LINE_TOKENS = [
 	},
 	{
 		id: n.centered,
-		regex: /^\s*>[^<>]+<$/,
+		regex: /^[^\S\r\n]*>[^<>]+<$/,
 	},
 	{
 		id: n.transition,
-		regex: /^\s*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
+		regex: /^[^\S\r\n]*(>[^<\n\r]*|[A-Z ]+ TO:)$/,
 	},
 	{
 		id: n.section,

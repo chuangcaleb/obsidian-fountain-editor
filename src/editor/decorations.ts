@@ -123,7 +123,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 					markDeco(lFrom, lFrom + 1, composeFClass(token));
 				}
 				if (lastChar === ")") {
-					const charExt = lText.match(/(\([^)]*\))$/g);
+					const charExt = lText.match(/(\(.*\))?$/g);
 					if (charExt === null) {
 						console.error(
 							"Character regex broken; char ext segment should exist",
