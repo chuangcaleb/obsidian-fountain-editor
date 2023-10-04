@@ -2,17 +2,18 @@
 /*                                  override                                  */
 /* -------------------------------------------------------------------------- */
 
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote {
 	font-style: normal;
 	background-color: inherit;
 }
 
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
-.markdown-source-view.mod-cm6 .cm-blockquote-border:before {
+.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote:before,
+.markdown-source-view.mod-cm6.fountain.is-live-preview
+	.cm-blockquote-border:before {
 	display: none;
 }
 
-.markdown-source-view.mod-cm6.is-live-preview
+.markdown-source-view.mod-cm6.fountain.is-live-preview
 	.HyperMD-quote.cm-fountain-centered {
 	padding-inline-start: 0 !important;
 }
@@ -28,7 +29,7 @@ Adapted from
 
 */
 
-body {
+body .mod-cm6.fountain {
 	/* --file-line-width: 6in; */
 	--fountain-file-line-width: 6in;
 	--fountain-character-left: 2.7in;
@@ -39,10 +40,11 @@ body {
 	--fountain-parenthesis-right: 1.9in;
 }
 
-.cm-sizer {
+/* .mod-cm6.fountain .cm-sizer {
 	align-items: center;
-}
-.cm-contentContainer {
+} */
+
+.mod-cm6.fountain .cm-contentContainer {
 	/* * unconstrained: no styles */
 
 	/* * left unconstrained */
@@ -54,49 +56,50 @@ body {
 }
 
 /* for some reason, we need to re-declare this at this level, since the declaration on .markdown-source-view.mod-cm6 .cm-scroller doesn't pick up the --font-text style */
-.cm-line {
+.mod-cm6.fountain .cm-line {
 	font-family: var(--font-text);
 }
 
-.cm-line[class*="cm-fountain-"]:not(
+.mod-cm6.fountain
+	.cm-line[class*="cm-fountain-"]:not(
 		:is(.cm-fountain-synopsis, .cm-fountain-section)
 	) {
 	--font-text: "Courier New", "Courier", monospace;
 }
 
-.cm-fountain-scene-heading {
+.mod-cm6.fountain .cm-fountain-scene-heading {
 	font-weight: var(--font-bold);
 }
 
-.cm-fountain-parenthetical,
-.cm-fountain-character-extension,
-.cm-fountain-lyrics {
+.mod-cm6.fountain .cm-fountain-parenthetical,
+.mod-cm6.fountain .cm-fountain-character-extension,
+.mod-cm6.fountain .cm-fountain-lyrics {
 	font-style: italic;
 }
 
-.cm-fountain-transition {
+.mod-cm6.fountain.cm-fountain-transition {
 	font-weight: var(--font-bold);
 	text-align: right;
 }
 
-.cm-fountain-centered {
+.mod-cm6.fountain .cm-fountain-centered {
 	font-weight: var(--font-bold);
 	text-align: center;
 	/* display: block; */
 }
 
-.markdown-source-view.mod-cm6 .cm-line.cm-fountain-character {
+.mod-cm6.fountain .cm-line.cm-fountain-character {
 	/* padding-left: 2.2in; */
 	padding-left: var(--fountain-character-left);
 	padding-right: var(--fountain-character-right);
 }
-.markdown-source-view.mod-cm6 .cm-line.cm-fountain-lyrics,
-.markdown-source-view.mod-cm6 .cm-line.cm-fountain-dialogue {
+.mod-cm6.fountain .cm-line.cm-fountain-lyrics,
+.mod-cm6.fountain .cm-line.cm-fountain-dialogue {
 	padding-left: var(--fountain-dialogue-left);
 	padding-right: var(--fountain-dialogue-right);
 	/* padding-left: 1.5in; */
 }
-.markdown-source-view.mod-cm6 .cm-line.cm-fountain-parenthetical {
+.mod-cm6.fountain .cm-line.cm-fountain-parenthetical {
 	padding-left: var(--fountain-parenthesis-left);
 	padding-right: var(--fountain-parenthesis-right);
 	/* padding-left: 1.6in; */
@@ -106,24 +109,24 @@ body {
 /*                             formatting symbols                             */
 /* -------------------------------------------------------------------------- */
 
-[class*="cm-formatting-fountain-"].cm-formatting {
+.mod-cm6.fountain [class*="cm-formatting-fountain-"].cm-formatting {
 	color: var(--text-faint);
 }
 
-.cm-line:not(.cm-active) [class*="cm-formatting-fountain-"] {
+.mod-cm6.fountain .cm-line:not(.cm-active) [class*="cm-formatting-fountain-"] {
 	display: none;
 }
 
-.cm-line:not(.cm-active) .cm-formatting-fountain-centered {
+.mod-cm6.fountain .cm-line:not(.cm-active) .cm-formatting-fountain-centered {
 	visibility: hidden;
 	display: inherit;
 }
 
 /* boneyard */
 
-.cm-fountain-formatting-boneyard-start,
-.cm-fountain-formatting-boneyard-end,
-.cm-fountain-boneyard {
+.mod-cm6.fountain .cm-fountain-formatting-boneyard-start,
+.mod-cm6.fountain .cm-fountain-formatting-boneyard-end,
+.mod-cm6.fountain .cm-fountain-boneyard {
 	color: var(--text-faint);
 }
 
@@ -137,13 +140,15 @@ body {
 - marked
 - unmarked
 */
-.markdown-source-view.mod-cm6 [class*="cm-fountain-"] .cm-indent::before {
+.markdown-source-view.mod-cm6.fountain
+	[class*="cm-fountain-"]
+	.cm-indent::before {
 	display: inline-block;
 	content: "→";
 	font-family: var(--font-monospace);
 	color: var(--text-faint);
 }
-.markdown-source-view.mod-cm6 [class*="cm-fountain-"] .cm-indent {
+.markdown-source-view.mod-cm6.fountain [class*="cm-fountain-"] .cm-indent {
 	/* display: none; */
 	tab-size: 2;
 }

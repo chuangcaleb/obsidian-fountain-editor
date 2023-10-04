@@ -3,17 +3,33 @@
 |**Obsidian Live Preview styling for the [Fountain](https://fountain.io) screenplay language syntax.**|
 |-|
 
-[![banner](docs/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
+[![banner](docs/assets/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
 
 ---
 
 ## Usage
 
-Currently in beta, you may use [BRAT](https://github.com/TfTHacker/obsidian42-brat) to install it! This plugin should only extend your view and should never modify any local files, but to be safe, only install on test vaults until we reach a stable 1.0.0!
+### Quickstart
 
-Open any file and type away: you will get automatic formatting according to the [Fountain syntax rules](https://fountain.io/syntax/)!
+Currently in beta, you may use [BRAT](https://github.com/TfTHacker/obsidian42-brat) to install it!
+
+Open any file and add `cssclasses: fountain` to the frontmatter metadata Properties. You will get automatic formatting according to the [Fountain syntax rules](https://fountain.io/syntax/)!
+
+```yaml
+---
+cssclasses:
+  - fountain
+---
+# Opening Hook
+
+EXT. PUBLIC RESTROOM - DAY
+```
 
 > **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
+
+### Disclaimer
+
+This plugin should only extend your view and should never modify any local files, but to be safe, just play around in test vaults until we reach a stable 1.0.0!
 
 ---
 
@@ -21,30 +37,27 @@ Open any file and type away: you will get automatic formatting according to the 
 
 ### Interoperable
 
-Obsidian-flavored Markdown plays quite well with Fountain syntax, generally. But we need to define some rules for those overlapping areas.
+Obsidian-flavored Markdown plays quite well with Fountain syntax, generally. We need to define some rules for those overlapping areas. You can read more at [Conflicts between Obsidian-flavored Markdown vs Fountain](<docs/basic/Conflicts between Obsidian-flavored Markdown vs Fountain.md>).
 
-<!-- The penultimate concern is interoperability between Obsidian Markdown syntax and Fountain screenplay syntax. -->
-1. **Fountain-compliant**: The final document must be *100% compatible with Fountain* processors and exporters.
-  1a. **Formatting parity**: The final processed document, especially the actual Fountain parts (that is, not the escaped synopsis or boneyard sections), should look as similar to the rendered Live Preview formatting as possible.
-2. **Fountain-first**: A *Fountain-first user*, who has no previous concept of Obsidian or Markdown, should be able to write a full Fountain document with 0 friction, as if in a professional live editor.
-3. **Obsidian-second**: An *Obsidian-first user* may be allowed to lose/forfeit their usual/familiar Obsidian syntax **IF** it conflicts with standard Fountain syntax.
+For this particular project, these are the general design philosophies:
 
-There are two obvious cases of formatting conflict.
-
-| Formatting | Markdown |   Fountain |
-| -- | -- | -- |
-| Line begins with `>` | [blockquote](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Quotes) | [Centered Text](https://fountain.io/syntax/#centered-text) & forced [Transition](https://fountain.io/syntax/#transition) |
-| Inline text wrapped in `_` | [italic](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text) | [Underline (Emphasis)](https://fountain.io/syntax/#emphasis) |
-
-In both these cases, we should favor the Fountain formatting over the Markdown formatting. That means, no more italics with underscores, and no more blockquotes. *(Implementation is WIP, it half-works now)*
+1. ✅ **Fountain-compliant**: If a markdown document is written in Fountain syntax, the entire document (syntax) must be ***100% compatible with Fountain*** processors and exporters. (If you want local Fountain syntax, just use a codeblock!)
+  1a. ⚖️ **Formatting Parity**: The entire final processed document, especially the actual Fountain parts (that is, not the escaped synopsis or boneyard sections), should look ***as similar to the rendered Live Preview formatting*** as possible.
+2. 🥇 **Fountain-first**: A ***Fountain-first user***, who has no previous knowledge of Obsidian or Markdown, should be able to write a full Fountain document with zero friction.
+3. 🥈 **Obsidian-second**: An ***Obsidian-first user*** may be allowed to lose/forfeit their usual/familiar Obsidian syntax **IF** it conflicts with standard Fountain syntax.
+  3a. 🪓 **Escape Hatches**: Since Fountain takes precedence, we should have Fountain-compliant methods to write sections of regular Markdown!
 
 ### Parallel
 
-There's conflict, but we can have both. **Fountain-formatted notes should live in parallel with regular Obsidian Markdown notes.**
+**Fountain-formatted notes should live in parallel with regular Obsidian Markdown notes.**
 
-We should be able to mark/define certain files to be Fountain-formatted, or to define some glob pattern for a group of files. *(This is completely WIP)*
+According to [Interoperable](#interoperable)#1 (Fountain-compliance), files will be either regular Obsidian markdown, or completely Fountain-compliant.
+
+We should be able to mark/declare certain files to be Fountain-formatted, or to define some glob pattern for a group of files. Right now, you can enable Fountain formatting by marking a file with the frontmatter metadata Property `cssclasses: fountain`.
 
 Then, Obsidian note-making is business as usual, until we come across a file that is marked for Fountain-formatting. That is the scope that this plugin will operate in.
+
+(This one is subject to change! See [this discussion](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/4) for a possible alternative)
 
 ### Scoped
 
@@ -73,7 +86,7 @@ That said, there are a LOT of tools that can fill obvious missing steps in your 
   - Fountain syntax formatting works!
   - But `.fountain` files will not be linked in the editor.
 
-See [Related Projects](#related-projects) for more!
+See the [Related Projects](#related-projects) section for more!
 
 ---
 
