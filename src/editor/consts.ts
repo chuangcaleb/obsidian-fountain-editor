@@ -29,7 +29,7 @@ export const LINE_TOKENS = [
 	},
 	{
 		id: n.character,
-		regex: /^[^\S\r\n]*(?=.*[A-Z])[A-Z0-9 \t]+\s?(\(.*\))?$|@.*$/,
+		regex: /^[^\S\r\n]*(?=.*[A-Z])[A-Z0-9 \t'.-]+\s?(\(.*\))?$|@.*$/,
 	},
 	{
 		id: n.dialogue,
