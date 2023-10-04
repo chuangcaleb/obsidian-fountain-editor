@@ -77,7 +77,7 @@ body .mod-cm6.fountain {
 	font-style: italic;
 }
 
-.mod-cm6.fountain.cm-fountain-transition {
+.mod-cm6.fountain .cm-fountain-transition {
 	font-weight: var(--font-bold);
 	text-align: right;
 }
