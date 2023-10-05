@@ -1,5 +1,5 @@
 ---
-name: \U0001FAB2 Bug report
+name: 🪲 Bug report
 about: Reports for broken/unintended behavior
 title: ''
 labels: "\U0001FAB2 a/bug"
