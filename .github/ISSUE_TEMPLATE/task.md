@@ -1,5 +1,5 @@
 ---
-name: Task
+name: \U0001F4CB Task
 about: 'Atomic efforts'
 title: ''
 labels: "\U0001F4CB a/task"
