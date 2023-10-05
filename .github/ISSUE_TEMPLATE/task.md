@@ -7,19 +7,23 @@ assignees: ''
 
 ---
 
-**Describe the task**
-A clear and concise description of what the task is.
+### Describe the task
+<!-- A clear and concise description of what the task is. -->
 
-**Blockers**
-Other issues, if any, that will block this task from completion.
+### Blocking
+<!-- Other issues, if any, that is blocked by or will block this task from completion. -->
 
-**Expected behavior**
-A checklist of success criteria.
+- *Blocked by*
+
+- *Blocks*
+
+### Expected behavior
+<!-- A checklist of success criteria. -->
 
 - [ ]
 
-**Screenshots**
-If applicable, add screenshots to help explain your task.
+### Screenshots
+<!-- If applicable, add screenshots to help explain your task. -->
 
-**Additional context**
-Add any other context about the problem here.
+### Additional context
+<!-- Add any other context about the problem here. -->
