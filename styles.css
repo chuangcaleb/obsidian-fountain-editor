@@ -36,6 +36,9 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	"min" width is to constrain to the width of formatted Fountain screenplays (triggered with `cssclasses` of either `fountain-left` or `fountain-center`)
 	This means we need narrower margins/line widths
+
+	We follow a practice where CSS Variables with a second set of double-hyphens denote that these are variables that users can tweak;
+	whereas if there's only one set of double-hyphens (which are always at the beginning), then these are internally used/calculated variables that shou
 	*/
 
 	--fountain--line-width-min: 6in;
@@ -53,7 +56,6 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 }
 
 .cm-contentContainer {
-	--fountain-line-width: var(--fountain--line-width);
 	--fountain-character-left: calc(
 		var(--fountain--margins-base) * var(--fountain--character-left-factor)
 	);
@@ -75,18 +77,23 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	);
 }
 
+/* ------------------------------ editor width ------------------------------ */
+
 /* * unconstrained: no styles */
+
 .mod-cm6.fountain.fountain-left .cm-contentContainer {
 	/* * left unconstrained */
 	--fountain--margins-base: var(--fountain--margins-base-min);
-	max-width: var(--fountain-line-width);
+	max-width: var(--fountain--line-width-min);
 }
 .mod-cm6.fountain.fountain-center .cm-contentContainer {
 	/* * centered constrained */
 	--fountain--margins-base: var(--fountain--margins-base-min);
-	width: var(--fountain-line-width);
+	width: var(--fountain--line-width-min);
 	margin-inline: auto;
 }
+
+/* ---------------------------------- font ---------------------------------- */
 
 /* for some reason, we need to re-declare this at this level, since the declaration on .markdown-source-view.mod-cm6 .cm-scroller doesn't pick up the --font-text style */
 .mod-cm6.fountain .cm-line {
@@ -99,6 +106,8 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	) {
 	--font-text: "Courier Prime", "Courier New", "Courier", monospace;
 }
+
+/* --------------------------------- tokens --------------------------------- */
 
 .mod-cm6.fountain .cm-fountain-scene-heading {
 	font-weight: var(--font-bold);
