@@ -42,7 +42,9 @@ function getLineFormat(
 					break;
 				}
 			}
-
+			if (tId === n.parenthetical) {
+				if (!state.inDialogue) break;
+			}
 			if (tId === n.transition) {
 				if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
 			}
