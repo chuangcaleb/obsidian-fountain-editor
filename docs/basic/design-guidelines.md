@@ -19,7 +19,7 @@ This is so that:
 1. This Obsidian plugin will have less trouble in parsing and styling your markdown file.
 2. You'll be able to directly integrate with other Fountain-related tools with the same file (reference)!
 
-A written comparison between writing in `.md` files vs in `.fountain` files is [coming soon](https://github.com/chuangcaleb/obsidian-fountain-live/issues/1).
+A written comparison between writing in `.md` files vs in `.fountain` files is [coming soon](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/1).
 
 ### ⚖️ Styling Parity
 
@@ -51,7 +51,7 @@ We should be able to mark/declare certain files to be Fountain-formatted, or to 
 
 Then, Obsidian note-making is business as usual, until we come across a file that is marked for Fountain-formatting. That is the scope that this plugin will operate in.
 
-(Implementation is subject to change! See [this discussion](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/4) for a possible alternative)
+(Implementation is subject to change! See [this discussion](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/4) for a possible alternative)
 
 ---
 

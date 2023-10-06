@@ -89,16 +89,16 @@ I *smell* a rat...
 
 #### 😎 Don't know how to code? You can contribute
 
-- 🪲 **Report bugs** on [the Issue tab](https://github.com/chuangcaleb/obsidian-fountain-live/issues/new?assignees=&labels=%F0%9F%AA%B2+a/bug&projects=chuangcaleb/2&template=bug_report.md)!
-- 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-live)) this plugin** around on *forums* and *channels* and with your *friends*!
+- 🪲 **Report bugs** on [the Issue tab](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/new?assignees=&labels=%F0%9F%AA%B2+a/bug&projects=chuangcaleb/2&template=bug_report.md)!
+- 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-editor)) this plugin** around on *forums* and *channels* and with your *friends*!
   - 🌟 **Star** this repo to receive updates & help me raise awareness! The least-effort contribution on this list!
-- 🗣️ **Engage** with others in the [Discussions](https://github.com/chuangcaleb/obsidian-fountain-live/discussions) tab!
-  - 💡 [Pitch an idea](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/ideas) / feature request!
-  - 🙏 [Answer questions](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/q-a) from the community!
-  - 🛠️ [Share tips & tricks](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/tips-tricks) that have helped you!
-  - 🤩 [Send words of encouragement](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/general) — they actually make a difference!
+- 🗣️ **Engage** with others in the [Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions) tab!
+  - 💡 [Pitch an idea](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/ideas) / feature request!
+  - 🙏 [Answer questions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/q-a) from the community!
+  - 🛠️ [Share tips & tricks](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/tips-tricks) that have helped you!
+  - 🤩 [Send words of encouragement](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) — they actually make a difference!
 - ✍🏼 **Create a screenplay project** using this plugin!
-  - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
+  - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
 
 #### 🤓 Know how to code? You can contribute too
 
@@ -108,7 +108,7 @@ I *smell* a rat...
 
 ### 🤙 Contact
 
-The [General - Discussions](https://github.com/chuangcaleb/obsidian-fountain-live/discussions/categories/general) tab is a neat place you can just tag me in, because you also invite anyone from the community to join in the conversation! It's also better for keeping the context scoped within this project/repo.
+The [General - Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) tab is a neat place you can just tag me in, because you also invite anyone from the community to join in the conversation! It's also better for keeping the context scoped within this project/repo.
 
 If you want a more personal DM'ing (or just to send a private note of thanks!), you can reach me on Discord[#chuangcaleb](https://discordapp.com/users/199882835685801984)!
 
