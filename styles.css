@@ -113,11 +113,15 @@ body .mod-cm6.fountain {
 	color: var(--text-faint);
 }
 
-.mod-cm6.fountain .cm-line:not(.cm-active) [class*="cm-formatting-fountain-"] {
+.mod-cm6.fountain.is-live-preview.fountain
+	.cm-line:not(.cm-active)
+	[class*="cm-formatting-fountain-"] {
 	display: none;
 }
 
-.mod-cm6.fountain .cm-line:not(.cm-active) .cm-formatting-fountain-centered {
+.mod-cm6.is-live-preview.fountain
+	.cm-line:not(.cm-active)
+	.cm-formatting-fountain-centered {
 	visibility: hidden;
 	display: inherit;
 }
