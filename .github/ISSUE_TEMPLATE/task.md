@@ -1,7 +1,8 @@
 ---
 name: 📋 Task
-about: 'Atomic efforts'
+about: '[Maintainers-only] Atomic-sized efforts'
 title: ''
+project: "chuangcaleb/2"
 labels: "\U0001F4CB a/task"
 assignees: ''
 
@@ -10,12 +11,14 @@ assignees: ''
 ### Describe the task
 <!-- A clear and concise description of what the task is. -->
 
-### Blocking
-<!-- Other issues, if any, that is blocked by or will block this task from completion. -->
+### Linked Issues
+<!--
+Other linked issues, if any, e.g.:
 
-- *Blocked by*
-
-- *Blocks*
+- RELATED: #num
+- BLOCKED BY: #num
+- BLOCKS: #num
+-->
 
 ### Expected behavior
 <!-- A checklist of success criteria. -->

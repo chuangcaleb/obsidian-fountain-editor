@@ -1,7 +1,8 @@
 ---
-name: 🪲 Bug report
+name: 🪲 Bug Report
 about: Reports for broken/unintended behavior
 title: ''
+project: "chuangcaleb/2"
 labels: "\U0001FAB2 a/bug"
 assignees: ''
 
