@@ -53,11 +53,11 @@ const jsConfig = {
 };
 
 const cssConfig = {
-	input: "src/styles/main.css",
-	output: { dir: OUT_DIR },
+	input: "src/styles/index.css",
+	output: { file: OUT_DIR + "/styles.css" },
 	plugins: [
 		postcss({
-			extract: "styles.css",
+			extract: true,
 			sourceMap: !isProduction,
 			plugins: [postcssImport()],
 		}),

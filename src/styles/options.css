@@ -1,0 +1,18 @@
+/* ! Give option to suppress indents */
+/*
+- hidden
+- marked
+- unmarked
+*/
+.markdown-source-view.mod-cm6.fountain
+	[class*="cm-fountain-"]
+	.cm-indent::before {
+	display: inline-block;
+	content: "→";
+	font-family: var(--font-monospace);
+	color: var(--text-faint);
+}
+.markdown-source-view.mod-cm6.fountain [class*="cm-fountain-"] .cm-indent {
+	/* display: none; */
+	tab-size: 2;
+}
