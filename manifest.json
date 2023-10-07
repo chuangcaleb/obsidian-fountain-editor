@@ -3,7 +3,7 @@
 	"name": "Fountain Editor",
 	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Fountain (screenplay) syntax highlighting in the editor.",
+	"description": "Fountain (screenplay) syntax highlighting in the editor",
 	"author": "Chuang Caleb",
 	"authorUrl": "https://chuangcaleb.com",
 	"isDesktopOnly": false

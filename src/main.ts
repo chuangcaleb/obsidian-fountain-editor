@@ -5,7 +5,6 @@ import { Prec } from "@codemirror/state";
 
 export default class FountainPlugin extends Plugin {
 	async onload() {
-		// this.registerEditorExtension(fountain());
 		this.registerEditorExtension(Prec.lowest(fountainPlugin));
 	}
 

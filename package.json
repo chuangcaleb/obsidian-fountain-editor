@@ -1,12 +1,13 @@
 {
 	"name": "obsidian-fountain-editor",
 	"version": "1.0.1",
-	"description": "Obsidian plugin for Fountain (screenplay) syntax highlighting in the editor.",
+	"description": "Obsidian plugin for Fountain (screenplay) syntax highlighting in the editor",
 	"main": "main.js",
+	"type": "module",
 	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"dev": "rollup --config rollup.config.js -w",
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"build": "rollup --config rollup.config.js --environment BUILD:production"
 	},
 	"keywords": [],
 	"author": "",
@@ -17,13 +18,17 @@
 		"@codemirror/view": "^6.21.2"
 	},
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "^25.0.5",
+		"@rollup/plugin-node-resolve": "^15.2.2",
+		"@rollup/plugin-typescript": "^11.1.5",
 		"@types/node": "^16.18.57",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
 		"builtin-modules": "3.3.0",
-		"esbuild": "0.17.3",
 		"obsidian": "latest",
 		"prettier": "^3.0.3",
+		"rollup": "^4.0.2",
+		"rollup-plugin-copy": "^3.5.0",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
 	}
