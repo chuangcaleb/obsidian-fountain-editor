@@ -1,6 +1,6 @@
 {
 	"id": "obsidian-fountain-editor",
-	"name": "Fountain (Editor)",
+	"name": "Fountain Editor",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Fountain (screenplay) syntax highlighting in the editor.",

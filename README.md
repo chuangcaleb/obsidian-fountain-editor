@@ -1,4 +1,4 @@
-# Fountain (Editor) - Obsidian Plugin
+# Fountain Editor - Obsidian Plugin
 
 |**[Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) (screenplay) syntax highlighting in the editor.**|
 |-|
