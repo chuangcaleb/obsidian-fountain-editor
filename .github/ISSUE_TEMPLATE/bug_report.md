@@ -8,6 +8,8 @@ assignees: ''
 
 ---
 
+<!-- ⚠️ Please first check that a similar bug report doesn't already exist!  -->
+
 ### Describe the bug
 <!-- A clear and concise description of what the bug is. -->
 
