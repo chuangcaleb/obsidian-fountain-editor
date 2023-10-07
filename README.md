@@ -5,6 +5,8 @@
 
 [![banner](docs/assets/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
 
+> **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
+
 ---
 
 <!--
@@ -43,8 +45,6 @@ I *smell* a rat...
 
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
 ```
-
-> **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
 <!-- DOCS: Where to start -->
 
