@@ -1,15 +1,19 @@
-.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote {
-	font-style: normal;
-	background-color: inherit;
-}
+/* -------------------------------------------------------------------------- */
+/*                    override Obsidian markdown formatting                   */
+/* -------------------------------------------------------------------------- */
 
-.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote:before,
-.markdown-source-view.mod-cm6.fountain.is-live-preview
+.markdown-source-view.mod-cm6.fountain.is-live-preview {
+	.HyperMD-quote {
+		font-style: normal;
+		background-color: inherit;
+	}
+
+	.HyperMD-quote:before,
 	.cm-blockquote-border:before {
-	display: none;
-}
+		display: none;
+	}
 
-.markdown-source-view.mod-cm6.fountain.is-live-preview
 	.HyperMD-quote.cm-fountain-centered {
-	padding-inline-start: 0 !important;
+		padding-inline-start: 0 !important;
+	}
 }

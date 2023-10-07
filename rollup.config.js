@@ -3,6 +3,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcssImport from "postcss-import";
 import copy from "rollup-plugin-copy";
 import postcss from "rollup-plugin-postcss";
+import postcssPresetEnv from "postcss-preset-env";
 
 const TEST_VAULT_PLUGIN_DIR =
 	"obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor";
@@ -59,7 +60,7 @@ const cssConfig = {
 		postcss({
 			extract: true,
 			sourceMap: !isProduction,
-			plugins: [postcssImport()],
+			plugins: [postcssImport(), postcssPresetEnv()],
 		}),
 	],
 };

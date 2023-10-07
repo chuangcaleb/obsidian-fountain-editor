@@ -17,6 +17,8 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	whereas if there's only one set of double-hyphens (which are always at the beginning), then these are internally used/calculated variables that shou
 	*/
 
+	/* user-configurable ----------------------------------------------- */
+
 	--fountain--line-width-min: 6in;
 
 	--fountain--margins-base-max: 1.4in;
@@ -32,9 +34,9 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	--fountain--font-family: "Courier Prime", "Courier New", "Courier",
 		monospace;
-}
 
-.cm-contentContainer {
+	/* calculated -- do not touch -------------------------------------------- */
+
 	--fountain-character-left: calc(
 		var(--fountain--margins-base) * var(--fountain--character-left-factor)
 	);
@@ -54,20 +56,4 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 		var(--fountain--margins-base) *
 			var(--fountain--parenthesis-right-factor)
 	);
-}
-
-/* ------------------------------ editor width ------------------------------ */
-
-/* * unconstrained: no styles */
-
-.mod-cm6.fountain.fountain-left .cm-contentContainer {
-	/* * left unconstrained */
-	--fountain--margins-base: var(--fountain--margins-base-min);
-	max-width: var(--fountain--line-width-min);
-}
-.mod-cm6.fountain.fountain-center .cm-contentContainer {
-	/* * centered constrained */
-	--fountain--margins-base: var(--fountain--margins-base-min);
-	width: var(--fountain--line-width-min);
-	margin-inline: auto;
 }

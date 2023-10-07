@@ -4,7 +4,7 @@ import { LINE_TOKENS, TOKEN_NAMES as n } from "./consts";
 import { FountainContext, FountainState } from "./interface";
 
 function composeFClass(t: string) {
-	return `cm-formatting cm-formatting-fountain-${t}`;
+	return `cm-formatting cm-fountain-formatting-${t}`;
 }
 
 function getLineFormat(
