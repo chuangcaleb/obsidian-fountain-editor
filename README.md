@@ -125,6 +125,6 @@ If you want a more personal DM'ing (or just to send a private note of thanks!), 
   - Uses a json/yaml file at each folder directory to configure a custom sequence! So you can have complex folder organization structures
   - Marked as abandoned since this project, but it may be of interest to you!
 - [Highland 2](https://www.highland2.app/)
-  - Made by the creator of Fountain itself.
+  - Made by the creator of Fountain.
   - Features its own text editor app, WYSIWYG, "Revision Mode" and analysis tools.
   - Since everything is wrapped in a nice bow, it's probably the best Fountain-writing app if you're not technical.
