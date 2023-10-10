@@ -1,6 +1,6 @@
-/* for some reason, we need to re-declare this at the .cm-line level, since the declaration on .markdown-source-view.mod-cm6 .cm-scroller doesn't pick up the --font-text style */
+/* for some reason, we need to re-declare this at the .cm-line level, since the declaration on .markdown-source-view.markdown-source-view .cm-scroller doesn't pick up the --font-text style */
 
-.mod-cm6.fountain {
+.markdown-source-view.fountain {
 	.cm-line[class*="cm-fountain-"]:not(
 			:is(.cm-fountain-synopsis, .cm-fountain-section)
 		) {
