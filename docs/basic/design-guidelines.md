@@ -45,7 +45,7 @@ Since Fountain takes precedence, we should have Fountain-compliant methods to wr
 
 While "**Interoperable**" deals with the hybrid nature of a single file/note, **Parallel** addresses the hybrid nature of a vault/folder of files/notes.
 
-According to [Interoperable](#-interoperable)#1 (Fountain-compliance), files will be either regular Obsidian markdown, or completely Fountain-compliant.
+According to [Interoperable](#-interoperable--portable)#1 (Fountain-compliance), files will be either regular Obsidian markdown, or completely Fountain-compliant.
 
 We should be able to mark/declare certain files to be Fountain-formatted, or to define some glob pattern for a group of files. Right now, you can enable Fountain formatting by marking a file with the frontmatter metadata Property `cssclasses: fountain`.
 
