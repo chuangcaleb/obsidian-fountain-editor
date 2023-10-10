@@ -1,6 +1,6 @@
 # 🏗️ Design Guidelines
 
-## 🔀 Interoperable
+## 🔀 Interoperable / Portable
 
 **Work within a screenplay document *just* like you would with a regular Obsidian note.**
 

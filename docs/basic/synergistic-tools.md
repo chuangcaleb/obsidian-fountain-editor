@@ -33,8 +33,10 @@
 
 - Allows you to open `.fountain` files in the Obsidian editor!
 - Fountain syntax formatting works!
-- But `.fountain` files will not be linked in the editor.
+- But `.fountain` files will not be linked in the editor... we'll see about this.
 
 ## [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian)
 
  > *Typewriter Scroll Obsidian Plugin*
+
+- Automatic scrolling as you type — your cursor/active line stays at a fixed point on your screen. No more flickering eyes.

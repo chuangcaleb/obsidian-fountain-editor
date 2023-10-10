@@ -1,7 +1,7 @@
 # Fountain Editor - Obsidian Plugin
 
 |**[Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) (screenplay) syntax highlighting in the editor.**|
-|-|
+|:-|
 
 [![banner](docs/assets/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
 
@@ -21,7 +21,7 @@
 
 ### 🏁 Quickstart
 
-Once the plugin is approved, you should be able to follow [these instructions to install this plugin through Obsidian's Community Plugins]((https://help.obsidian.md/Extending+Obsidian/Community+plugins)) in the Settings tab! Otherwise,  you may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
+Once the plugin is approved, you should be able to follow [these instructions to install through Obsidian's Community Plugins]((https://help.obsidian.md/Extending+Obsidian/Community+plugins)) in Obsidian's Settings tab! Otherwise,  you may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
 
 Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties. You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
@@ -67,25 +67,26 @@ I *smell* a rat...
 - ⚙️ **Configure** your setup with `fountain-left` and `fountain-center` as additional `cssclasses` for alignment and width!
   - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`
 
-| Read about the [Design Guidelines](docs/basic/design-guidelines.md) ! |
-|--|
+| Read about the [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation! |
+|:-|
 
 ---
 
 ## 🤝 Synergistic Tools
 
-- [kevboh/longform](https://github.com/kevboh/longform): *A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects.*
+- **[kevboh/longform](https://github.com/kevboh/longform): *A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects.***
 - [Better Fountain - Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain): *Fountain autocomplete, syntax highlighting, and export to PDF*
 - [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): *An obsidian plugin allowing you to register and view different file extensions in a modular manner.*
 - [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): *Typewriter Scroll Obsidian Plugin*
 
-→ Read in-depth about how they work together with this plugin at [Synergistic Tools](docs/basic/synergistic-tools.md)!
+|Read in-depth about how they work together with this plugin at [Synergistic Tools](docs/basic/synergistic-tools.md)!|
+|:-|
 
 ---
 
 ## 💝 Contributing
 
-### Overview
+### 👀 Overview
 
 #### 😎 Don't know how to code? You can contribute
 
@@ -106,11 +107,13 @@ I *smell* a rat...
 - 🪲 **Report a bug** — but with your *specialized technical diagnosis*!
 - 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
 
+→ See [Contributing](/docs/advanced/contributing.md) for proper details!
+
 ### 🤙 Contact
 
 The [General - Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) tab is a neat place you can just tag me in, because you also invite anyone from the community to join in the conversation! It's also better for keeping the context scoped within this project/repo.
 
-If you want a more personal DM'ing (or just to send a private note of thanks!), you can reach me on Discord[#chuangcaleb](https://discordapp.com/users/199882835685801984)!
+If you want a more personal DM'ing (or just to send a private note of thanks!), you can reach me on Discord[#chuangcaleb](https://discordapp.com/users/199882835685801984)! You can also reach out by email to [balechuang@gmail.com](mailto:balechuang@gmail.com)!
 
 ---
 
