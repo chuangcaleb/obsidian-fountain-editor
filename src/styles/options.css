@@ -2,7 +2,7 @@
 
 /* * unconstrained: no styles */
 
-.markdown-source-view.fountain {
+.markdown-source-view.mod-cm6.fountain {
 	&.fountain-left .cm-contentContainer {
 		/* * left unconstrained */
 		--fountain--margins-base: var(--fountain--margins-base-min);
@@ -21,17 +21,15 @@
 - marked
 - unmarked
 */
-	.markdown-source-view.markdown-source-view.fountain
-		[class*="cm-fountain-"]
-		.cm-indent::before {
+
+	.cm-line[class*="cm-fountain-"] .cm-indent::before {
 		display: inline-block;
 		content: "→";
 		font-family: var(--font-monospace);
 		color: var(--text-faint);
 	}
-	.markdown-source-view.markdown-source-view.fountain
-		[class*="cm-fountain-"]
-		.cm-indent {
+
+	.cm-line[class*="cm-fountain-"] .cm-indent {
 		/* display: none; */
 		tab-size: 2;
 	}
