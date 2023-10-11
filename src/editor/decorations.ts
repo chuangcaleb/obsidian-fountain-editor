@@ -2,6 +2,7 @@ import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
 import { LINE_TOKENS, TOKEN_NAMES as n } from "./consts";
 import { FountainContext, FountainState } from "./interface";
+import { editorInfoField } from "obsidian";
 
 function composeFClass(t: string) {
 	return `cm-formatting cm-fountain-formatting-${t}`;
@@ -63,11 +64,9 @@ function getLineFormat(
 }
 
 export function buildDecorations(view: EditorView): DecorationSet {
-	// if (!view.state.field(editorLivePreviewField)) {
-	// 	return null;
-	// }
-
 	const builder = new RangeSetBuilder<Decoration>();
+
+	if (!isFountainEnabled(view)) return builder.finish();
 
 	function markDeco(start: number, end: number, className: string) {
 		const deco = Decoration.mark({ class: className });
@@ -150,4 +149,14 @@ export function buildDecorations(view: EditorView): DecorationSet {
 	}
 
 	return builder.finish();
+}
+
+function isFountainEnabled(view: EditorView) {
+	const info = view.state.field(editorInfoField);
+	const { app, file } = info;
+	if (file) {
+		const fileCache = app.metadataCache.getFileCache(file);
+		const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
+		return cssClasses.includes("fountain");
+	}
 }
