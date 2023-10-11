@@ -21,7 +21,7 @@
 
 ### 🏁 Quickstart
 
-Once the plugin is approved, you should be able to follow [these instructions to install through Obsidian's Community Plugins]((https://help.obsidian.md/Extending+Obsidian/Community+plugins)) in Obsidian's Settings tab! Otherwise,  you may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
+Once the plugin is approved, you should be able to follow [these instructions to install through Obsidian's Community Plugins](https://help.obsidian.md/Extending+Obsidian/Community+plugins) in Obsidian's Settings tab! Otherwise,  you may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
 
 Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties. You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
