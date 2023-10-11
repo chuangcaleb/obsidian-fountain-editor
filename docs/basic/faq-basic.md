@@ -9,6 +9,7 @@
 
 Markdown is what I'm using to write what you're seeing. For example, to **bold words**, you wrap text in double-asterisks `**like this**`. There's a "Source" Mode where you see all the ugly prefix/inline-symbols, but there's a "Preview" rendered mode where all the formatting/styling gets applied according to the symbols that you used.
 
+- **FREE**: Pay nothing.
 - **Robust**: Used for websites, documents, notes, books, presentations, email messages, and technical documentation.
 - **Portable**: Open and edit with any program. Export and import seamlessly.
 - **Platform-independent**: Any device with any OS.
@@ -27,6 +28,7 @@ Obsidian is an app to manage a vault (folder) of many markdown files. The app pr
 
 I've used Obsidian for academic note-taking, reflective daily journaling, task/project planning, blog writing, exploring/synthesizing ideas, and now story-planning/writing.
 
+- **FREE**: Pay nothing.
 - **Markdown**: All the perks aforementioned above.
 - **Local Files**: Just regular files, stored in a folder, on your device.
   - **Privacy**: Nothing gets sent to anyone's cloud servers, so only you can access.
@@ -42,6 +44,7 @@ I've used Obsidian for academic note-taking, reflective daily journaling, task/p
 
 Fountain is an amazing markup syntax that **strips away all the complexities** of formatting/styling, so that you can **focus on what matters most: content**. The syntax covers everything you really need. I never want to write in any other way.
 
+- **FREE**: Pay nothing.
 - **Markdown**: All the perks aforementioned above.
   - **Plain-text**: Functional even without the styling!
   - **Portable**: Archive it forever. Share it easily. Use plenty of compatible apps.

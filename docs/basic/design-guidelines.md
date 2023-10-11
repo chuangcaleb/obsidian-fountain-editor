@@ -16,7 +16,7 @@ If it is not possible, then any non-Fountain-syntax should be trivially resolvab
 
 This is so that:
 
-1. This Obsidian plugin will have less trouble in parsing and styling your markdown file.
+1. This Obsidian plugin will have less trouble/complexity because it doesn't have to figure out which regions are fountain, and which are not.
 2. You'll be able to directly integrate with other Fountain-related tools with the same file (reference)!
 
 A written comparison between writing in `.md` files vs in `.fountain` files is [coming soon](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/1).

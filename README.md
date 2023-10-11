@@ -48,10 +48,23 @@ I *smell* a rat...
 
 <!-- DOCS: Where to start -->
 
-### 📢 Disclaimer
+### 📢 Notice
 
 1. We're past functional MVP `v1.0.0`! You may start using this plugin professionally and safely. Just keep in mind that there are still pending optimizations and incomplete features.
 2. That said, this plugin should only extend your view & should never modify any local files! Worst case scenario if something breaks, just force restart your Obsidian or manually remove this plugin from your `community-plugins.json` list.
+
+---
+
+## 🎯 Goals
+
+|I hope to make **Obsidian be your primary writing app for Fountain screenplays**.|
+|-|
+
+🔗 The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it.
+
+🤞 The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.
+
+🧩 In a similar vein, certain **Obsidian plugins will add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece is that [Fountain requires your content to be in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. You'll likely find a [Obsidian plugin solution](https://github.com/kevboh/longform) for every problem.
 
 ---
 
@@ -79,7 +92,7 @@ I *smell* a rat...
 - [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): *An obsidian plugin allowing you to register and view different file extensions in a modular manner.*
 - [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): *Typewriter Scroll Obsidian Plugin*
 
-|Read in-depth about how they work together with this plugin at [Synergistic Tools](docs/basic/synergistic-tools.md)!|
+|Read [Synergistic Tools](docs/basic/synergistic-tools.md) for how they work together with this plugin!|
 |:-|
 
 ---
@@ -92,12 +105,13 @@ I *smell* a rat...
 
 - 🪲 **Report bugs** on [the Issue tab](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/new?assignees=&labels=%F0%9F%AA%B2+a/bug&projects=chuangcaleb/2&template=bug_report.md)!
 - 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-editor)) this plugin** around on *forums* and *channels* and with your *friends*!
-  - 🌟 **Star** this repo to receive updates & help me raise awareness! The least-effort contribution on this list!
+  - 🌟 **Star** this repo to receive updates & help raise awareness — if this project has been worth one button click to you!
 - 🗣️ **Engage** with others in the [Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions) tab!
   - 💡 [Pitch an idea](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/ideas) / feature request!
   - 🙏 [Answer questions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/q-a) from the community!
   - 🛠️ [Share tips & tricks](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/tips-tricks) that have helped you!
-  - 🤩 [Send words of encouragement](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) — they actually make a difference!
+  - 🤩 [Send words of encouragement](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) — they actually make a difference to me! :D
+  - 👥 All this proves that there's a community of people who are interested!
 - ✍🏼 **Create a screenplay project** using this plugin!
   - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
 
