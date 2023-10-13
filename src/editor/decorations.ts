@@ -154,6 +154,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 function isFountainEnabled(view: EditorView) {
 	const info = view.state.field(editorInfoField);
 	const { app, file } = info;
+	if (file?.extension == "fountain") return true;
 	if (file) {
 		const fileCache = app.metadataCache.getFileCache(file);
 		const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
