@@ -144,7 +144,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 				markDeco(lTo - 1, lTo, composeFClass(token));
 			}
 
-			pos = line.to + 1;
+			pos = lTo + 1;
 		}
 	}
 
