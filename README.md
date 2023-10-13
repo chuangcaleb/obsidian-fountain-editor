@@ -5,7 +5,7 @@
 
 [![banner](docs/assets/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
 
-> **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
+> 📺 **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
 ---
 
@@ -50,14 +50,14 @@ I *smell* a rat...
 
 ### 📢 Notice
 
-1. We're past functional MVP `v1.0.0`! You may start using this plugin professionally and safely. Just keep in mind that there are still pending optimizations and incomplete features.
-2. That said, this plugin should only extend your view & should never modify any local files! Worst case scenario if something breaks, just force restart your Obsidian or manually remove this plugin from your `community-plugins.json` list.
+1. 🎉 We're past functional MVP `v1.0.0`! You may start using this plugin professionally and safely. Just keep in mind that there are still pending optimizations and incomplete features.
+2. 🛟 That said, this plugin should only extend your view & should never modify any local files! Worst case scenario if something breaks, just force restart your Obsidian or manually remove this plugin from your `community-plugins.json` list.
 
 ---
 
 ## 🎯 Goals
 
-|🎯|I hope to make **Obsidian *lack nothing* in writing Fountain screenplays**.|
+|📍|I hope to make **Obsidian *lack nothing* in writing Fountain screenplays**.|
 |-|:-|
 |🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
 |🤞|The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.|
