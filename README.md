@@ -57,7 +57,7 @@ I *smell* a rat...
 
 ## 🎯 Goals
 
-|📍|I hope to make **Obsidian *lack nothing* in writing Fountain screenplays**.|
+|📍|<h3>I hope to make Obsidian *lack nothing* in writing Fountain screenplays.</h3>|
 |-|:-|
 |🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
 |🤞|The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.|
@@ -78,8 +78,7 @@ I *smell* a rat...
 - ⚙️ **Configure** your setup with `fountain-left` and `fountain-center` as additional `cssclasses` for alignment and width!
   - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`
 
-| 📖 Read about the [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation! |
-|:-|
+> 📖 See [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation!
 
 ---
 
@@ -90,8 +89,7 @@ I *smell* a rat...
 - [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): *An obsidian plugin allowing you to register and view different file extensions in a modular manner.*
 - [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): *Typewriter Scroll Obsidian Plugin*
 
-| 📖 Read [Synergistic Tools](docs/basic/synergistic-tools.md) for how they work together with this plugin!|
-|:-|
+> 📖 Explore [Synergistic Tools](docs/basic/synergistic-tools.md) for how they work together with this plugin!
 
 ---
 
@@ -119,7 +117,7 @@ I *smell* a rat...
 - 🪲 **Report a bug** — but with your *specialized technical diagnosis*!
 - 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
 
-→ 💝 See [Contributing](/docs/advanced/contributing.md) for proper details!
+> 💝 See [Contributing](/docs/advanced/contributing.md) for proper technical details!
 
 ### 🤙 Contact
 
