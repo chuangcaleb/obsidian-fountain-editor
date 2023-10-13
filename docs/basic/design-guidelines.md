@@ -1,5 +1,8 @@
 # 🏗️ Design Guidelines
 
+|<h3>📍 Make Obsidian *lack nothing*, as if it writing Fountain screenplays was an originally intended use case.</h3>|
+|--|
+
 ## 🔀 Interoperable / Portable
 
 **Work within a screenplay document *just* like you would with a regular Obsidian note.**
@@ -51,7 +54,7 @@ We should be able to mark/declare certain files to be Fountain-formatted, or to 
 
 Then, Obsidian note-making is business as usual, until we come across a file that is marked for Fountain-formatting. That is the scope that this plugin will operate in.
 
-(Implementation is subject to change! See [this discussion](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/4) for a possible alternative)
+(Implementation is subject to change! See [this discussion](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/4) for a possible alternative.)
 
 ---
 
@@ -59,4 +62,8 @@ Then, Obsidian note-making is business as usual, until we come across a file tha
 
 **This plugin should do [one thing well](https://en.wikipedia.org/wiki/Unix_philosophy), instead of many things half-baked.**
 
+ "Lacking nothing" is different from "having everything"...
+
  Should overly-extensive requirements arise, a brand new/additional tool should be created/used. The numerous [Longform - Obsidian Plugin](https://github.com/kevboh/longform)  features should already cover almost all your additional needs, like [configurable manuscript compilation](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) and [word count](https://github.com/kevboh/longform/blob/main/docs/WORD_COUNTS.md)!
+
+ See [Synergistic Tools](/docs/basic/synergistic-tools.md) for more recommendations!
