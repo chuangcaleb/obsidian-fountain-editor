@@ -57,16 +57,12 @@ I *smell* a rat...
 
 ## 🎯 Goals
 
-|I hope to make **Obsidian lack nothing in writing Fountain screenplays**.|
-|-|
-
-🔗 The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it.
-
-🤞 The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.
-
-🧩 In a similar vein, certain **Obsidian plugins will add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece is that [Fountain requires your content to be in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. You'll likely find a [Obsidian plugin solution](https://github.com/kevboh/longform) for every problem.
-
-🔎 Note that in this context, "lacking nothing" is different from "having everything". As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and try to outsource features to [Synergistic Tools](#-synergistic-tools)!
+|🎯|I hope to make **Obsidian *lack nothing* in writing Fountain screenplays**.|
+|-|:-|
+|🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
+|🤞|The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.|
+|🧩|In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires your content to be in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and likely one for every problem.|
+|🔎|Note that in this context, "lacking nothing" is different from "having everything". As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and try to outsource features to [Synergistic Tools](#-synergistic-tools)!|
 
 ---
 
