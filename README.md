@@ -21,9 +21,9 @@
 
 ### 🏁 Quickstart
 
-Once the plugin is approved, you should be able to follow [these instructions to install through Obsidian's Community Plugins](https://help.obsidian.md/Extending+Obsidian/Community+plugins) in Obsidian's Settings tab! Otherwise,  you may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
-
-Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties. You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
+1. Once the plugin is approved, you should be able to follow [these instructions to install it through Obsidian's Community Plugins](https://help.obsidian.md/Extending+Obsidian/Community+plugins) in Obsidian's Settings tab! (Otherwise, use [manual installation](#-manual-installation).)
+2. Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties.
+3. You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
 ```yaml
 ---
@@ -48,6 +48,11 @@ I *smell* a rat...
 
 <!-- DOCS: Where to start -->
 
+### 💿 Manual Installation
+
+1. 🆕 You may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat) using the link of this repo (`https://github.com/chuangcaleb/obsidian-fountain-editor`).
+2. 📤 You can also go to the repo's [Latest Releases](https://github.com/chuangcaleb/obsidian-fountain-editor/releases/latest/) page and manually download the `obsidian-fountain-editor-[version].zip` file, then extract it into your `.obsidian/plugin` directory!
+
 ### 📢 Notice
 
 1. 🎉 We're past functional MVP `v1.0.0`! You may start using this plugin professionally and safely. Just keep in mind that there are still pending optimizations and incomplete features.
@@ -57,10 +62,10 @@ I *smell* a rat...
 
 ## 🎯 Goals
 
-|📍|<h3>Make Obsidian a *competitive* option for your primary Fountain writing environment.</h3>|
+|📍|<h3>Make Obsidian a *competitive* option among Fountain writing editors.</h3>|
 |-|:-|
 |🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
-|🤞|The second selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management*.|
+|🤞|The 2nd selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management* *(Plus, psssst, it's **FREE**)*.|
 |🧩|In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires your content to be in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for every problem](#-synergistic-tools).|
 |🔎|Competition does not mean lack of cooperation! As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and will try to outsource/handover features to other [Synergistic Tools](#-synergistic-tools)!|
 

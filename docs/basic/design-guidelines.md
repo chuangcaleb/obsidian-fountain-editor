@@ -67,3 +67,7 @@ Then, Obsidian note-making is business as usual, until we come across a file tha
  Should overly-extensive requirements arise, a brand new/additional tool should be created/used. The numerous [Longform - Obsidian Plugin](https://github.com/kevboh/longform)  features should already cover almost all your additional needs, like [configurable manuscript compilation](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) and [word count](https://github.com/kevboh/longform/blob/main/docs/WORD_COUNTS.md)!
 
  See [Synergistic Tools](/docs/basic/synergistic-tools.md) for more recommendations!
+
+### 🎨 View-only
+
+This plugin should be scoped to only making visual changes to the Obsidian editor. This means that this plugin will try to avoid any feature that makes changes to files.
