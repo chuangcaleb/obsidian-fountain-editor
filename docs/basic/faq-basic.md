@@ -31,9 +31,9 @@ I've used Obsidian for academic note-taking, reflective daily journaling, task/p
 - **FREE**: Pay nothing.
 - **Markdown**: All the perks aforementioned above.
 - **Local Files**: Just regular files, stored in a folder, on your device.
-  - **Privacy**: Nothing gets sent to anyone's cloud servers, so only you can access.
-  - **Speed**: Local access faster than cloud access, why I switched over from Notion.
-  - **Accessibility**: Offline access.
+  - **Privacy**: No data gets sent to anyone's cloud servers, so never worry about leaks.
+  - **Speed**: Local access is magnitudes faster than cloud access. SPEED is why I searched for a Notion alternative.
+  - **Accessibility**: Offline-first access.
 - **Customizable**: 1000+ community plugins & themes for every workflow & style — or develop your own, like I'm doing!
 
 ---
@@ -46,6 +46,6 @@ Fountain is an amazing markup syntax that **strips away all the complexities** o
 
 - **FREE**: Pay nothing.
 - **Markdown**: All the perks aforementioned above.
-  - **Plain-text**: Functional even without the styling!
+  - **Plain-text**: Functional, even without the styling!
   - **Portable**: Archive it forever. Share it easily. Use plenty of compatible apps.
-  - **Version Controllable**: Something I've never really seen done before, where you can use tools like Git to track the history of changes, or even create alternate-timeline branches of changes!
+  - **Version-controllable**: Something I've never really seen done before, where you can use tools like Git to track the history of edits, or even create alternate-timeline git-branches of changes!
