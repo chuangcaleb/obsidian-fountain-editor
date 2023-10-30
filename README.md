@@ -122,7 +122,7 @@ I *smell* a rat...
 - 🪲 **Report a bug** — but with your *specialized technical diagnosis*!
 - 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
 
-> 💝 See [Contributing](/docs/advanced/contributing.md) for proper technical details!
+> 💝 See [Contributing](/contributing.md) for proper technical details!
 
 ### 🤙 Contact
 
