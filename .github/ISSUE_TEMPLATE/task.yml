@@ -1,0 +1,43 @@
+name: 📋 Task
+description: "[Maintainers-only] Atomic-sized efforts"
+title: "📋 "
+labels: ["\U0001F4CB a/task"]
+projects: ["chuangcaleb/2"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the task
+      description: A clear and concise description of what the task is.
+    validations:
+      required: true
+  - type: textarea
+    id: issues-related
+    attributes:
+      label: Issues Related
+    validations:
+      required: true
+  - type: textarea
+    id: issues-blocked-by
+    attributes:
+      label: Issues Blocked By
+    validations:
+      required: true
+  - type: textarea
+    id: issues-blocking
+    attributes:
+      label: Issues Blocking
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+    validations:
+      required: false
+  - type: textarea
+    id: add-context
+    attributes:
+      label: Additional Context
+    validations:
+      required: false

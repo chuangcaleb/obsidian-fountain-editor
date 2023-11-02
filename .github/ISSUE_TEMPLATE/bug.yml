@@ -1,0 +1,63 @@
+name: "\U0001F41B Bug Report"
+description: Reports for broken/unintended behavior
+labels: ["\U0001FAB2 a/bug"]
+projects: ["chuangcaleb/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ##  Quick Checklist
+        Thank you for taking the time to file a bug report! Please fill out this form as completely as possible.
+
+        ✅ I am using the latest version/release of the plugin
+        ✅ I've checked that a similar bug report doesn't already exist
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: bug-expectation
+    attributes:
+      label: What's the expected result?
+      description: Describe what you expect to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: bug-reproduction
+    attributes:
+      label: Steps to reproduce the behavior
+      description: Describe how to trigger the bug, with minimal steps/side effects. Add screenshots if applicable.
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Fountain Editor - Plugin Version
+      placeholder: e.g. "v1.0.3"
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian Version
+      placeholder: e.g. "v1.14.5"
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: What environment are you seeing the problem on?
+      options:
+        - label: MacOS
+        - label: Windows
+        - label: Linux
+        - label: Android
+        - label: iOS
+    validations:
+      required: true
+  - type: checkboxes
+    id: will-pr
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to submit a pull request for this issue.
+          required: false
