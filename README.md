@@ -1,4 +1,4 @@
-<img align="left" width="100ch" src="./docs/assets/obsidian-fountain-editor-logo.svg"/>
+<img align="left" width="130ch" src="./docs/assets/obsidian-fountain-editor-logo.svg"/>
 
 # Fountain Editor - Obsidian Plugin
 
