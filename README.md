@@ -1,3 +1,5 @@
+<img align="left" width="100ch" src="./docs/assets/obsidian-fountain-editor-logo.svg"/>
+
 # Fountain Editor - Obsidian Plugin
 
 |**[Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) (screenplay) syntax highlighting in the editor.**|
@@ -66,7 +68,7 @@ I *smell* a rat...
 |-|:-|
 |🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
 |🤞|The 2nd selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management* *(Plus, psssst, it's **FREE**)*.|
-|🧩|In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires your content to be in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for every problem](#-synergistic-tools).|
+|🧩|In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires all your content in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for any problem](#-synergistic-tools).|
 |🔎|Competition does not mean lack of cooperation! As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and will try to outsource/handover features to other [Synergistic Tools](#-synergistic-tools)!|
 
 ---

@@ -22,10 +22,13 @@
 > *A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects.*
 
 - **Manage and compile notes into an ordered manuscript!**
-- Yes! This means you can write Fountain in separate files! And sequence them!
-- Through longform's [Compile](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) feature, you can strip markdown items like frontmatter, comments and wikilinks from source files!
+  - Yes! This allows you to write Fountain in separate files! And combines them according to your sequence!
+  - John August's own [Assembler](https://quoteunquoteapps.com/assembler/) was the original attempt to rectify the issue of [Fountain requiring all your content in a single file](https://github.com/chuangcaleb/ffluent#purpose). It's still an option.
+  - But Longform integrates with Obsidian and stores your configuration.
+- Through Longform's [Compile](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) extra features, you can also strip Fountain-incompatible markdown tokens like frontmatter, comments and wikilinks from source files!
 - Then you can specify an output file as `out/$1.fountain`!
-- **ESSENTIAL** tool if you're really going to use Obsidian for any writing projects.
+  - *Thanks, @kevboh, for [fixing this](https://github.com/kevboh/longform/issues/203#issuecomment-1769837247)!*
+- An **ESSENTIAL** tool if you're really going to use Obsidian for any writing projects.
 
 ## [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin)
 
@@ -33,7 +36,7 @@
 
 - Allows you to open `.fountain` files in the Obsidian editor!
 - Fountain syntax formatting works!
-- But `.fountain` files will not be linked in the editor... we'll see about this.
+- But `.fountain` files are treated like external files, unlike native markdown files that integrate in Obsidian's systems.
 
 ## [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian)
 
