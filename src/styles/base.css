@@ -20,7 +20,10 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	/* user-configurable ----------------------------------------------- */
 
 	--fountain--line-width-factor: 6;
-	--fountain--line-width: calc(var(--fountain--line-width-factor) * 1in);
+	--fountain--line-width-base: 1in;
+	--fountain--line-width: calc(
+		var(--fountain--line-width-factor) * var(--fountain--line-width-base)
+	);
 
 	--fountain--character-left-factor: 2;
 	--fountain--character-right-factor: 1.1;
