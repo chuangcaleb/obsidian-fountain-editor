@@ -33,28 +33,30 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	/* calculated -- do not touch -------------------------------------------- */
 
+	--fountain-line-set-width: var(--line-width, var(--file-line-width));
+
 	--fountain-character-left: calc(
 		var(--fountain--character-left-factor) / var(--fountain--line-width-factor) *
-			100%
+			var(--fountain-line-set-width)
 	);
 	--fountain-character-right: calc(
 		var(--fountain--character-right-factor) / var(--fountain--line-width-factor) *
-			100%
+			var(--fountain-line-set-width)
 	);
 	--fountain-dialogue-left: calc(
 		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
-			100%
+			var(--fountain-line-set-width)
 	);
 	--fountain-dialogue-right: calc(
 		var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) *
-			100%
+			var(--fountain-line-set-width)
 	);
 	--fountain-parenthesis-left: calc(
 		var(--fountain--parenthesis-left-factor) /
-			var(--fountain--line-width-factor) * 100%
+			var(--fountain--line-width-factor) * var(--fountain-line-set-width)
 	);
 	--fountain-parenthesis-right: calc(
 		var(--fountain--parenthesis-right-factor) /
-			var(--fountain--line-width-factor) * 100%
+			var(--fountain--line-width-factor) * var(--fountain-line-set-width)
 	);
 }
