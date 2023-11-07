@@ -19,11 +19,8 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	/* user-configurable ----------------------------------------------- */
 
-	--fountain--line-width-min: 6in;
-
-	--fountain--margins-base-max: 1.4in;
-	--fountain--margins-base-min: 1in;
-	--fountain--margins-base: var(--fountain--margins-base-max);
+	--fountain--line-width-factor: 6;
+	--fountain--line-width: calc(var(--fountain--line-width-factor) * 1in);
 
 	--fountain--character-left-factor: 1.8;
 	--fountain--character-right-factor: 1.6;
@@ -32,28 +29,15 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	--fountain--parenthesis-left-factor: 1.3;
 	--fountain--parenthesis-right-factor: 1.5;
 
-	--fountain--font-family: "Courier New", "Courier",
-		monospace;
+	--fountain--font-family: "Courier New", "Courier", monospace;
 
 	/* calculated -- do not touch -------------------------------------------- */
 
-	--fountain-character-left: calc(
-		var(--fountain--margins-base) * var(--fountain--character-left-factor)
-	);
-	--fountain-character-right: calc(
-		var(--fountain--margins-base) * var(--fountain--character-right-factor)
-	);
-	--fountain-dialogue-left: calc(
-		var(--fountain--margins-base) * var(--fountain--dialogue-left-factor)
-	);
-	--fountain-dialogue-right: calc(
-		var(--fountain--margins-base) * var(--fountain--dialogue-right-factor)
-	);
-	--fountain-parenthesis-left: calc(
-		var(--fountain--margins-base) * var(--fountain--parenthesis-left-factor)
-	);
-	--fountain-parenthesis-right: calc(
-		var(--fountain--margins-base) *
-			var(--fountain--parenthesis-right-factor)
-	);
+	--fountain-character-left: calc(var(--fountain--character-left-factor) / var(--fountain--line-width-factor) * 100%);
+	--fountain-character-right: calc(var(--fountain--character-right-factor) / var(--fountain--line-width-factor) * 100%);
+	--fountain-dialogue-left: calc(var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) * 100%);
+	--fountain-dialogue-right: calc(var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) * 100%);
+	--fountain-parenthesis-left: calc(var(--fountain--parenthesis-left-factor) / var(--fountain--line-width-factor) * 100%);
+	--fountain-parenthesis-right: calc(var(--fountain--parenthesis-right-factor) / var(--fountain--line-width-factor) * 100%);
+
 }

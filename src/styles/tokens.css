@@ -52,6 +52,7 @@
 		[class*="cm-fountain-formatting-"] {
 			display: none;
 		}
+
 		.cm-fountain-formatting-centered {
 			visibility: hidden;
 			display: inherit;

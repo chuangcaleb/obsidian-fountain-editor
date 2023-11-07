@@ -6,12 +6,13 @@
 	&.fountain-left .cm-contentContainer {
 		/* * left unconstrained */
 		--fountain--margins-base: var(--fountain--margins-base-min);
-		max-width: var(--fountain--line-width-min);
+		max-width: var(--fountain--line-width);
 	}
+
 	&.fountain-center .cm-contentContainer {
 		/* * centered constrained */
 		--fountain--margins-base: var(--fountain--margins-base-min);
-		width: var(--fountain--line-width-min);
+		width: var(--fountain--line-width);
 		margin-inline: auto;
 	}
 
@@ -33,4 +34,13 @@
 		/* display: none; */
 		tab-size: 2;
 	}
+}
+
+.is-mobile .markdown-source-view.mod-cm6.fountain {
+	--font-text-size: var(--font-ui-small);
+}
+
+/* smaller file margins on mobile */
+.is-mobile .markdown-source-view.mod-cm6.fountain .cm-scroller {
+	--file-margins: var(--size-4-8) var(--size-2-2);
 }
