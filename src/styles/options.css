@@ -3,10 +3,11 @@
 /* * unconstrained: no styles */
 
 .markdown-source-view.mod-cm6.fountain {
-	&.fountain-left .cm-contentContainer {
-		/* * left unconstrained */
+	/* * left unconstrained */
+	/* Disable for now until we have a fix for Minimal */
+	/* &.fountain-left .cm-contentContainer {
 		max-width: var(--fountain-fixed-line-width);
-	}
+	} */
 
 	&.fountain-center .cm-contentContainer {
 		/* * centered constrained */

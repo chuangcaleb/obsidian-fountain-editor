@@ -76,14 +76,13 @@ I *smell* a rat...
 ## ✨ Features
 
 - 🎨 **Get Fountain syntax highlighting** in Editing View (Source mode or Live Preview)!
-- ✅ **Specify which individual notes get Fountain styling** with `cssclasses: fountain` in your frontmatter (opt-in basis, subject to change)
+- ✅ **Specify which individual notes get Fountain styling** with `cssclasses: fountain` in your frontmatter _(opt-in basis, subject to change)_
 - 🛁 **Enjoy extended Obsidian syntax** where possible — bring your regular Obsidian markdown, tools, plugins, and workflow!
   - 🧰 **Leverage Obsidian!Markdown**: Use Links, Tags, Embedded Notes / Images / Audio, Graph...
   - 🛏️ **Feel at home**: Fountain's [Section](https://fountain.io/syntax/#sections-synopses) and [Emphasis](https://fountain.io/syntax/#emphasis) syntax don't add new styles — which means they'll look like familiar Obsidian [Headings](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Headings) and [inline text styles](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text)!
   - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with Fountain's [Synopsis](https://fountain.io/syntax/#sections-synopses) token!
 - 🤝 **Combine with your favorite Obsidian community plugins** like [Longform](https://github.com/kevboh/longform)!
-- ⚙️ **Configure** your setup with `fountain-left` and `fountain-center` as additional `cssclasses` for alignment and width!
-  - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`
+- 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`... see [base.css](src/styles/base.css) for the exposed CSS variables!
 
 > 📖 See [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation!
 
