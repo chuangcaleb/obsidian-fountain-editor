@@ -20,10 +20,6 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	/* user-configurable ----------------------------------------------- */
 
 	--fountain--line-width-factor: 6;
-	--fountain--line-width-base: 1in;
-	--fountain--line-width: calc(
-		var(--fountain--line-width-factor) * var(--fountain--line-width-base)
-	);
 
 	--fountain--character-left-factor: 2;
 	--fountain--character-right-factor: 1.1;
@@ -34,32 +30,36 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	--fountain--font-family: "Courier New", "Courier", monospace;
 
-	/* calculated -- do not touch -------------------------------------------- */
+	--fountain--fixed-line-width-base: 1in;
 
-	--fountain-line-set-width: var(--line-width, var(--file-line-width));
+	/* calculated -- do not touch -------------------------------------------- */
 
 	--fountain-character-left: calc(
 		var(--fountain--character-left-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-line-set-width)
+			var(--line-width)
 	);
 	--fountain-character-right: calc(
 		var(--fountain--character-right-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-line-set-width)
+			var(--line-width)
 	);
 	--fountain-dialogue-left: calc(
 		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-line-set-width)
+			var(--line-width)
 	);
 	--fountain-dialogue-right: calc(
 		var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-line-set-width)
+			var(--line-width)
 	);
 	--fountain-parenthesis-left: calc(
 		var(--fountain--parenthesis-left-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-line-set-width)
+			var(--fountain--line-width-factor) * var(--line-width)
 	);
 	--fountain-parenthesis-right: calc(
 		var(--fountain--parenthesis-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-line-set-width)
+			var(--fountain--line-width-factor) * var(--line-width)
+	);
+
+	--fountain-fixed-line-width: calc(
+		var(--fountain--line-width-factor) * var(--fountain--fixed-line-width-base)
 	);
 }

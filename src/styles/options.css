@@ -5,12 +5,12 @@
 .markdown-source-view.mod-cm6.fountain {
 	&.fountain-left .cm-contentContainer {
 		/* * left unconstrained */
-		max-width: var(--fountain--line-width);
+		max-width: var(--fountain-fixed-line-width);
 	}
 
 	&.fountain-center .cm-contentContainer {
 		/* * centered constrained */
-		width: var(--fountain--line-width);
+		width: var(--fountain-fixed-line-width);
 		margin-inline: auto;
 	}
 
