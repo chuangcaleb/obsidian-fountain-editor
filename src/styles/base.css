@@ -22,12 +22,12 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	--fountain--line-width-factor: 6;
 	--fountain--line-width: calc(var(--fountain--line-width-factor) * 1in);
 
-	--fountain--character-left-factor: 1.8;
-	--fountain--character-right-factor: 1.6;
-	--fountain--dialogue-left-factor: 1;
+	--fountain--character-left-factor: 2;
+	--fountain--character-right-factor: 1.1;
+	--fountain--dialogue-left-factor: 1.1;
 	--fountain--dialogue-right-factor: 1;
-	--fountain--parenthesis-left-factor: 1.3;
-	--fountain--parenthesis-right-factor: 1.5;
+	--fountain--parenthesis-left-factor: 1.5;
+	--fountain--parenthesis-right-factor: 1.1;
 
 	--fountain--font-family: "Courier New", "Courier", monospace;
 
