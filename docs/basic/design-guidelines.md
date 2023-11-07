@@ -1,11 +1,11 @@
 # 🏗️ Design Guidelines
 
-|<h3>📍 Make Obsidian *lack nothing*, as if it writing Fountain screenplays was an originally intended use case.</h3>|
-|--|
+| <h3>📍 Make Obsidian _lack nothing_, as if it writing Fountain screenplays was an originally intended use case.</h3> |
+| -------------------------------------------------------------------------------------------------------------------- |
 
 ## 🔀 Interoperable / Portable
 
-**Work within a screenplay document *just* like you would with a regular Obsidian note.**
+**Work within a screenplay document _just_ like you would with a regular Obsidian note.**
 
 To leverage the power of interlacing Obsidian!Markdown and Fountain within a single document, we need to be able to write Markdown and Fountain syntax interchangeably and without friction.
 
@@ -13,7 +13,7 @@ It so happens that Obsidian-flavored Markdown plays quite well with Fountain syn
 
 ### ✅ Fountain-compliant by default
 
-If a markdown file is written in Fountain syntax, then the entire document (syntax) contents should be immediately ***100% compatible for Fountain*** processors and exporters.
+If a markdown file is written in Fountain syntax, then the entire document (syntax) contents should be immediately **_100% compatible for Fountain_** processors and exporters.
 
 If it is not possible, then any non-Fountain-syntax should be trivially resolvable by simple regex/text pattern matching rules.
 
@@ -26,15 +26,15 @@ A written comparison between writing in `.md` files vs in `.fountain` files is [
 
 ### ⚖️ Styling Parity
 
-The ***syntax styling in the Obsidian editor should be as similar to a Fountain-exported PDF*** as possible.
+The **_syntax styling in the Obsidian editor should be as similar to a Fountain-exported PDF_** as possible.
 
 ### 🥇 Fountain-first
 
-A ***Fountain-first user***, who has no previous knowledge of Obsidian or Markdown, should be able to write a full Fountain document with as little friction as possible.
+A **_Fountain-first user_**, who has no previous knowledge of Obsidian or Markdown, should be able to write a full Fountain document with as little friction as possible.
 
 ### 🥈 Obsidian-second
 
-An ***Obsidian-first user*** may be allowed to lose/forfeit their usual/familiar Obsidian syntax **IF** it conflicts with standard Fountain syntax.
+An **_Obsidian-first user_** may be allowed to lose/forfeit their usual/familiar Obsidian syntax **IF** it conflicts with standard Fountain syntax.
 
 ### 🪓 Provide Escape Hatches
 
@@ -62,11 +62,11 @@ Then, Obsidian note-making is business as usual, until we come across a file tha
 
 **This plugin should do [one thing well](https://en.wikipedia.org/wiki/Unix_philosophy), instead of many things half-baked.**
 
- "Lacking nothing" is different from "having everything"...
+"Lacking nothing" is different from "having everything"...
 
- Should overly-extensive requirements arise, a brand new/additional tool should be created/used. The numerous [Longform - Obsidian Plugin](https://github.com/kevboh/longform)  features should already cover almost all your additional needs, like [configurable manuscript compilation](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) and [word count](https://github.com/kevboh/longform/blob/main/docs/WORD_COUNTS.md)!
+Should overly-extensive requirements arise, a brand new/additional tool should be created/used. The numerous [Longform - Obsidian Plugin](https://github.com/kevboh/longform) features should already cover almost all your additional needs, like [configurable manuscript compilation](https://github.com/kevboh/longform/blob/main/docs/COMPILE.md) and [word count](https://github.com/kevboh/longform/blob/main/docs/WORD_COUNTS.md)!
 
- See [Synergistic Tools](/docs/basic/synergistic-tools.md) for more recommendations!
+See [Synergistic Tools](/docs/basic/synergistic-tools.md) for more recommendations!
 
 ### 🎨 View-only
 

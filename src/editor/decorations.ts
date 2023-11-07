@@ -33,11 +33,7 @@ function getLineFormat(
 				state.inBoneyard = true;
 			}
 			if (tId === n.character) {
-				if (
-					ctx.afterEmptyLine &&
-					!ctx.beforeEmptyLine &&
-					!ctx.isLastLine
-				) {
+				if (ctx.afterEmptyLine && !ctx.beforeEmptyLine && !ctx.isLastLine) {
 					state.inDialogue = true;
 				} else {
 					break;
@@ -133,11 +129,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 					}
 					const charExtLength = charExt[0].length;
 					const charExtStart = lTo - charExtLength;
-					markDeco(
-						charExtStart,
-						lTo,
-						"cm-fountain-character-extension",
-					);
+					markDeco(charExtStart, lTo, "cm-fountain-character-extension");
 				}
 			}
 			if (token === n.centered && lastChar === "<") {

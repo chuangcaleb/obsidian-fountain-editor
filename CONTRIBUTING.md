@@ -4,8 +4,8 @@ The main relevant files you can inspect are [package.json](/package.json), [roll
 
 ## Node
 
-|[package.json](/package.json)|
-|-|
+| [package.json](/package.json) |
+| ----------------------------- |
 
 - We use `pnpm`.
 - We've got your usual `dev` and `build` scripts.
@@ -13,8 +13,8 @@ The main relevant files you can inspect are [package.json](/package.json), [roll
 
 ## Rollup
 
-| [rollup.config.js](/rollup.config.js)|
-|-|
+| [rollup.config.js](/rollup.config.js) |
+| ------------------------------------- |
 
 - Our test vault will be located at the directory root, at `./obsidian-fountain-editor-test` — initialize your own Obsidian vault!
   - Running `pnpm run dev` will continually generate the plugin binaries at `./obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor`
@@ -23,8 +23,8 @@ The main relevant files you can inspect are [package.json](/package.json), [roll
 
 ## GitHub Actions
 
-| [release.yml](/.github/workflows/release.yml)|
-|-|
+| [release.yml](/.github/workflows/release.yml) |
+| --------------------------------------------- |
 
 - On creating new tags:
   - Checkout repo

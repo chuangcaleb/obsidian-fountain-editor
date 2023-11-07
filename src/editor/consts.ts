@@ -21,7 +21,8 @@ const n = TOKEN_NAMES;
 export const LINE_TOKENS = [
 	{
 		id: n.sceneHeading,
-		regex: /^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e|int\/ext)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
+		regex:
+			/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e|int\/ext)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
 	},
 	{
 		id: n.action,

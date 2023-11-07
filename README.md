@@ -2,8 +2,8 @@
 
 # Fountain Editor - Obsidian Plugin
 
-|**[Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) (screenplay) syntax highlighting in the editor.**|
-|:-|
+| **[Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) (screenplay) syntax highlighting in the editor.** |
+| :----------------------------------------------------------------------------------------------------------------------------- |
 
 [![banner](docs/assets/banner.png)](https://youtu.be/GORryaw32sI "Obsidian Fountain - Live Editor (Plugin Showcase)")
 
@@ -64,12 +64,12 @@ I *smell* a rat...
 
 ## 🎯 Goals
 
-|📍|<h3>Make Obsidian a *competitive* option among Fountain writing editors.</h3>|
-|-|:-|
-|🔗|The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.|
-|🤞|The 2nd selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters *idea-exploration* and *knowledge-management* *(Plus, psssst, it's **FREE**)*.|
-|🧩|In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires all your content in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for any problem](#-synergistic-tools).|
-|🔎|Competition does not mean lack of cooperation! As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and will try to outsource/handover features to other [Synergistic Tools](#-synergistic-tools)!|
+| 📍  | <h3>Make Obsidian a _competitive_ option among Fountain writing editors.</h3>                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔗  | The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.                                                                                                                                                                                                                                                                      |
+| 🤞  | The 2nd selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters _idea-exploration_ and _knowledge-management_ _(Plus, psssst, it's **FREE**)_.                                                                                                                                                                                                                                                                              |
+| 🧩  | In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires all your content in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for any problem](#-synergistic-tools). |
+| 🔎  | Competition does not mean lack of cooperation! As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and will try to outsource/handover features to other [Synergistic Tools](#-synergistic-tools)!                                                                                                                                                                                  |
 
 ---
 
@@ -91,10 +91,10 @@ I *smell* a rat...
 
 ## 🤝 Synergistic Tools
 
-- **[kevboh/longform](https://github.com/kevboh/longform): *A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects.***
-- [Better Fountain - Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain): *Fountain autocomplete, syntax highlighting, and export to PDF*
-- [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): *An obsidian plugin allowing you to register and view different file extensions in a modular manner.*
-- [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): *Typewriter Scroll Obsidian Plugin*
+- **[kevboh/longform](https://github.com/kevboh/longform): _A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects._**
+- [Better Fountain - Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain): _Fountain autocomplete, syntax highlighting, and export to PDF_
+- [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): _An obsidian plugin allowing you to register and view different file extensions in a modular manner._
+- [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): _Typewriter Scroll Obsidian Plugin_
 
 > 📖 Explore [Synergistic Tools](docs/basic/synergistic-tools.md) for details on how they work together with this plugin!
 
@@ -107,7 +107,7 @@ I *smell* a rat...
 #### 😎 Don't know how to code? You can contribute
 
 - 🪲 **Report bugs** on [the Issue tab](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/new?assignees=&labels=%F0%9F%AA%B2+a/bug&projects=chuangcaleb/2&template=bug_report.md)!
-- 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-editor)) this plugin** around on *forums* and *channels* and with your *friends*!
+- 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-editor)) this plugin** around on _forums_ and _channels_ and with your _friends_!
   - 🌟 **Star** this repo to receive updates & help raise awareness — if this project has been worth one button click to you!
 - 🗣️ **Engage** with others in the [Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions) tab!
   - 💡 [Pitch an idea](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/ideas) / feature request!
@@ -120,8 +120,8 @@ I *smell* a rat...
 
 #### 🤓 Know how to code? You can contribute too
 
-- 🔀 **Open a Pull Request!** *Focus on critical bugs and priority features first.*
-- 🪲 **Report a bug** — but with your *specialized technical diagnosis*!
+- 🔀 **Open a Pull Request!** _Focus on critical bugs and priority features first._
+- 🪲 **Report a bug** — but with your _specialized technical diagnosis_!
 - 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
 
 > 💝 See [Contributing](/contributing.md) for proper technical details!
@@ -136,7 +136,7 @@ If you want a more personal DM'ing (or just to send a private note of thanks!), 
 
 ## 🔃 Related Projects
 
-- [Darakah/obsidian-fountain](https://github.com/Darakah/obsidian-fountain): *Obsidian plugin to edit, write and render Fountain Writing Syntax for screenplays and scripts*
+- [Darakah/obsidian-fountain](https://github.com/Darakah/obsidian-fountain): _Obsidian plugin to edit, write and render Fountain Writing Syntax for screenplays and scripts_
   - Formats Fountain syntax, just like this plugin
   - But for preview mode only, and must be wrapped in a code block
   - 2.5 years+ old project
