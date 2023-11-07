@@ -23,9 +23,11 @@
 
 ### 🏁 Quickstart
 
-1. Follow [these instructions to install it through Obsidian's Community Plugins](https://help.obsidian.md/Extending+Obsidian/Community+plugins) in Obsidian's Settings tab! (Otherwise, use [manual installation](#-manual-installation).)
-2. Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties.
-3. You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
+1. 📥 [Click HERE to open the installation page in Obsidian](https://obsidian.md/plugins?id=fountain-editor).
+    1. General installation instructions [[Link →]](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+    2. Manual installation [[Link →]](#-manual-installation)
+2. 📄 Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties.
+3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
 ```yaml
 ---
