@@ -34,7 +34,7 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	/* calculated -- do not touch -------------------------------------------- */
 
-	--fountain-final-line-width: var(--line-width, var(--file-line-width));
+	--fountain-final-line-width: min(100%, var(--file-line-width));
 
 	--fountain-character-left: calc(
 		var(--fountain--character-left-factor) / var(--fountain--line-width-factor) *
