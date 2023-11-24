@@ -29,7 +29,7 @@
 2. 📄 Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties.
 3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
-```yaml
+```markdown
 ---
 cssclasses:
   - fountain
