@@ -103,7 +103,11 @@ export function buildDecorations(view: EditorView): DecorationSet {
 			// Mark Decorations
 			const firstChar = lText[0];
 			const lastChar = lText[line.length - 1];
-			if (token === n.action && firstChar === "!") {
+			if (
+				token === n.action &&
+				firstChar === "!" &&
+				lText.substring(0, 3) !== "![["
+			) {
 				markDeco(lFrom, lFrom + 1, composeFClass(token));
 			}
 			if (token === n.sceneHeading && firstChar === ".") {
