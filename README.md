@@ -85,6 +85,7 @@ I *smell* a rat...
   - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with Fountain's [Synopsis](https://fountain.io/syntax/#sections-synopses) token!
 - 🤝 **Combine with your favorite Obsidian community plugins** like [Longform](https://github.com/kevboh/longform)!
 - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`... see [base.css](src/styles/base.css) for the exposed CSS variables!
+- 🧑‍💻 **Hack your own experience** if you know programming — no more "it would've been perfect, if only they had _x_ feature"!
 
 > 📖 See [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation!
 

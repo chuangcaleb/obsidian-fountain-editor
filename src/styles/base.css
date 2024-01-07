@@ -14,7 +14,7 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	This means we need narrower margins/line widths
 
 	We follow a practice where CSS Variables with a second set of double-hyphens denote that these are variables that users can tweak;
-	whereas if there's only one set of double-hyphens (which are always at the beginning), then these are internally used/calculated variables that shou
+	whereas if there's only one set of double-hyphens (which are always at the start of the token), then those are internally used/calculated variables that should not be touched.
 	*/
 
 	/* user-configurable ----------------------------------------------- */
