@@ -9,7 +9,7 @@
 
 To leverage the power of interlacing Obsidian!Markdown and Fountain within a single document, we need to be able to write Markdown and Fountain syntax interchangeably and without friction.
 
-It so happens that Obsidian-flavored Markdown plays quite well with Fountain syntax, generally. We still need to define some rules for those overlapping areas. You can read more at [Conflicts between Obsidian-flavored Markdown vs Fountain](/docs/basic/conflicts-between-obsidian-flavored-markdown-vs-fountain-md).
+It so happens that Obsidian-flavored Markdown plays quite well with Fountain syntax, generally. We still need to define some rules for those overlapping areas. You can read more at [Conflicts between Obsidian-flavored Markdown vs Fountain](/docs/basic/conflicts-between-obsidian-flavored-markdown-vs-fountain.md).
 
 ### ✅ Fountain-compliant by default
 
