@@ -7,7 +7,7 @@ export default class FountainPlugin extends Plugin {
 	async onload() {
 		this.registerEditorExtension(Prec.lowest(fountainPlugin));
 
-		this.registerMarkdownPostProcessor(markdownPostProcessor);
+		this.registerMarkdownPostProcessor((el, ctx) => markdownPostProcessor(this, el, ctx));
 	}
 	onunload() {}
 }

@@ -1,0 +1,222 @@
+/* -------------------------------------------------------------------------- */
+/*                    override Obsidian markdown formatting                   */
+/* -------------------------------------------------------------------------- */
+.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote {
+		font-style: normal;
+		background-color: inherit;
+	}
+.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote:before,
+	.markdown-source-view.mod-cm6.fountain.is-live-preview .cm-blockquote-border:before {
+		display: none;
+	}
+.markdown-source-view.mod-cm6.fountain.is-live-preview .HyperMD-quote.cm-fountain-centered {
+		padding-left: 0 !important;
+	}
+/*
+Adapted from
+[Screenplay Format: Everything You Need to Know - NFI](https://www.nfi.edu/screenplay-format/)
+[Screenplay Format Guide: Margin Settings - Story Sense®](https://www.storysense.com/format/margins.htm)
+But ahh, still looks weird. I'm eyeballing values based on comparing the styling with images of printed-out familiar screenplays
+*/
+.markdown-preview-view.fountain,
+.markdown-source-view.mod-cm6.fountain {
+	/*
+	"max" width is to expand to the maximum width of the editor (default)
+	This means we need wider margins/line widths
+
+	"min" width is to constrain to the width of formatted Fountain screenplays (triggered with `cssclasses` of either `fountain-left` or `fountain-center`)
+	This means we need narrower margins/line widths
+
+	We follow a practice where CSS Variables with a second set of double-hyphens denote that these are variables that users can tweak;
+	whereas if there's only one set of double-hyphens (which are always at the start of the token), then those are internally used/calculated variables that should not be touched.
+	*/
+
+	/* user-configurable ----------------------------------------------- */
+
+	--fountain--line-width-factor: 6;
+
+	--fountain--character-left-factor: 2;
+	--fountain--character-right-factor: 1.1;
+	--fountain--dialogue-left-factor: 1.1;
+	--fountain--dialogue-right-factor: 1;
+	--fountain--parenthesis-left-factor: 1.5;
+	--fountain--parenthesis-right-factor: 1.1;
+
+	--fountain--font-family: "Courier Prime", "Courier", monospace;
+
+	--fountain--fixed-line-width-base: 1in;
+
+	/* calculated -- do not touch -------------------------------------------- */
+
+	--fountain-final-line-width: min(100%, var(--file-line-width));
+
+	--fountain-character-left: calc(
+		var(--fountain--character-left-factor) / var(--fountain--line-width-factor) *
+			var(--fountain-final-line-width)
+	);
+	--fountain-character-right: calc(
+		var(--fountain--character-right-factor) / var(--fountain--line-width-factor) *
+			var(--fountain-final-line-width)
+	);
+	--fountain-dialogue-left: calc(
+		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
+			var(--fountain-final-line-width)
+	);
+	--fountain-dialogue-right: calc(
+		var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) *
+			var(--fountain-final-line-width)
+	);
+	--fountain-parenthesis-left: calc(
+		var(--fountain--parenthesis-left-factor) /
+			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
+	);
+	--fountain-parenthesis-right: calc(
+		var(--fountain--parenthesis-right-factor) /
+			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
+	);
+
+	--fountain-fixed-line-width: calc(
+		var(--fountain--line-width-factor) * var(--fountain--fixed-line-width-base)
+	);
+}
+.markdown-preview-view.fountain blockquote, .markdown-source-view.mod-cm6.fountain blockquote {
+		padding: 0;
+		border: none;
+	}
+/* ----------------------------- main tokens ------------------------------ */
+.markdown-preview-view.fountain .fountain-scene-heading,
+	.markdown-source-view.mod-cm6.fountain .fountain-scene-heading,
+	.markdown-preview-view.fountain .cm-fountain-scene-heading,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-scene-heading {
+		font-weight: var(--font-bold);
+	}
+.markdown-preview-view.fountain .fountain-parenthetical,
+	.markdown-source-view.mod-cm6.fountain .fountain-parenthetical,
+	.markdown-preview-view.fountain .fountain-character-extension,
+	.markdown-source-view.mod-cm6.fountain .fountain-character-extension,
+	.markdown-preview-view.fountain .fountain-lyrics,
+	.markdown-source-view.mod-cm6.fountain .fountain-lyrics,
+	.markdown-preview-view.fountain .cm-fountain-parenthetical,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-parenthetical,
+	.markdown-preview-view.fountain .cm-fountain-character-extension,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-character-extension,
+	.markdown-preview-view.fountain .cm-fountain-lyrics,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-lyrics {
+		font-style: italic;
+	}
+.markdown-preview-view.fountain .fountain-transition,
+	.markdown-source-view.mod-cm6.fountain .fountain-transition,
+	.markdown-preview-view.fountain .cm-fountain-transition,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-transition {
+		font-weight: var(--font-bold);
+		text-align: right;
+	}
+.markdown-preview-view.fountain .fountain-centered,
+	.markdown-source-view.mod-cm6.fountain .fountain-centered,
+	.markdown-preview-view.fountain .cm-fountain-centered,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-centered {
+		font-weight: var(--font-bold);
+		text-align: center;
+	}
+.markdown-preview-view.fountain .fountain-character,
+	.markdown-source-view.mod-cm6.fountain .fountain-character,
+	.markdown-preview-view.fountain .cm-fountain-character,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-character {
+		padding-left: var(--fountain-character-left);
+		padding-right: var(--fountain-character-right);
+		margin-bottom: 0;
+	}
+.markdown-preview-view.fountain .fountain-lyrics,
+	.markdown-source-view.mod-cm6.fountain .fountain-lyrics,
+	.markdown-preview-view.fountain .fountain-dialogue,
+	.markdown-source-view.mod-cm6.fountain .fountain-dialogue,
+	.markdown-preview-view.fountain .cm-fountain-lyrics,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-lyrics,
+	.markdown-preview-view.fountain .cm-fountain-dialogue,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-dialogue {
+		padding-left: var(--fountain-dialogue-left);
+		padding-right: var(--fountain-dialogue-right);
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+.markdown-preview-view.fountain .fountain-parenthetical,
+	.markdown-source-view.mod-cm6.fountain .fountain-parenthetical,
+	.markdown-preview-view.fountain .cm-fountain-parenthetical,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-parenthetical {
+		padding-left: var(--fountain-parenthesis-left);
+		padding-right: var(--fountain-parenthesis-right);
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+/* ----------------------------- formatting ------------------------------- */
+/* FIXME */
+.markdown-preview-view.fountain .cm-fountain-boneyard,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-boneyard,
+	.markdown-preview-view.fountain .cm-fountain-formatting-boneyard-start,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-formatting-boneyard-start,
+	.markdown-preview-view.fountain .cm-fountain-formatting-boneyard-end,
+	.markdown-source-view.mod-cm6.fountain .cm-fountain-formatting-boneyard-end,
+	.markdown-preview-view.fountain .cm-formatting[class*="cm-fountain-formatting-"],
+	.markdown-source-view.mod-cm6.fountain .cm-formatting[class*="cm-fountain-formatting-"] {
+		color: var(--text-faint);
+	}
+/* Formatting characters only hidden on live preview */
+.markdown-preview-view.fountain.is-live-preview .cm-line:not(.cm-active) [class*="cm-fountain-formatting-"], .markdown-source-view.mod-cm6.fountain.is-live-preview .cm-line:not(.cm-active) [class*="cm-fountain-formatting-"] {
+			display: none;
+		}
+.markdown-preview-view.fountain.is-live-preview .cm-line:not(.cm-active) .cm-fountain-formatting-centered, .markdown-source-view.mod-cm6.fountain.is-live-preview .cm-line:not(.cm-active) .cm-fountain-formatting-centered {
+			visibility: hidden;
+			display: inherit;
+		}
+.markdown-preview-view.fountain.is-live-preview .cm-line:not(.cm-active) .cm-fountain-formatting-dialogue, .markdown-source-view.mod-cm6.fountain.is-live-preview .cm-line:not(.cm-active) .cm-fountain-formatting-dialogue {
+			visibility: hidden;
+			display: inherit;
+		}
+/* for some reason, we need to re-declare this at the .cm-line level, since the declaration on .markdown-source-view.mod-cm6 .cm-scroller doesn't pick up the --font-text style */
+.markdown-preview-view.fountain p {
+	font-family: var(--fountain--font-family);
+}
+.markdown-source-view.mod-cm6.fountain .cm-line[class*="cm-fountain-"]:not(.cm-fountain-synopsis):not(.cm-fountain-section) {
+		font-family: var(--fountain--font-family);
+	}
+/* ------------------------------ editor width ------------------------------ */
+/* * unconstrained: no styles */
+/* * left unconstrained */
+/* Disable for now until we have a fix for Minimal */
+/* &.fountain-left .cm-contentContainer {
+		max-width: var(--fountain-fixed-line-width);
+	} */
+.markdown-source-view.mod-cm6.fountain.fountain-center .cm-contentContainer {
+		/* * centered constrained */
+		width: var(--fountain-fixed-line-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+/* ! Give option to suppress indents */
+/*
+- hidden
+- marked
+- unmarked
+*/
+.markdown-source-view.mod-cm6.fountain .cm-line[class*="cm-fountain-"] .cm-indent::before {
+		display: inline-block;
+		content: "→";
+		font-family: var(--font-monospace);
+		color: var(--text-faint);
+	}
+.markdown-source-view.mod-cm6.fountain .cm-line[class*="cm-fountain-"] .cm-indent {
+		/* display: none; */
+		-moz-tab-size: 2;
+		  -o-tab-size: 2;
+		     tab-size: 2;
+	}
+/* .markdown-source-view.mod-cm6.fountain {
+	--font-text-size: 12px;
+} */
+.is-mobile .markdown-source-view.mod-cm6.fountain {
+	--font-text-size: var(--font-ui-small);
+}
+/* smaller file margins on mobile */
+.is-mobile .markdown-source-view.mod-cm6.fountain .cm-scroller {
+	--file-margins: var(--size-4-8) var(--size-2-2);
+}
