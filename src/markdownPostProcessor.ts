@@ -59,12 +59,23 @@ export function markdownPostProcessor(
 
 		const firstChar = firstLine[0];
 		const lastChar = firstLine[firstLine.length - 1];
+		// Forced Scene Heading
 		if (token === n.sceneHeading && firstChar === ".") {
 			p.innerHTML = text.substring(1);
 		}
+		// Forced Action
 		if (token === n.action && firstChar === "!") {
 			p.innerHTML = text.substring(1);
 		}
+		// Lyrics
+		if (token === n.lyrics && firstChar === "~") {
+			p.innerHTML = text.substring(1);
+		}
+		// Synopsis
+		if (token === n.synopsis && firstChar === "=") {
+			p.innerHTML = text.substring(1);
+		}
+		// Character block
 		if (token === n.character) {
 			p.addClass(`fountain-${n.character}`);
 
@@ -87,12 +98,20 @@ export function markdownPostProcessor(
 			state.inDialogue = true;
 			const lines = text.split("<br>").slice(1);
 			for (const line of lines) {
-				const subtoken = getLineFormat(line.trim(), state);
+				const tLine = line.trim();
+				const subtoken = getLineFormat(tLine, state);
 
 				const child = createEl("p", {
 					cls: `fountain-${subtoken}`,
 				});
-				child.innerHTML = line.trim();
+
+				// Lyrics in dialogue
+				if (subtoken === n.lyrics && tLine[0] === "~") {
+					child.innerHTML = tLine.substring(1);
+				} else {
+					child.innerHTML = tLine;
+				}
+
 				p.parentElement?.appendChild(child);
 			}
 			state.inDialogue = false;
@@ -101,6 +120,7 @@ export function markdownPostProcessor(
 		p.addClass(`fountain-${token}`);
 	}
 
+	// Process BlockQuote blocks
 	for (const bq of Array.from(quotes)) {
 		const p = bq.firstElementChild as HTMLParagraphElement;
 		const text = p.getText();
