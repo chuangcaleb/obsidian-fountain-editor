@@ -9,6 +9,8 @@
 
 > 📺 **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
+[![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)](https://obsidian.md/plugins?id=fountain-editor) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+
 ---
 
 <!--
@@ -119,7 +121,6 @@ I *smell* a rat...
   - 👥 All this proves that there's a community of people who are interested!
 - ✍🏼 **Create a screenplay project** using this plugin!
   - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
-- 🎨 You can find a link to the Figma design file for the icon [here](https://www.figma.com/file/0YoeCyzLLHUBkzUsBqmxh9/Obsidian-Fountain-Editor-Icon)!
 
 #### 🤓 Know how to code? You can contribute too
 
@@ -151,4 +152,3 @@ If you want a more personal DM'ing (or just to send a private note of thanks!), 
   - Made by the creator of Fountain.
   - Features its own text editor app, WYSIWYG, "Revision Mode" and analysis tools.
   - Since everything is wrapped in a nice bow, it's probably the best Fountain-writing app if you're not technical.
-
