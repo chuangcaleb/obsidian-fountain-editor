@@ -156,5 +156,7 @@ function isFountainEnabled(view: EditorView) {
 	// TODO: to deprecate using cssclasses
 	const fileCache = app.metadataCache.getFileCache(file);
 	const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
+	console.log("🚀 ~ isFountainEnabled ~ fileCache?.frontmatter?.tags:", fileCache?.frontmatter?.tags);
+	if (fileCache?.frontmatter?.tags.includes("fountain") || fileCache?.frontmatter?.tags === "fountain") return true;
 	return cssClasses.includes("fountain");
 }
