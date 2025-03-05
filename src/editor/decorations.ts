@@ -150,10 +150,11 @@ export function buildDecorations(view: EditorView): DecorationSet {
 function isFountainEnabled(view: EditorView) {
 	const info = view.state.field(editorInfoField);
 	const { app, file } = info;
-	if (file?.extension == "fountain") return true;
-	if (file) {
-		const fileCache = app.metadataCache.getFileCache(file);
-		const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
-		return cssClasses.includes("fountain");
-	}
+	if (!file) return false;
+	if (file.extension == "fountain") return true;
+	if (file.basename.endsWith(".fountain")) return true;
+	// TODO: to deprecate using cssclasses
+	const fileCache = app.metadataCache.getFileCache(file);
+	const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
+	return cssClasses.includes("fountain");
 }
