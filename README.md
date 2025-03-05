@@ -26,12 +26,12 @@
 ### 🏁 Quickstart
 
 1. 📥 [Click HERE to open the installation page in Obsidian](https://obsidian.md/plugins?id=fountain-editor).
-    1. General installation instructions [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
-    2. Manual installation [Link →](#-manual-installation)
+   1. General installation instructions [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+   2. Manual installation [Link →](#-manual-installation)
 2. 📄 Mark a markdown note for fountain formatting:
-    1. Use a `.fountain.md` extension
-    2. Add a `#fountain` tag to the frontmatter metadata Properties
-    3. add `cssclasses: fountain` to the frontmatter metadata Properties.
+   1. Use a `.fountain.md` extension
+   2. Add a `#fountain` tag to the frontmatter metadata Properties
+   3. add `cssclasses: fountain` to the frontmatter metadata Properties.
 3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
 ```markdown
@@ -39,6 +39,7 @@
 cssclasses:
   - fountain
 ---
+
 # Opening Hook
 
 > THE STINK LINK <
@@ -50,7 +51,7 @@ EXT. PUBLIC RESTROOM - DAY
 A POLICE OFFICER steps into a dingy restroom. She winces.
 
 POLICE OFFICER (V.O.)
-I *smell* a rat...
+I _smell_ a rat...
 
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
 ```
