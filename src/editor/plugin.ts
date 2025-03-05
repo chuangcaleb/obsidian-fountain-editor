@@ -1,12 +1,12 @@
 import {
-	DecorationSet,
-	EditorView,
-	PluginSpec,
-	PluginValue,
+	type DecorationSet,
+	type EditorView,
+	type PluginSpec,
+	type PluginValue,
 	ViewPlugin,
-	ViewUpdate,
+	type ViewUpdate,
 } from "@codemirror/view";
-import { buildDecorations } from "./decorations";
+import {buildDecorations} from "./decorations.js";
 
 class FountainPlugin implements PluginValue {
 	decorations: DecorationSet;
@@ -21,7 +21,7 @@ class FountainPlugin implements PluginValue {
 		}
 	}
 
-	destroy() {}
+	// destroy() {}
 }
 
 const pluginSpec: PluginSpec<FountainPlugin> = {

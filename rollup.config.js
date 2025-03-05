@@ -1,3 +1,4 @@
+import process from "node:process";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcssImport from "postcss-import";
@@ -32,7 +33,7 @@ const jsConfig = {
 		banner: isProduction ? banner : undefined,
 	},
 	plugins: [
-		// postcss({
+		// Postcss({
 		// 	extensions: [".css"],
 		// 	minimize: true,
 		// 	extract: path.resolve("HELP.css"),
@@ -45,9 +46,9 @@ const jsConfig = {
 		}),
 		commonjs(),
 		copy({
-			targets: [{ src: "manifest.json", dest: OUT_DIR }],
+			targets: [{src: "manifest.json", dest: OUT_DIR}],
 			hook: "writeBundle",
-			// verbose: true,
+			// Verbose: true,
 			overwrite: true,
 		}),
 	],
@@ -55,7 +56,7 @@ const jsConfig = {
 
 const cssConfig = {
 	input: "src/styles/index.css",
-	output: { file: OUT_DIR + "/styles.css" },
+	output: {file: OUT_DIR + "/styles.css"},
 	plugins: [
 		postcss({
 			extract: true,
@@ -65,4 +66,5 @@ const cssConfig = {
 	],
 };
 
-export default [cssConfig, jsConfig];
+const config = [cssConfig, jsConfig];
+export default config;

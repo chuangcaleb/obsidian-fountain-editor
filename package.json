@@ -22,18 +22,16 @@
 		"@rollup/plugin-node-resolve": "^16.0.0",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@types/node": "^22.13.9",
-		"@typescript-eslint/eslint-plugin": "8.26.0",
-		"@typescript-eslint/parser": "8.26.0",
 		"builtin-modules": "5.0.0",
 		"obsidian": "latest",
 		"postcss": "^8.5.3",
 		"postcss-import": "^16.1.0",
 		"postcss-preset-env": "^10.1.5",
-		"prettier": "^3.5.3",
 		"rollup": "^4.34.9",
 		"rollup-plugin-copy": "^3.5.0",
 		"rollup-plugin-postcss": "^4.0.2",
 		"tslib": "2.8.1",
-		"typescript": "5.8.2"
+		"typescript": "5.8.2",
+		"xo": "^0.60.0"
 	}
 }
