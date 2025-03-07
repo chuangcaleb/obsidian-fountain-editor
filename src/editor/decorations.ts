@@ -12,74 +12,101 @@ function composeFntClass(t: string) {
 	return `cm-formatting cm-fountain-formatting-${t}`;
 }
 
-function getLineFormat(
-	line: string,
-	state: FountainState,
-	context: FountainContext,
-) {
-	if (!line.trim()) {
-		// At least two spaces to be considered
-		// https://fountain.io/syntax#line-breaks
-		if (line.length < 2) {
-			state.inDialogue = false;
-		}
-
-		return null;
+function handleEmptyLine(line: string, state: FountainState) {
+	if (line.trim()) {
+		return false;
 	}
 
-	// Skip formatting within %% comments
+	// At least two spaces to be considered
+	// https://fountain.io/syntax#line-breaks
+	if (line.length < 2) {
+		state.inDialogue = false;
+	}
+
+	return true;
+}
+
+/** Skip formatting within %% comments */
+function handleCommentBlock(line: string, state: FountainState) {
 	if (state.inCommentBlock) {
 		if (line.includes("%%")) {
 			state.inCommentBlock = false;
 		}
 
-		return null;
+		return true;
 	}
 
 	if (line.includes("%%")) {
 		state.inCommentBlock = true;
+		return true;
+	}
+
+	return false;
+}
+
+function handleToken(
+	tId: string,
+	state: FountainState,
+	context: FountainContext,
+) {
+	if (tId === n.fBoneyardEnd) {
+		state.inBoneyard = false;
+	}
+
+	if (state.inBoneyard) {
+		return n.boneyard;
+	}
+
+	if (tId === n.fBoneyardStart) {
+		state.inDialogue = false;
+		state.inBoneyard = true;
+	}
+
+	if (tId === n.character) {
+		if (
+			context.afterEmptyLine &&
+			!context.beforeEmptyLine &&
+			!context.isLastLine
+		) {
+			state.inDialogue = true;
+		} else {
+			return null;
+		}
+	}
+
+	if (tId === n.parenthetical && !state.inDialogue) {
+		return null;
+	}
+
+	if (
+		tId === n.transition &&
+		!(context.afterEmptyLine && context.beforeEmptyLine)
+	) {
+		return null;
+	}
+
+	return tId;
+}
+
+function getLineFormat(
+	line: string,
+	state: FountainState,
+	context: FountainContext,
+) {
+	if (handleEmptyLine(line, state)) {
+		return null;
+	}
+
+	if (handleCommentBlock(line, state)) {
 		return null;
 	}
 
 	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
 		if (tRegex.test(line)) {
-			if (tId === n.fBoneyardEnd) {
-				state.inBoneyard = false;
+			const token = handleToken(tId, state, context);
+			if (token !== null) {
+				return token;
 			}
-
-			if (state.inBoneyard) {
-				return n.boneyard;
-			}
-
-			if (tId === n.fBoneyardStart) {
-				state.inDialogue = false;
-				state.inBoneyard = true;
-			}
-
-			if (tId === n.character) {
-				if (
-					context.afterEmptyLine &&
-					!context.beforeEmptyLine &&
-					!context.isLastLine
-				) {
-					state.inDialogue = true;
-				} else {
-					break;
-				}
-			}
-
-			if (tId === n.parenthetical && !state.inDialogue) {
-				break;
-			}
-
-			if (
-				tId === n.transition &&
-				!(context.afterEmptyLine && context.beforeEmptyLine)
-			) {
-				break;
-			}
-
-			return tId;
 		}
 	}
 
