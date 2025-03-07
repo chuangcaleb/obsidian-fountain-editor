@@ -27,6 +27,20 @@ function getLineFormat(
 		return null;
 	}
 
+	// Skip formatting within %% comments
+	if (state.inCommentBlock) {
+		if (line.includes("%%")) {
+			state.inCommentBlock = false;
+		}
+
+		return null;
+	}
+
+	if (line.includes("%%")) {
+		state.inCommentBlock = true;
+		return null;
+	}
+
 	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
 		if (tRegex.test(line)) {
 			if (tId === n.fBoneyardEnd) {
@@ -83,7 +97,6 @@ function getLineFormat(
 export function buildDecorations(view: EditorView): DecorationSet {
 	const builder = new RangeSetBuilder<Decoration>();
 
-	console.log(isFountainEnabled(view));
 	if (!isFountainEnabled(view)) {
 		return builder.finish();
 	}
@@ -96,6 +109,7 @@ export function buildDecorations(view: EditorView): DecorationSet {
 	const state: FountainState = {
 		inDialogue: false,
 		inBoneyard: false,
+		inCommentBlock: false,
 	};
 
 	for (const {from, to} of view.visibleRanges) {
