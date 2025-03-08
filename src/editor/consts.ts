@@ -14,10 +14,10 @@ export const TOKEN_NAMES = {
 	fBoneyardStart: "formatting-boneyard-start",
 	fBoneyardEnd: "formatting-boneyard-end",
 	pageBreak: "page-break",
-};
+} as const;
 
 const n = TOKEN_NAMES;
-// Ssd
+
 export const LINE_TOKENS = [
 	{
 		id: n.sceneHeading,
