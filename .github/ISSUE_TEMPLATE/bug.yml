@@ -53,8 +53,6 @@ body:
         - label: Linux
         - label: Android
         - label: iOS
-    validations:
-      required: true
   - type: checkboxes
     id: will-pr
     attributes:
