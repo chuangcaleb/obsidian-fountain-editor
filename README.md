@@ -51,7 +51,7 @@ EXT. PUBLIC RESTROOM - DAY
 A POLICE OFFICER steps into a dingy restroom. She winces.
 
 POLICE OFFICER (V.O.)
-I _smell_ a rat...
+I *smell* a rat...
 
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
 
