@@ -14,11 +14,17 @@
 	.cm-fountain-transition {
 		font-weight: var(--font-bold);
 		text-align: right;
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
 	}
 
 	.cm-fountain-centered {
 		font-weight: var(--font-bold);
 		text-align: center;
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
 	}
 
 	.cm-fountain-character {
