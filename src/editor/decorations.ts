@@ -1,143 +1,211 @@
-import { RangeSetBuilder } from "@codemirror/state";
-import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
-import { LINE_TOKENS, TOKEN_NAMES as n } from "./consts";
-import { FountainContext, FountainState } from "./interface";
-import { editorInfoField } from "obsidian";
+import {RangeSetBuilder} from "@codemirror/state";
+import {
+	Decoration,
+	type DecorationSet,
+	type EditorView,
+} from "@codemirror/view";
+import {editorInfoField} from "obsidian";
+import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
+import {type FountainContext, type FountainState} from "./interface.js";
 
-function composeFClass(t: string) {
+function composeFntClass(t: string) {
 	return `cm-formatting cm-fountain-formatting-${t}`;
+}
+
+function handleEmptyLine(line: string, state: FountainState) {
+	if (line.trim()) {
+		return false;
+	}
+
+	// At least two spaces to be considered
+	// https://fountain.io/syntax#line-breaks
+	if (line.length < 2) {
+		state.inDialogue = false;
+	}
+
+	return true;
+}
+
+/** Skip formatting within %% comments */
+function handleCommentBlock(line: string, state: FountainState) {
+	if (state.inCommentBlock) {
+		if (line.includes("%%")) {
+			state.inCommentBlock = false;
+		}
+
+		return true;
+	}
+
+	if (line.includes("%%")) {
+		state.inCommentBlock = true;
+		return true;
+	}
+
+	return false;
+}
+
+function handleToken(
+	tId: string,
+	state: FountainState,
+	context: FountainContext,
+) {
+	if (tId === n.fBoneyardEnd) {
+		state.inBoneyard = false;
+	}
+
+	if (state.inBoneyard) {
+		return n.boneyard;
+	}
+
+	if (tId === n.fBoneyardStart) {
+		state.inDialogue = false;
+		state.inBoneyard = true;
+	}
+
+	if (tId === n.character) {
+		if (
+			context.afterEmptyLine &&
+			!context.beforeEmptyLine &&
+			!context.isLastLine
+		) {
+			state.inDialogue = true;
+		} else {
+			return null;
+		}
+	}
+
+	if (tId === n.parenthetical && !state.inDialogue) {
+		return null;
+	}
+
+	if (
+		tId === n.transition &&
+		!(context.afterEmptyLine && context.beforeEmptyLine)
+	) {
+		return null;
+	}
+
+	return tId;
 }
 
 function getLineFormat(
 	line: string,
 	state: FountainState,
-	ctx: FountainContext,
+	context: FountainContext,
 ) {
-	if (!line.trim()) {
-		// at least two spaces to be considered
-		// https://fountain.io/syntax#line-breaks
-		if (line.length < 2) state.inDialogue = false;
+	if (handleEmptyLine(line, state)) {
 		return null;
 	}
 
-	for (const { id: tId, regex: tRegex } of LINE_TOKENS) {
-		if (tRegex.test(line)) {
-			if (tId === n.fBoneyardEnd) {
-				state.inBoneyard = false;
-			}
-			if (state.inBoneyard) {
-				return n.boneyard;
-			}
-			if (tId === n.fBoneyardStart) {
-				state.inDialogue = false;
-				state.inBoneyard = true;
-			}
-			if (tId === n.character) {
-				if (ctx.afterEmptyLine && !ctx.beforeEmptyLine && !ctx.isLastLine) {
-					state.inDialogue = true;
-				} else {
-					break;
-				}
-			}
-			if (tId === n.parenthetical) {
-				if (!state.inDialogue) break;
-			}
-			if (tId === n.transition) {
-				if (!(ctx.afterEmptyLine && ctx.beforeEmptyLine)) break;
-			}
+	if (handleCommentBlock(line, state)) {
+		return null;
+	}
 
-			return tId;
+	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
+		if (tRegex.test(line)) {
+			const token = handleToken(tId, state, context);
+			if (token !== null) {
+				return token;
+			}
 		}
 	}
 
 	if (state.inDialogue) {
 		return n.dialogue;
 	}
+
 	if (state.inBoneyard) {
 		return n.boneyard;
 	}
+
 	return n.action;
 }
 
 export function buildDecorations(view: EditorView): DecorationSet {
 	const builder = new RangeSetBuilder<Decoration>();
 
-	if (!isFountainEnabled(view)) return builder.finish();
+	if (!isFountainEnabled(view)) {
+		return builder.finish();
+	}
 
 	function markDeco(start: number, end: number, className: string) {
-		const deco = Decoration.mark({ class: className });
+		const deco = Decoration.mark({class: className});
 		builder.add(start, end, deco);
 	}
 
 	const state: FountainState = {
 		inDialogue: false,
 		inBoneyard: false,
+		inCommentBlock: false,
 	};
 
-	for (const { from, to } of view.visibleRanges) {
+	for (const {from, to} of view.visibleRanges) {
 		const visibleText = view.state.sliceDoc(from, to);
 		const maxLines = view.state.doc.lines;
 
 		for (let pos = from; pos <= to; ) {
 			const line = view.state.doc.lineAt(pos);
-			const { from: lFrom, to: lTo, text: lText } = line;
+			const {from: lFrom, to: lTo, text: lText} = line;
 
-			const relFrom = lFrom - from;
-			const relTo = lTo - from;
+			const relativeFrom = lFrom - from;
+			const relativeTo = lTo - from;
 
-			const ctx = {
-				afterEmptyLine: visibleText[relFrom - 2] === "\n",
-				beforeEmptyLine: visibleText[relTo + 1] === "\n",
+			const context = {
+				afterEmptyLine: visibleText[relativeFrom - 2] === "\n",
+				beforeEmptyLine: visibleText[relativeTo + 1] === "\n",
 				isLastLine: line.number === maxLines,
 			};
-			const token = getLineFormat(lText, state, ctx);
+			const token = getLineFormat(lText, state, context);
 
 			if (!token) {
 				pos = lTo + 1;
 				continue;
 			}
 
-			const deco = Decoration.line({ class: "cm-fountain-" + token });
+			const deco = Decoration.line({class: "cm-fountain-" + token});
 			builder.add(lFrom, lFrom, deco);
 
 			// Mark Decorations
 			const firstChar = lText[0];
 			const lastChar = lText[line.length - 1];
-			if (
-				token === n.action &&
-				firstChar === "!" &&
-				lText.substring(0, 3) !== "![["
-			) {
-				markDeco(lFrom, lFrom + 1, composeFClass(token));
+			if (token === n.action && firstChar === "!" && !lText.startsWith("![[")) {
+				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
+
 			if (token === n.sceneHeading && firstChar === ".") {
-				markDeco(lFrom, lFrom + 1, composeFClass(token));
+				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
+
 			if (token === n.lyrics && firstChar === "~") {
-				markDeco(lFrom, lFrom + 1, composeFClass(token));
+				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
+
 			if (token === n.synopsis && firstChar === "=") {
-				markDeco(lFrom, lFrom + 2, composeFClass(token));
+				markDeco(lFrom, lFrom + 2, composeFntClass(token));
 			}
+
 			if (token === n.character) {
 				if (firstChar === "@") {
-					markDeco(lFrom, lFrom + 1, composeFClass(token));
+					markDeco(lFrom, lFrom + 1, composeFntClass(token));
 				}
+
 				if (lastChar === ")") {
-					const charExt = lText.match(/(\(.*\))?$/g);
-					if (charExt === null) {
+					const charExtension = lText.match(/(\(.*\))?$/g);
+					if (charExtension === null) {
 						console.error(
 							"Character regex broken; char ext segment should exist",
 						);
 						continue;
 					}
-					const charExtLength = charExt[0].length;
-					const charExtStart = lTo - charExtLength;
-					markDeco(charExtStart, lTo, "cm-fountain-character-extension");
+
+					const charExtensionLength = charExtension[0].length;
+					const charExtensionStart = lTo - charExtensionLength;
+					markDeco(charExtensionStart, lTo, "cm-fountain-character-extension");
 				}
 			}
+
 			if (token === n.centered && lastChar === "<") {
-				markDeco(lTo - 1, lTo, composeFClass(token));
+				markDeco(lTo - 1, lTo, composeFntClass(token));
 			}
 
 			pos = lTo + 1;
@@ -147,13 +215,43 @@ export function buildDecorations(view: EditorView): DecorationSet {
 	return builder.finish();
 }
 
+function hasFrontmatterProperty(field: any, query: string) {
+	if (Array.isArray(field)) {
+		return field.includes(query);
+	}
+
+	return field === query;
+}
+
 function isFountainEnabled(view: EditorView) {
 	const info = view.state.field(editorInfoField);
-	const { app, file } = info;
-	if (file?.extension == "fountain") return true;
-	if (file) {
-		const fileCache = app.metadataCache.getFileCache(file);
-		const cssClasses = fileCache?.frontmatter?.cssclasses ?? [];
-		return cssClasses.includes("fountain");
+	const {app, file} = info;
+	if (!file) {
+		return false;
 	}
+
+	if (file.extension === "fountain") {
+		return true;
+	}
+
+	if (file.basename.endsWith(".fountain")) {
+		return true;
+	}
+
+	// TODO: to deprecate using cssclasses
+	const fileCache = app.metadataCache.getFileCache(file);
+	const frontmatter = fileCache?.frontmatter;
+	if (!frontmatter) {
+		return false;
+	}
+
+	if (hasFrontmatterProperty(frontmatter?.cssclasses, "fountain")) {
+		return true;
+	}
+
+	if (hasFrontmatterProperty(frontmatter?.tags, "fountain")) {
+		return true;
+	}
+
+	return false;
 }

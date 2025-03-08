@@ -1,9 +1,10 @@
-export interface FountainState {
+export type FountainState = {
 	inDialogue: boolean;
 	inBoneyard: boolean;
-}
-export interface FountainContext {
+	inCommentBlock: boolean;
+};
+export type FountainContext = {
 	afterEmptyLine: boolean;
 	beforeEmptyLine: boolean;
 	isLastLine: boolean;
-}
+};

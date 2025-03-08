@@ -15,20 +15,14 @@ body:
     id: issues-related
     attributes:
       label: Issues Related
-    validations:
-      required: true
   - type: textarea
     id: issues-blocked-by
     attributes:
       label: Issues Blocked By
-    validations:
-      required: true
   - type: textarea
     id: issues-blocking
     attributes:
       label: Issues Blocking
-    validations:
-      required: true
   - type: textarea
     id: screenshots
     attributes:
