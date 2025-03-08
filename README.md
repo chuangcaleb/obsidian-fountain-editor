@@ -54,6 +54,13 @@ POLICE OFFICER (V.O.)
 I _smell_ a rat...
 
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
+
+%%
+You can use **Obsidian comment blocks** too!
+
+> [!important] Look, a blockquote!
+
+%%
 ```
 
 <!-- DOCS: Where to start -->
@@ -88,7 +95,7 @@ I _smell_ a rat...
 - 🛁 **Enjoy extended Obsidian syntax** where possible — bring your regular Obsidian markdown, tools, plugins, and workflow!
   - 🧰 **Leverage Obsidian!Markdown**: Use Links, Tags, Embedded Notes / Images / Audio, Graph...
   - 🛏️ **Feel at home**: Fountain's [Section](https://fountain.io/syntax/#sections-synopses) and [Emphasis](https://fountain.io/syntax/#emphasis) syntax don't add new styles — which means they'll look like familiar Obsidian [Headings](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Headings) and [inline text styles](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text)!
-  - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with Fountain's [Synopsis](https://fountain.io/syntax/#sections-synopses) token!
+  - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with [Fountain's Synopsis](https://fountain.io/syntax/#sections-synopses) token or [Obsidian's comment blocks](https://help.obsidian.md/syntax#Comments)!
 - 🤝 **Combine with your favorite Obsidian community plugins** like [Longform](https://github.com/kevboh/longform)!
 - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`... see [base.css](src/styles/base.css) for the exposed CSS variables!
 - 🧑‍💻 **Hack in missing features** — with Obsidian's open-contribution development, there'll be no more "it would've been perfect, if only they had _x_ feature"!
