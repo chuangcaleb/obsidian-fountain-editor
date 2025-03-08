@@ -1,7 +1,7 @@
 import {Prec} from "@codemirror/state";
 import {Plugin, type TFile} from "obsidian";
 import {fountainPlugin} from "./editor/plugin.js";
-import {onMetadataChanged, updateClass} from "./utils/tracker.js";
+import {onMetadataChanged, updateClass} from "./tracker.js";
 
 export default class FountainPlugin extends Plugin {
 	async onload() {
