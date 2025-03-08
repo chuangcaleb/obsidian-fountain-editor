@@ -1,4 +1,4 @@
-import {RangeSetBuilder} from "@codemirror/state";
+import {RangeSetBuilder, type StateField} from "@codemirror/state";
 import {
 	Decoration,
 	type DecorationSet,
@@ -121,12 +121,17 @@ function getLineFormat(
 	return n.action;
 }
 
-export function buildDecorations(view: EditorView): DecorationSet {
-	const builder = new RangeSetBuilder<Decoration>();
+export function buildDecorations(
+	view: EditorView,
+	isFountainStateField: StateField<boolean>,
+): DecorationSet {
+	const isFountain = view.state.field(isFountainStateField, false);
 
-	if (!isFountainEnabled(view)) {
-		return builder.finish();
+	if (!isFountain) {
+		return Decoration.none;
 	}
+
+	const builder = new RangeSetBuilder<Decoration>();
 
 	function markDeco(start: number, end: number, className: string) {
 		const deco = Decoration.mark({class: className});
@@ -213,45 +218,4 @@ export function buildDecorations(view: EditorView): DecorationSet {
 	}
 
 	return builder.finish();
-}
-
-function hasFrontmatterProperty(field: any, query: string) {
-	if (Array.isArray(field)) {
-		return field.includes(query);
-	}
-
-	return field === query;
-}
-
-function isFountainEnabled(view: EditorView) {
-	const info = view.state.field(editorInfoField);
-	const {app, file} = info;
-	if (!file) {
-		return false;
-	}
-
-	if (file.extension === "fountain") {
-		return true;
-	}
-
-	if (file.basename.endsWith(".fountain")) {
-		return true;
-	}
-
-	// TODO: to deprecate using cssclasses
-	const fileCache = app.metadataCache.getFileCache(file);
-	const frontmatter = fileCache?.frontmatter;
-	if (!frontmatter) {
-		return false;
-	}
-
-	if (hasFrontmatterProperty(frontmatter?.cssclasses, "fountain")) {
-		return true;
-	}
-
-	if (hasFrontmatterProperty(frontmatter?.tags, "fountain")) {
-		return true;
-	}
-
-	return false;
 }
