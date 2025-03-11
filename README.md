@@ -56,9 +56,9 @@ I *smell* a rat...
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
 
 %%
-You can use **Obsidian comment blocks** too!
+You can use **Obsidian comment blocks** to escape into markdown too!
 
-> [!important] Look, a blockquote!
+> [!tip] Strip these comments out with the Obsidian Longform plugin!
 
 %%
 ```
