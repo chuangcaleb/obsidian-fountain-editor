@@ -22,9 +22,9 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	--fountain--line-width-factor: 6;
 
 	--fountain--character-left-factor: 2;
-	--fountain--character-right-factor: 1.1;
+	--fountain--character-right-factor: 1.5;
 	--fountain--dialogue-left-factor: 1.1;
-	--fountain--dialogue-right-factor: 1;
+	--fountain--dialogue-right-factor: 1.1;
 	--fountain--parenthesis-left-factor: 1.5;
 	--fountain--parenthesis-right-factor: 1.1;
 
@@ -37,20 +37,20 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	--fountain-final-line-width: min(100%, var(--file-line-width));
 
 	--fountain-character-left: calc(
-		var(--fountain--character-left-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-final-line-width)
+		var(--fountain--character-left-factor) /
+			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
 	);
 	--fountain-character-right: calc(
-		var(--fountain--character-right-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-final-line-width)
+		var(--fountain--character-right-factor) /
+			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
 	);
 	--fountain-dialogue-left: calc(
 		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
 			var(--fountain-final-line-width)
 	);
 	--fountain-dialogue-right: calc(
-		var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-final-line-width)
+		var(--fountain--dialogue-right-factor) /
+			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
 	);
 	--fountain-parenthesis-left: calc(
 		var(--fountain--parenthesis-left-factor) /
