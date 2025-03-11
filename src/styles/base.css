@@ -32,8 +32,10 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 
 	--fountain--fixed-line-width-base: 1in;
 
-	/* calculated -- do not touch -------------------------------------------- */
+	/* The color of text inside %% comments */
+	/* --fountain--code-comment: var(--text-normal); */
 
+	/* calculated -- do not touch -------------------------------------------- */
 	--fountain-final-line-width: min(100%, var(--file-line-width));
 
 	--fountain-character-left: calc(

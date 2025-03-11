@@ -67,6 +67,10 @@
 	.cm-formatting[class*="cm-fountain-formatting-"] {
 		color: var(--text-faint);
 	}
+
+	.cm-line > *:not(.cm-formatting) {
+		--code-comment: var(--fountain--code-comment, var(--text-muted));
+	}
 }
 
 .markdown-source-view.mod-cm6.fountain .cm-line:not(.cm-active) {
