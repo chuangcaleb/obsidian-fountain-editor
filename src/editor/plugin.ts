@@ -1,5 +1,6 @@
 import {StateEffect, StateField} from "@codemirror/state";
 import {
+	Decoration,
 	type DecorationSet,
 	type EditorView,
 	type PluginSpec,
@@ -40,11 +41,19 @@ class FountainPlugin implements PluginValue {
 	decorations: DecorationSet;
 
 	constructor(view: EditorView) {
-		this.decorations = buildDecorations(view, isFountainStateField);
+		this.decorations = view.state.field(isFountainStateField)
+			? buildDecorations(view, isFountainStateField)
+			: Decoration.none;
 	}
 
 	update(update: ViewUpdate) {
-		if (update.docChanged || update.viewportChanged) {
+		const shouldBuildDecorations =
+			update.docChanged ||
+			update.viewportChanged ||
+			update.startState.field(isFountainStateField) !==
+				update.state.field(isFountainStateField);
+
+		if (shouldBuildDecorations) {
 			this.decorations = buildDecorations(update.view, isFountainStateField);
 		}
 	}
