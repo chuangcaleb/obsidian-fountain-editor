@@ -32,6 +32,7 @@ export function updateClass(app: App) {
 	if (metadata?.frontmatter?.cssclasses) {
 		const cssclasses = metadata.frontmatter.cssclasses as string[];
 		if (cssclasses.includes("fountain")) {
+			toggleClass(app, true);
 			return;
 		}
 	}
