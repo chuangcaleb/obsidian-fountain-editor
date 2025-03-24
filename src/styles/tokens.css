@@ -92,8 +92,6 @@
 		color: var(--text-faint);
 	}
 
-	<<<<<<< HEAD
-
 	/* Formatting characters only hidden on live preview */
 	&.is-live-preview .cm-line:not(.cm-active) {
 		[class*="cm-fountain-formatting-"] {
@@ -110,7 +108,7 @@
 			display: inherit;
 		}
 
-		=======.cm-line>*:not(.cm-formatting) {
+		.cm-line>*:not(.cm-formatting) {
 			--code-comment: var(--fountain--code-comment, var(--text-muted));
 		}
 	}
@@ -123,6 +121,6 @@
 		.cm-fountain-formatting-centered {
 			visibility: hidden;
 			display: inherit;
-			>>>>>>>upstream/master
 		}
 	}
+}
