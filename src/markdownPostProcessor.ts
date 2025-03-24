@@ -48,6 +48,7 @@ export function markdownPostProcessor(
 	const state: FountainState = {
 		inDialogue: false,
 		inBoneyard: false,
+		inCommentBlock: false,
 	};
 
 	for (const p of Array.from(paragraphs)) {
