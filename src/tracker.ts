@@ -15,7 +15,7 @@ export function updateClass(app: App) {
 		return;
 	}
 
-	if (file.extension === ".fountain" || file.basename.endsWith(".fountain")) {
+	if (file.extension === "fountain" || file.basename.endsWith(".fountain")) {
 		toggleClass(app, true);
 		return;
 	}
