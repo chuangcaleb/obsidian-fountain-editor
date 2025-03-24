@@ -35,6 +35,6 @@ jobs:
           draft: ${{ github.event.release.unpublished }}
           prerelease: ${{ github.event.release.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: './main.js, ./manifest.json, ./styles.css'
+          artifacts: './build/main.js, ./build/manifest.json, ./build/styles.css'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
