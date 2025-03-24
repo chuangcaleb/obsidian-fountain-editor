@@ -2,7 +2,7 @@
 
 /* * unconstrained: no styles */
 
-.markdown-source-view.mod-cm6.fountain {
+.markdown-source-view.mod-cm6 {
 	/* * left unconstrained */
 	/* Disable for now until we have a fix for Minimal */
 	/* &.fountain-left .cm-contentContainer {

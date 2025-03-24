@@ -9,6 +9,8 @@
 
 > 📺 **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
+[![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)](https://obsidian.md/plugins?id=fountain-editor) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+
 ---
 
 <!--
@@ -24,9 +26,12 @@
 ### 🏁 Quickstart
 
 1. 📥 [Click HERE to open the installation page in Obsidian](https://obsidian.md/plugins?id=fountain-editor).
-    1. General installation instructions [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
-    2. Manual installation [Link →](#-manual-installation)
-2. 📄 Create a new file and just add `cssclasses: fountain` to the frontmatter metadata Properties.
+   1. General installation instructions [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+   2. Manual installation [Link →](#-manual-installation)
+2. 📄 Mark a markdown note for fountain formatting:
+   1. Use a `.fountain.md` extension
+   2. Add a `#fountain` tag to the frontmatter metadata Properties
+   3. add `cssclasses: fountain` to the frontmatter metadata Properties.
 3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax rules](https://fountain.io/syntax/)**!
 
 ```markdown
@@ -34,6 +39,7 @@
 cssclasses:
   - fountain
 ---
+
 # Opening Hook
 
 > THE STINK LINK <
@@ -48,6 +54,13 @@ POLICE OFFICER (V.O.)
 I *smell* a rat...
 
 = Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
+
+%%
+You can use **Obsidian comment blocks** to escape into markdown too!
+
+> [!tip] Strip these comments out with the Obsidian Longform plugin!
+
+%%
 ```
 
 <!-- DOCS: Where to start -->
@@ -82,7 +95,7 @@ I *smell* a rat...
 - 🛁 **Enjoy extended Obsidian syntax** where possible — bring your regular Obsidian markdown, tools, plugins, and workflow!
   - 🧰 **Leverage Obsidian!Markdown**: Use Links, Tags, Embedded Notes / Images / Audio, Graph...
   - 🛏️ **Feel at home**: Fountain's [Section](https://fountain.io/syntax/#sections-synopses) and [Emphasis](https://fountain.io/syntax/#emphasis) syntax don't add new styles — which means they'll look like familiar Obsidian [Headings](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Headings) and [inline text styles](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text)!
-  - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with Fountain's [Synopsis](https://fountain.io/syntax/#sections-synopses) token!
+  - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with [Fountain's Synopsis](https://fountain.io/syntax/#sections-synopses) token or [Obsidian's comment blocks](https://help.obsidian.md/syntax#Comments)!
 - 🤝 **Combine with your favorite Obsidian community plugins** like [Longform](https://github.com/kevboh/longform)!
 - 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`... see [base.css](src/styles/base.css) for the exposed CSS variables!
 - 🧑‍💻 **Hack in missing features** — with Obsidian's open-contribution development, there'll be no more "it would've been perfect, if only they had _x_ feature"!
@@ -119,7 +132,6 @@ I *smell* a rat...
   - 👥 All this proves that there's a community of people who are interested!
 - ✍🏼 **Create a screenplay project** using this plugin!
   - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
-- 🎨 You can find a link to the Figma design file for the icon [here](https://www.figma.com/file/0YoeCyzLLHUBkzUsBqmxh9/Obsidian-Fountain-Editor-Icon)!
 
 #### 🤓 Know how to code? You can contribute too
 
@@ -151,4 +163,3 @@ If you want a more personal DM'ing (or just to send a private note of thanks!), 
   - Made by the creator of Fountain.
   - Features its own text editor app, WYSIWYG, "Revision Mode" and analysis tools.
   - Since everything is wrapped in a nice bow, it's probably the best Fountain-writing app if you're not technical.
-

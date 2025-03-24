@@ -25,12 +25,36 @@
 	.cm-fountain-transition {
 		font-weight: var(--font-bold);
 		text-align: right;
+
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
 	}
 
 	.fountain-centered,
 	.cm-fountain-centered {
 		font-weight: var(--font-bold);
 		text-align: center;
+
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
+	}
+
+	/* transition and centered tokens, must override Obsidian blockquote styles */
+	.cm-fountain-centered,
+	.cm-fountain-transition {
+		/* reset any styles set by plugins */
+		font-style: normal;
+		background-color: inherit;
+		/* set on element.style by blockquote */
+		text-indent: 0 !important;
+		padding-inline-start: 0 !important;
+
+		/* remove left border */
+		&::before {
+			display: none;
+		}
 	}
 
 	.fountain-character,
@@ -68,6 +92,8 @@
 		color: var(--text-faint);
 	}
 
+	<<<<<<< HEAD
+
 	/* Formatting characters only hidden on live preview */
 	&.is-live-preview .cm-line:not(.cm-active) {
 		[class*="cm-fountain-formatting-"] {
@@ -83,5 +109,20 @@
 			visibility: hidden;
 			display: inherit;
 		}
+
+		=======.cm-line>*:not(.cm-formatting) {
+			--code-comment: var(--fountain--code-comment, var(--text-muted));
+		}
 	}
-}
+
+	.markdown-source-view.mod-cm6.fountain .cm-line:not(.cm-active) {
+		[class*="cm-fountain-formatting-"] {
+			display: none;
+		}
+
+		.cm-fountain-formatting-centered {
+			visibility: hidden;
+			display: inherit;
+			>>>>>>>upstream/master
+		}
+	}

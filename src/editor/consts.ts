@@ -14,7 +14,7 @@ export const TOKEN_NAMES = {
 	fBoneyardStart: "formatting-boneyard-start",
 	fBoneyardEnd: "formatting-boneyard-end",
 	pageBreak: "page-break",
-};
+} as const;
 
 const n = TOKEN_NAMES;
 
@@ -22,7 +22,7 @@ export const LINE_TOKENS = [
 	{
 		id: n.sceneHeading,
 		regex:
-			/^((?:\*{0,3}_?)?(?:(?:int|ext|est|i\/e|int\/ext)[. ]).+)|^(?:\.(?!\.+))(.+)/i,
+			/^((?:\*{0,3}_?)?(?:int|ext|est|i\/e|int\/ext)[. ].+)|^\.(?!\.+)(.+)/i,
 	},
 	{
 		id: n.action,
@@ -31,11 +31,11 @@ export const LINE_TOKENS = [
 	{
 		id: n.character,
 		regex:
-			/^[^\S\r\n]*(?=.*[A-Z\u00C0-\u00DEF])[A-Z0-9\u00C0-\u00DEF \t'.-]+\s?(\(.*\))?$|@.*$/,
+			/^[^\S\r\n]*(?=.*[A-Z\u00C0-\u00DEF])[A-Z\d\u00C0-\u00DEF \t'.-]+\s?(\(.*\))?$|@.*$/,
 	},
 	{
 		id: n.dialogue,
-		regex: /^[^\S\r\n]*(\^?)?(?:\n(?!\n+))([\s\S]+)/,
+		regex: /^[^\S\r\n]*(\^?)?\n(?!\n+)([\s\S]+)/,
 	},
 	{
 		id: n.parenthetical,
@@ -55,13 +55,13 @@ export const LINE_TOKENS = [
 	},
 	{
 		id: n.section,
-		regex: /^(#+)(?: *)(.*)/,
+		regex: /^(#+) *(.*)/,
 	},
 	{
 		id: n.synopsis,
-		regex: /^(?:=(?!=+) *)(.*)$/,
+		regex: /^=(?!=+) *(.*)$/,
 	},
-	// note: /^(?:\[{2}(?!\[+))(.+)(?:\]{2}(?!\[+))$/,
+	// Note: /^(?:\[{2}(?!\[+))(.+)(?:\]{2}(?!\[+))$/,
 	// note_inline: /(?:\[{2}(?!\[+))([\s\S]+?)(?:\]{2}(?!\[+))/g,
 	// boneyard: /(^\/\*|^\*\/)$/g,
 	{
