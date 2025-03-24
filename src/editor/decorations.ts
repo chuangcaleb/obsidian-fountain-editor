@@ -1,12 +1,12 @@
-import {RangeSetBuilder, type StateField} from "@codemirror/state";
+import { RangeSetBuilder, type StateField } from "@codemirror/state";
 import {
 	Decoration,
 	type DecorationSet,
 	type EditorView,
 } from "@codemirror/view";
-import {editorInfoField} from "obsidian";
-import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
-import {type FountainContext, type FountainState} from "./interface.js";
+import { editorInfoField } from "obsidian";
+import { LINE_TOKENS, TOKEN_NAMES as n } from "./consts.js";
+import { type FountainContext, type FountainState } from "./interface.js";
 
 function composeFntClass(t: string) {
 	return `cm-formatting cm-fountain-formatting-${t}`;
@@ -101,7 +101,7 @@ function getLineFormat(
 		return null;
 	}
 
-	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
+	for (const { id: tId, regex: tRegex } of LINE_TOKENS) {
 		if (tRegex.test(line)) {
 			const token = handleToken(tId, state, context);
 			if (token !== null) {
@@ -134,7 +134,7 @@ export function buildDecorations(
 	const builder = new RangeSetBuilder<Decoration>();
 
 	function markDeco(start: number, end: number, className: string) {
-		const deco = Decoration.mark({class: className});
+		const deco = Decoration.mark({ class: className });
 		builder.add(start, end, deco);
 	}
 
@@ -144,13 +144,13 @@ export function buildDecorations(
 		inCommentBlock: false,
 	};
 
-	for (const {from, to} of view.visibleRanges) {
+	for (const { from, to } of view.visibleRanges) {
 		const visibleText = view.state.sliceDoc(from, to);
 		const maxLines = view.state.doc.lines;
 
-		for (let pos = from; pos <= to; ) {
+		for (let pos = from; pos <= to;) {
 			const line = view.state.doc.lineAt(pos);
-			const {from: lFrom, to: lTo, text: lText} = line;
+			const { from: lFrom, to: lTo, text: lText } = line;
 
 			const relativeFrom = lFrom - from;
 			const relativeTo = lTo - from;
@@ -167,7 +167,7 @@ export function buildDecorations(
 				continue;
 			}
 
-			const deco = Decoration.line({class: "cm-fountain-" + token});
+			const deco = Decoration.line({ class: "cm-fountain-" + token });
 			builder.add(lFrom, lFrom, deco);
 
 			// Mark Decorations
@@ -208,7 +208,11 @@ export function buildDecorations(
 					markDeco(charExtensionStart, lTo, "cm-fountain-character-extension");
 				}
 			}
-
+			if (token === n.dialogue) {
+				if (firstChar === "\\") {
+					markDeco(lFrom, lFrom + 1, composeFntClass(token));
+				}
+			}
 			if (token === n.centered && lastChar === "<") {
 				markDeco(lTo - 1, lTo, composeFntClass(token));
 			}

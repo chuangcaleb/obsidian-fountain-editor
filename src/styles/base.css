@@ -5,7 +5,8 @@ Adapted from
 But ahh, still looks weird. I'm eyeballing values based on comparing the styling with images of printed-out familiar screenplays
 */
 
-.markdown-source-view.mod-cm6 {
+.markdown-preview-view.fountain,
+.markdown-source-view.mod-cm6.fountain {
 	/*
 	"max" width is to expand to the maximum width of the editor (default)
 	This means we need wider margins/line widths
@@ -28,7 +29,7 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	--fountain--parenthesis-left-factor: 1.5;
 	--fountain--parenthesis-right-factor: 1.1;
 
-	--fountain--font-family: "Courier New", "Courier", monospace;
+	--fountain--font-family: "Courier Prime", "Courier", monospace;
 
 	--fountain--fixed-line-width-base: 1in;
 
@@ -38,32 +39,12 @@ But ahh, still looks weird. I'm eyeballing values based on comparing the styling
 	/* calculated -- do not touch -------------------------------------------- */
 	--fountain-final-line-width: min(100%, var(--file-line-width));
 
-	--fountain-character-left: calc(
-		var(--fountain--character-left-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-character-right: calc(
-		var(--fountain--character-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-dialogue-left: calc(
-		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-final-line-width)
-	);
-	--fountain-dialogue-right: calc(
-		var(--fountain--dialogue-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-parenthesis-left: calc(
-		var(--fountain--parenthesis-left-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-parenthesis-right: calc(
-		var(--fountain--parenthesis-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
+	--fountain-character-left: calc(var(--fountain--character-left-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
+	--fountain-character-right: calc(var(--fountain--character-right-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
+	--fountain-dialogue-left: calc(var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
+	--fountain-dialogue-right: calc(var(--fountain--dialogue-right-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
+	--fountain-parenthesis-left: calc(var(--fountain--parenthesis-left-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
+	--fountain-parenthesis-right: calc(var(--fountain--parenthesis-right-factor) / var(--fountain--line-width-factor) * var(--fountain-final-line-width));
 
-	--fountain-fixed-line-width: calc(
-		var(--fountain--line-width-factor) * var(--fountain--fixed-line-width-base)
-	);
+	--fountain-fixed-line-width: calc(var(--fountain--line-width-factor) * var(--fountain--fixed-line-width-base));
 }
