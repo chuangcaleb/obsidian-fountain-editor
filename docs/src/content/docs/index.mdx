@@ -1,0 +1,94 @@
+---
+title: Fountain Editor - Obsidian Plugin
+description: Documentation for the Obsidian plugin for Fountain (screenplay) syntax highlighting in the editor.
+template: splash
+hero:
+  tagline: Write screenplays in Obsidian.
+  image:
+    file: ../../assets/obsidian-fountain-editor-logo.svg
+  actions:
+    - text: Install plugin
+      link: obsidian://show-plugin?id=obsidian-custom-file-extensions-plugin
+      icon: download
+    - text: Read the docs
+      link: start-here/overview
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+import BannerImg from "../../assets/banner.png";
+import LogoSvg from "../../assets/obsidian-fountain-editor-logo.svg";
+
+<Image alt="banner" src={BannerImg} />
+
+![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+
+## 🧰 Our Toolset
+
+Get to know the distinct building blocks of this "tech stack".
+
+<CardGrid stagger>
+	<Card title="Markdown">
+		A lightweight markup language that uses plain text formatting for easy
+		conversion to HTML and other formats.
+	</Card>
+	<Card title="Obsidian">
+		A markdown-based note-taking and knowledge management tool with a focus on
+		linking and organizing information.
+	</Card>
+	<Card title="Fountain">
+		A plain-text Markdown-like syntax specifically designed for writing
+		screenplays, using simple formatting rules.
+	</Card>
+	<Card title="Fountain Editor - Obsidian Plugin">
+		A plugin that integrates the Fountain syntax into Obsidian's editor!
+	</Card>
+	<Card title="Other Plugins & External Tools!">
+		Effortlessly incorporate other Obsidian plugins, and external screenplay
+		tools and apps!
+	</Card>
+	<Card title="Huh???">
+		You: "I like your funny words, magic man! What are all these different
+		names? I'm new to all this!" [Read more →](start-here/toolset)
+	</Card>
+</CardGrid>
+
+## ✨ Key Features
+
+<CardGrid stagger>
+	<Card title="Author with Obsidian" icon="pen">
+		One app for your research, references, ideating, outlining, drafting,
+		writing. All linked. Unopinionated workflow.
+	</Card>
+	<Card title="Intuitive Hybrid Syntax" icon="translate">
+		Fountain + Markdown. Interleaved and complementary, with simple design for
+		opt-in and opt-out!
+	</Card>
+	<Card title="Supercharge with Other Plugins" icon="rocket">
+		2k+ Obsidian plugins to further extend functionality.
+	</Card>
+	<Card title="Fine-Tune to Your Workflow" icon="setting">
+		Modular, scoped and configurable components, to achieve *the perfect writing
+		app just for you*.
+	</Card>
+</CardGrid>
+
+import { LinkButton } from "@astrojs/starlight/components";
+
+<div style={{ textAlign: "center", marginTop: "4em" }}>
+	<div style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
+		<Image alt="logo" src={LogoSvg} width={100} />
+		<h2 style={{ marginBlock: "auto" }}>Like what you see?</h2>
+	</div>
+	<LinkButton
+		href="http://github.com/chuangcaleb/obsidian-fountain-editor"
+		icon="github"
+	>
+		Star on GitHub
+	</LinkButton>
+	<LinkButton href="start-here/overview" icon="open-book" variant="minimal">
+		Read the docs
+	</LinkButton>
+</div>

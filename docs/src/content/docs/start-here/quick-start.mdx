@@ -1,0 +1,110 @@
+---
+title: ⚡ Quick Start
+description: An overview of the Obsidian Fountain Editor project
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside>
+	This page dives straight into using the plugin. If you need more context on
+	what even is all this Markdown, Obsidian, and Fountain, you may want to [read
+	more first](/start-here/toolset).
+</Aside>
+
+---
+
+## 🔨 Usage
+
+### 🏁 Quickstart
+
+1. 📥 [Open the installation prompt in Obsidian](https://obsidian.md/plugins?id=fountain-editor) (recommended)
+   1. How to install Obsidian plugins (beginner) [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+   2. Manual installation (advanced) [Link →](#-manual-installation)
+2. 📄 Mark a markdown note for fountain formatting:
+   1. Use a `.fountain.md` extension
+   2. Add a `#fountain` tag to the frontmatter metadata Properties
+   3. add `cssclasses: fountain` to the frontmatter metadata Properties.
+3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax](https://fountain.io/syntax/)**! Try copy-pasting this:
+
+```markdown
+---
+cssclasses:
+  - fountain
+---
+
+# Opening Hook
+
+> THE STINK LINK <
+
+FADE TO:
+
+EXT. PUBLIC RESTROOM - DAY
+
+A POLICE OFFICER steps into a dingy restroom. She winces.
+
+POLICE OFFICER (V.O.)
+I _smell_ a rat...
+
+= Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
+
+%%
+You can use **Obsidian comment blocks** to escape into markdown too!
+
+> [!tip] Strip these Obsidian comments out with the Obsidian Longform plugin!
+
+%%
+```
+
+{/* DOCS: Where to start */}
+
+### 💿 Manual Installation
+
+1. 🆕 You may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat) using the link of this repo (`https://github.com/chuangcaleb/obsidian-fountain-editor`).
+2. 📤 You can also go to the repo's [Latest Releases](https://github.com/chuangcaleb/obsidian-fountain-editor/releases/latest/) page and manually download the `obsidian-fountain-editor-[version].zip` file, then extract it into your `.obsidian/plugin` directory!
+
+---
+
+## 🤝 Synergistic Tools
+
+- **[kevboh/longform](https://github.com/kevboh/longform): _A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects._**
+- [Better Fountain - Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain): _Fountain autocomplete, syntax highlighting, and export to PDF_
+- [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): _An obsidian plugin allowing you to register and view different file extensions in a modular manner._
+- [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): _Typewriter Scroll Obsidian Plugin_
+
+> 📖 Explore [Synergistic Tools](docs/basic/synergistic-tools.md) for details on how they work together with this plugin!
+
+---
+
+## 💝 Contributing
+
+### 👀 Overview
+
+#### 😎 Don't know how to code? You can contribute
+
+- 🪲 **Report bugs** on [the Issue tab](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/new?assignees=&labels=%F0%9F%AA%B2+a/bug&projects=chuangcaleb/2&template=bug_report.md)!
+- 📣 **Share ([the link to](https://github.com/chuangcaleb/obsidian-fountain-editor)) this plugin** around on _forums_ and _channels_ and with your _friends_!
+  - 🌟 **Star** this repo to receive updates & help raise awareness — if this project has been worth one button click to you!
+- 🗣️ **Engage** with others in the [Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions) tab!
+  - 💡 [Pitch an idea](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/ideas) / feature request!
+  - 🙏 [Answer questions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/q-a) from the community!
+  - 🛠️ [Share tips & tricks](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/tips-tricks) that have helped you!
+  - 🤩 [Send words of encouragement](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) — they actually make a difference to me! :D
+  - 👥 All this proves that there's a community of people who are interested!
+- ✍🏼 **Create a screenplay project** using this plugin!
+  - 📸 **[Showcase your work](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/showcase)** of how you took advantage of mixing the best of Fountain + Obsidian. Then I can reuse your examples in promotions, and maybe get inspiration for new features too! hehe
+
+#### 🤓 Know how to code? You can contribute too
+
+- 🔀 **Open a Pull Request!** _Focus on critical bugs and priority features first._
+- 🪲 **Report a bug** — but with your _specialized technical diagnosis_!
+- 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
+
+> 💝 See [Contributing](/CONTRIBUTING.md) for proper technical details!
+
+### 🤙 Contact
+
+The [General - Discussions](https://github.com/chuangcaleb/obsidian-fountain-editor/discussions/categories/general) tab is a neat place you can just tag me in, because you also invite anyone from the community to join in the conversation! It's also better for keeping the context scoped within this project/repo.
+
+If you want a more personal DM'ing (or just to send a private note of thanks!), you can reach me on Discord[#chuangcaleb](https://discordapp.com/users/199882835685801984)! You can also reach out by email to [dev@chuangcaleb.com](mailto:dev@chuangcaleb.com)!
+
+---

@@ -1,6 +1,9 @@
-# Conflicts between Obsidian-flavored Markdown vs Fountain
+---
+title: 🥊 Syntax Conflicts
+description: A detailed explanation about the conflicts between Obsidian-flavoured markdown and Fountain syntax.
+---
 
-There are two obvious cases of formatting conflict.
+These are the cases of formatting conflict between the Obsidian-flavoured Markdown and Fountain syntax.
 
 | Formatting                    | Markdown/Obsidian                                                                              | Fountain                                                                                                                 |
 | ----------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |

@@ -1,4 +1,7 @@
-# 👨‍💻 Local Development
+---
+title: Developing
+description: Information for contributing code.
+---
 
 The main relevant files you can inspect are [package.json](/package.json), [rollup.config.js](/rollup.config.js) and [release.yml](/.github/workflows/release.yml).
 

@@ -1,0 +1,46 @@
+---
+title: ⭐ Overview
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+import BannerImg from "../../../assets/banner.png";
+
+<Aside title="Description">
+	**An Obsidian plugin for Fountain (screenplay) syntax formatting in the
+	editor.**
+</Aside>
+
+{/* <Image alt="banner" src={BannerImg} /> */}
+![as](/docs/src/assets/banner.png)
+
+<img src="banner.png" />
+
+> 📺 **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
+
+![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+
+## 🎯 Goals
+
+| 📍  | Make Obsidian an impressive option for writing screenplays                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔗  | The main selling point is to be able to **connect/link/annotate your helper notes directly with your screenplay**, at the exact location where you referenced it, by allowing Markdown links/tags/extended syntax.                                                                                                                                                                                                                                                                      |
+| 🤞  | The 2nd selling point is to **integrate the Fountain screenwriting workflow with all of Obsidian's ecosystem** that fosters _idea-exploration_ and _knowledge-management_ _(Plus, psssst, it's **FREE**)_.                                                                                                                                                                                                                                                                              |
+| 🧩  | In a similar vein, certain **Obsidian plugins can add sorely missing features in your Fountain screenplay writing workflow**. The chief missing jigsaw piece that bothers me is that [Fountain requires all your content in a single file](https://github.com/chuangcaleb/ffluent#purpose) — which can get tedious when you have 120+ pages. There's an [Obsidian plugin solution for this](https://github.com/kevboh/longform), and [likely one for any problem](#-synergistic-tools). |
+| 🔎  | Competition does not mean lack of cooperation! As explained in our [design principle of scope](/docs/basic/design-guidelines.md#🔬-scoped), **this plugin will try to not do double-work** if possible, and will try to outsource/handover features to other [Synergistic Tools](#-synergistic-tools)!                                                                                                                                                                                  |
+
+---
+
+## ✨ Features
+
+- 🎨 **Get Fountain syntax highlighting** in Editing View (Source mode or Live Preview)!
+- ✅ **Specify which individual notes get Fountain styling** with `cssclasses: fountain` in your frontmatter _(opt-in basis, subject to change)_
+- 🛁 **Enjoy extended Obsidian syntax** where possible — bring your regular Obsidian markdown, tools, plugins, and workflow!
+  - 🧰 **Leverage Obsidian!Markdown**: Use Links, Tags, Embedded Notes / Images / Audio, Graph...
+  - 🛏️ **Feel at home**: Fountain's [Section](https://fountain.io/syntax/#sections-synopses) and [Emphasis](https://fountain.io/syntax/#emphasis) syntax don't add new styles — which means they'll look like familiar Obsidian [Headings](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Headings) and [inline text styles](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text)!
+  - 🪓 **Opt-out** into regular Obsidian!Markdown syntax highlighting with [Fountain's Synopsis](https://fountain.io/syntax/#sections-synopses) token or [Obsidian's comment blocks](https://help.obsidian.md/syntax#Comments)!
+- 🤝 **Combine with your favorite Obsidian community plugins** like [Longform](https://github.com/kevboh/longform)!
+- 🔧 **Fine-tune** the styling using CSS variables with the format `--fountain--*`... see [base.css](src/styles/base.css) for the exposed CSS variables!
+- 🧑‍💻 **Hack in missing features** — with Obsidian's open-contribution development, there'll be no more "it would've been perfect, if only they had _x_ feature"!
+
+> 📖 See [Design Guidelines](docs/basic/design-guidelines.md) to understand our implementation!
