@@ -1,1 +1,1 @@
-docs/src/content/docs/introduction/overview.md
+docs/src/content/docs/start-here/overview.mdx
