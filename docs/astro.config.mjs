@@ -10,6 +10,7 @@ export default defineConfig({
 			social: {
 				github: "https://github.com/chuangcaleb/obsidian-fountain-editor",
 			},
+			favicon: "favicon.ico",
 			sidebar: [
 				{
 					label: "Start Here",
