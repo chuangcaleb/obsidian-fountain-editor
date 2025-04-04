@@ -4,7 +4,7 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "obsidian-fountain-editor.chuangcaleb.com",
+	site: "https://obsidian-fountain-editor.chuangcaleb.com",
 	integrations: [
 		starlight({
 			title: "Obsidian Fountain Editor",
