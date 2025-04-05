@@ -1,5 +1,5 @@
 ---
-title: Known Issues
+title: 📑 Known Issues
 banner:
   content: This page is a stub. You can help by expanding it.
 ---

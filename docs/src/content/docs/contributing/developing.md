@@ -1,6 +1,8 @@
 ---
-title: Developing
+title: 👨‍💻 Developing
 description: Information for contributing code.
+banner:
+  content: This page is a stub. You can help by expanding it.
 ---
 
 The main relevant files you can inspect are [package.json](/package.json), [rollup.config.js](/rollup.config.js) and [release.yml](/.github/workflows/release.yml).

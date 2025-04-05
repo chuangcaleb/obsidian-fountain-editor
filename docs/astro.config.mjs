@@ -17,10 +17,6 @@ export default defineConfig({
 					label: "Start Here",
 					autogenerate: {directory: "start-here"},
 				},
-				{
-					label: "Guides",
-					autogenerate: {directory: "guides"},
-				},
 				// {
 				// 	label: "Reference",
 				// 	autogenerate: {directory: "reference"},
@@ -28,6 +24,10 @@ export default defineConfig({
 				{
 					label: "Resources",
 					autogenerate: {directory: "resources"},
+				},
+				{
+					label: "Guides",
+					autogenerate: {directory: "guides"},
 				},
 				{
 					label: "Contributing",
