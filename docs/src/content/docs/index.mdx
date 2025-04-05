@@ -3,7 +3,7 @@ title: Fountain Editor - Obsidian Plugin
 description: Documentation for the Obsidian plugin for Fountain (screenplay) syntax highlighting in the editor.
 template: splash
 hero:
-  tagline: Write screenplays in Obsidian.
+  tagline: Write Fountain screenplays with Obsidian!Markdown.
   image:
     file: ../../assets/obsidian-fountain-editor-logo.svg
   actions:
@@ -26,24 +26,22 @@ import LogoSvg from "../../assets/obsidian-fountain-editor-logo.svg";
 
 <Image alt="banner" src={BannerImg} />
 
-![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
-
 ## 🧰 Our Toolset
 
-Get to know the distinct building blocks of this "tech stack".
+Get to know the distinct building blocks of this screenwriting "tech stack". All free.
 
 <CardGrid stagger>
 	<Card title="Markdown">
-		A lightweight markup language that uses plain text formatting for easy
-		conversion to HTML and other formats.
+		A lightweight markup syntax that uses simple plaintext formatting for easy
+		conversion other formats.
 	</Card>
 	<Card title="Obsidian">
-		A markdown-based note-taking and knowledge management tool with a focus on
+		A markdown-based note-taking app with a focus on knowledge management:
 		linking and organizing information.
 	</Card>
 	<Card title="Fountain">
-		A plain-text Markdown-like syntax specifically designed for writing
-		screenplays, using simple formatting rules.
+		A lightweight markup syntax for writing screenplays with simple plaintext
+		formatting — just like Markdown.
 	</Card>
 	<Card title="Fountain Editor - Obsidian Plugin">
 		A plugin that integrates the Fountain syntax into Obsidian's editor!
@@ -61,6 +59,9 @@ Get to know the distinct building blocks of this "tech stack".
 ## ✨ Key Features
 
 <CardGrid stagger>
+	<Card title="100% Free." icon="star">
+		No premium tier, no hidden charges. Everything, for $0.
+	</Card>
 	<Card title="Author with Obsidian" icon="pen">
 		One app for your research, references, ideating, outlining, drafting,
 		writing. All linked. Unopinionated workflow.
@@ -70,28 +71,43 @@ Get to know the distinct building blocks of this "tech stack".
 		opt-in and opt-out!
 	</Card>
 	<Card title="Supercharge with Other Plugins" icon="rocket">
-		2k+ Obsidian plugins to further extend functionality.
+		2k+ Obsidian plugins to further extend custom functionality and create *the
+		perfect writing app just for you*.
 	</Card>
-	<Card title="Fine-Tune to Your Workflow" icon="setting">
-		Modular, scoped and configurable components, to achieve *the perfect writing
-		app just for you*.
+	{/* <Card title="Fine-Tune to Your Workflow" icon="setting">
+		Modular and scoped and configurable components.
+	</Card> */}
+	<Card title="Fine-Tune Your Styles" icon="setting">
+		Fully exposed CSS Variables, for every syntax token, to tweak to pixel
+		perfection.
 	</Card>
+
 </CardGrid>
 
 import { LinkButton } from "@astrojs/starlight/components";
 
-<div style={{ textAlign: "center", marginTop: "4em" }}>
+<div style={{ marginTop: "4em" }}>
 	<div style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
 		<Image alt="logo" src={LogoSvg} width={100} />
-		<h2 style={{ marginBlock: "auto" }}>Like what you see?</h2>
+		<div>
+			<h2 style={{ marginBlock: "auto" }}>Like what you see?</h2>
+			<div class="not-content">
+				![Obsidian
+				Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)
+				![GitHub
+				stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+			</div>
+		</div>
 	</div>
-	<LinkButton
-		href="http://github.com/chuangcaleb/obsidian-fountain-editor"
-		icon="github"
-	>
-		Star on GitHub
-	</LinkButton>
-	<LinkButton href="start-here/overview" icon="open-book" variant="minimal">
-		Read the docs
-	</LinkButton>
+	<developing style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
+		<LinkButton
+			href="http://github.com/chuangcaleb/obsidian-fountain-editor"
+			icon="github"
+		>
+			Star on GitHub
+		</LinkButton>
+		<LinkButton href="start-here/overview" icon="open-book" variant="minimal">
+			Read the docs
+		</LinkButton>
+	</developing>
 </div>

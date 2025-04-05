@@ -11,6 +11,8 @@ These are the cases of formatting conflict between the Obsidian-flavoured Markdo
 | Inline text wrapped in `_`    | [italic](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text) | [Underline (Emphasis)](https://fountain.io/syntax/#emphasis)                                                             |
 | Inline text wrapped in `[[]]` | [Internal Links / Wikilinks](https://help.obsidian.md/Linking+notes+and+files/Internal+links)  | [Notes](https://fountain.io/syntax/#notes)                                                                               |
 
+<!-- TODO: add boneyard, technically conflicts with emphasis -->
+
 ## Escape hatch with markdown comments (requires Longform)
 
 Markdown is still syntax-highlighted in Obsidian comments. If you use Longform and use Remove Comments in your workflow, you could inject `%% comments %%` ANYWHERE since the compiler will strip away markdown comments. This is an easy and flexible solution to escape 95% of markdown formatting in Obsidian-Fountain hybrid notes.
