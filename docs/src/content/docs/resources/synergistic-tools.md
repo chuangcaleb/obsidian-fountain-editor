@@ -1,6 +1,11 @@
-# 🤝 Synergistic Tools
+---
+title: 🤝 Synergistic Tools
+description: A list of tools to use together with the Obsidian Fountain Editor plugin
+---
 
-## [Better Fountain - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+## External tools
+
+### [Better Fountain - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
 
 > _Fountain autocomplete, syntax highlighting, and export to PDF_
 
@@ -17,7 +22,9 @@
   1. I want links to integrate with my Obsidian vault.
   2. Since Fountain is meant to be written in one long document, it gets bulky. Which leads us to...
 
-## [kevboh/longform](https://github.com/kevboh/longform)
+## Obsidian Plugins
+
+### [kevboh/longform](https://github.com/kevboh/longform)
 
 > _A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects._
 
@@ -30,15 +37,15 @@
   - _Thanks, @kevboh, for [fixing this](https://github.com/kevboh/longform/issues/203#issuecomment-1769837247)!_
 - An **ESSENTIAL** tool if you're really going to use Obsidian for any writing projects.
 
-## [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin)
+### [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin)
 
 > _An obsidian plugin allowing you to register and view different file extensions in a modular manner._
 
 - Allows you to open `.fountain` files in the Obsidian editor!
 - Fountain syntax formatting works!
-- But `.fountain` files are treated like external files, unlike native markdown files that integrate in Obsidian's systems.
+- Note that `.fountain` files are treated like external files, unlike native markdown files that integrate in Obsidian's systems.
 
-## [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian)
+### [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian)
 
 > _Typewriter Scroll Obsidian Plugin_
 

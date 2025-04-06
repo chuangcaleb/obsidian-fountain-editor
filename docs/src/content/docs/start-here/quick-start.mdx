@@ -1,0 +1,80 @@
+---
+title: ⚡ Quick Start
+description: An overview of the Obsidian Fountain Editor project
+sidebar:
+  order: 3
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside>
+	This page dives straight into using the plugin. If you need more context on
+	what even is all this "Markdown", "Obsidian", and "Fountain" — you may want to
+	read [Our Toolset](/start-here/toolset) first.
+</Aside>
+
+---
+
+## 🔨 Usage
+
+### 🏁 Quickstart
+
+1. 📥 [Open the installation prompt in Obsidian](https://obsidian.md/plugins?id=fountain-editor) (recommended)
+   1. How to install Obsidian plugins (beginner) [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+   2. Manual installation (advanced) [Link →](#-manual-installation)
+2. 📄 [Mark a markdown note for Fountain](/references/marking-fountain) formatting by one of the following:
+   1. Use a `.fountain.md` extension
+   2. Add a `fountain` tag to the Properties frontmatter
+   3. Add `cssclasses: fountain` to the Properties frontmatter
+3. 🎨 You will get **automatic syntax highlighting/styling according to the [Fountain syntax](https://fountain.io/syntax/)**!
+
+Try copy-pasting this into a note:
+
+```markdown
+---
+cssclasses:
+  - fountain
+---
+
+# Opening Hook
+
+> THE STINK LINK <
+
+FADE TO:
+
+EXT. PUBLIC RESTROOM - DAY
+
+A POLICE OFFICER steps into a dingy restroom. She winces.
+
+POLICE OFFICER (V.O.)
+I _smell_ a rat...
+
+= Use Fountain's Synopsis to escape into [[regular markdown]]! #so-cool
+
+%%
+You can use **Obsidian comment blocks** to escape into markdown too!
+
+> [!tip] Strip these Obsidian comments out with the Obsidian Longform plugin!
+
+%%
+```
+
+{/* DOCS: Where to start */}
+
+### 💿 Manual Installation
+
+1. 🆕 You may install directly with [BRAT](https://github.com/TfTHacker/obsidian42-brat) using the link of this repo (`https://github.com/chuangcaleb/obsidian-fountain-editor`).
+2. 📤 You can also go to the repo's [Latest Releases](https://github.com/chuangcaleb/obsidian-fountain-editor/releases/latest/) page and manually download the `obsidian-fountain-editor-[version].zip` file, then extract it into your `.obsidian/plugin` directory!
+
+---
+
+## 🤝 Synergistic Tools
+
+- **[kevboh/longform](https://github.com/kevboh/longform): _A plugin for Obsidian that helps you write and edit novels, screenplays, and other long projects._**
+- [Better Fountain - Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain): _Fountain autocomplete, syntax highlighting, and export to PDF_
+- [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin): _An obsidian plugin allowing you to register and view different file extensions in a modular manner._
+- [deathau/cm-typewriter-scroll-obsidian](https://github.com/deathau/cm-typewriter-scroll-obsidian): _Typewriter Scroll Obsidian Plugin_
+
+> 📖 Explore [Synergistic Tools](resources/synergistic-tools) for details on how they work together with this plugin!
+
+---
