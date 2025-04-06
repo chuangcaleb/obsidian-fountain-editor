@@ -7,7 +7,7 @@ sidebar:
 
 This is a table to compare this plugin's formatting with the full official Fountain syntax.
 
-See [Syntax – Fountain](https://fountain.io/syntax/#emphasis) for the official Fountain syntax reference, detailed.
+See [Syntax – Fountain](https://fountain.io/syntax/#emphasis) for the official original Fountain syntax reference, detailed.
 
 ### Legend
 
@@ -83,7 +83,7 @@ Obsidian parses indentations as inline code. However, Fountain's indentations ar
 
 There is the use case of indented Action blocks, e.g. in the script, an address on a postcard is to be shown on the screen. However, I think Obsidian's formatting is actually usable, even somewhat aesthetic!
 
-![indented action](/src/assets/indented-action.png)
+![indented action](../../../assets/indented-action.png)
 
 ### Unhandled cases are still valid Fountain
 
@@ -91,5 +91,5 @@ Note that while a formatting may not be handled by the plugin, and the styling m
 
 ### What's next?
 
-- [Design Guidelines](/resources/design-guidelines)
-- [Known Issues](/contributing/known-issues)
+- [Design Guidelines](/resources/design-guidelines) for how this plugin's Fountain-Markdown hybrid syntax was decided.
+- [Known Issues](/contributing/known-issues) to see if formatting problems were already reported.
