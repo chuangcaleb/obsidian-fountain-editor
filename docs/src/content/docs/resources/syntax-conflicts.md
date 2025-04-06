@@ -1,12 +1,17 @@
-# Conflicts between Obsidian-flavored Markdown vs Fountain
+---
+title: 🥊 Syntax Conflicts
+description: A detailed explanation about the conflicts between Obsidian-flavoured markdown and Fountain syntax.
+---
 
-There are two obvious cases of formatting conflict.
+These are the cases of formatting conflict between the Obsidian-flavoured Markdown and Fountain syntax.
 
 | Formatting                    | Markdown/Obsidian                                                                              | Fountain                                                                                                                 |
 | ----------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Line begins with `>`          | [blockquote](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Quotes)   | [Centered Text](https://fountain.io/syntax/#centered-text) & forced [Transition](https://fountain.io/syntax/#transition) |
 | Inline text wrapped in `_`    | [italic](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Styling+text) | [Underline (Emphasis)](https://fountain.io/syntax/#emphasis)                                                             |
 | Inline text wrapped in `[[]]` | [Internal Links / Wikilinks](https://help.obsidian.md/Linking+notes+and+files/Internal+links)  | [Notes](https://fountain.io/syntax/#notes)                                                                               |
+
+<!-- TODO: add boneyard, technically conflicts with emphasis -->
 
 ## Escape hatch with markdown comments (requires Longform)
 
