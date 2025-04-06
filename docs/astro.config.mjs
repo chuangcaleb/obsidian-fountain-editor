@@ -17,18 +17,18 @@ export default defineConfig({
 					label: "Start Here",
 					autogenerate: {directory: "start-here"},
 				},
-				// {
-				// 	label: "Reference",
-				// 	autogenerate: {directory: "reference"},
-				// },
+				{
+					label: "References",
+					autogenerate: {directory: "references"},
+				},
 				{
 					label: "Resources",
 					autogenerate: {directory: "resources"},
 				},
-				{
-					label: "Guides",
-					autogenerate: {directory: "guides"},
-				},
+				// {
+				// 	label: "Guides",
+				// 	autogenerate: {directory: "guides"},
+				// },
 				{
 					label: "Contributing",
 					autogenerate: {directory: "contributing"},

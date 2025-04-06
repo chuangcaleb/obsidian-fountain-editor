@@ -93,3 +93,4 @@ Note that while a formatting may not be handled by the plugin, and the styling m
 
 - [Design Guidelines](/resources/design-guidelines) for how this plugin's Fountain-Markdown hybrid syntax was decided.
 - [Known Issues](/contributing/known-issues) to see if formatting problems were already reported.
+- [Syntax Conflicts](/resources/syntax-conflicts) to understand how conflicts in syntax are handled.

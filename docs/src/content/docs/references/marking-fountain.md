@@ -4,7 +4,7 @@ title: 🖋️ Marking Files for Fountain
 
 There are currently three ways to convert a regular Obsidian note into a hybrid Markdown+Fountain note.
 
-## 🎨p Frontmatter Properties: Cssclasses
+## 🎨 Frontmatter Properties: Cssclasses
 
 ```md
 ---
