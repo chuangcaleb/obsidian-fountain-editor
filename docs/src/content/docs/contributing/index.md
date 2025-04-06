@@ -23,5 +23,4 @@ description: Information for general contributions to the project
 - 🪲 **Report a bug** — but with your _specialized technical diagnosis_!
 - 🫱 **Send some advice!** Not just a first-time Obsidian plugin dev, but my first public community project.
 
-> 💝 See [Contributing](/CONTRIBUTING.md) for proper technical details!
-<!-- TODO: contributing -->
+> 💝 See [Developing](/contributing/developing) for proper technical details!
