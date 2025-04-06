@@ -22,7 +22,7 @@ I'm here to save the day!
 
 Pros:
 
-- Technically tis plugin just adds styling, so cssclasses may semantically make sense for you.
+- Technically this plugin just adds styling, so cssclasses may semantically make sense for you.
 - You can use Search or Dataview to filter on the `[cssclasses]` Property.
 
 Cons:
