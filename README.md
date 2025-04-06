@@ -2,7 +2,8 @@
 
 # Obsidian Fountain Editor
 
-<br/>
+‎‎
+‎‎
 
 > [!IMPORTANT]
 > An [Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) syntax formatting in the editor.
