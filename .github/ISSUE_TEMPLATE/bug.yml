@@ -1,7 +1,7 @@
 name: "\U0001F41B Bug Report"
 description: Reports for broken/unexpected behavior
 title: "[bug] "
-labels: ["\U0001FAB2 a/bug", "🗄️ triage"]
+labels: ["🐛 a/bug", "🗄️ triage"]
 projects: ["chuangcaleb/2"]
 body:
   - type: markdown

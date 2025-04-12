@@ -1,0 +1,55 @@
+name: 💡 Feature Request
+description: Suggest an idea or improvement for this project
+title: "[feat-req] "
+# labels: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a feature! Please complete the form to help us understand your idea and how it would improve the project.
+
+        ##  Quick Checklist
+
+        ✅ I've checked that a similar feature request doesn't already exist
+
+  - type: input
+    id: related-area
+    attributes:
+      label: Related Area
+      description: What part of the project is this feature related to?
+      placeholder: e.g. Syntax Parity, Styling, CodeMirror, perf, docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the Feature
+      description: A clear and concise description of the proposed feature or improvement.
+      placeholder: I’d like to be able to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-context
+    attributes:
+      label: Problem or Use Case
+      description: What problem does this solve or what use case does it support?
+      placeholder: This would be helpful when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Do you have a proposed implementation or design in mind?
+      placeholder: My suggestion would be to...
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives-considered
+    attributes:
+      label: Alternatives
