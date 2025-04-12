@@ -37,6 +37,7 @@ export default defineConfig({
 			logo: {
 				src: "./src/assets/obsidian-fountain-editor-logo.svg",
 			},
+			customCss: ["./src/styles/theme.css", "./src/styles/custom.css"],
 		}),
 	],
 });
