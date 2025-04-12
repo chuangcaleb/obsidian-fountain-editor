@@ -17,6 +17,7 @@ hero:
 ---
 
 import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
+import CustomIconCard from "../../components/CustomIconCard.astro";
 import { Image } from "astro:assets";
 import BannerImg from "../../assets/banner.png";
 import LogoSvg from "../../assets/obsidian-fountain-editor-logo.svg";
@@ -28,26 +29,38 @@ import LogoSvg from "../../assets/obsidian-fountain-editor-logo.svg";
 Get to know the distinct building blocks of this screenwriting "tech stack". All free.
 
 <CardGrid stagger>
-	<Card title="Markdown">
+	<CustomIconCard title="Markdown" icon="simple-icons:markdown" color="#42a5f5">
 		A lightweight markup syntax that uses simple plaintext formatting for easy
 		conversion other formats.
-	</Card>
-	<Card title="Obsidian">
+	</CustomIconCard>
+	<CustomIconCard
+		title="Obsidian"
+		icon="logos:obsidian-icon"
+		href="https://obsidian.md"
+	>
 		A markdown-based note-taking app with a focus on knowledge management:
 		linking and organizing information.
-	</Card>
-	<Card title="Fountain">
+	</CustomIconCard>
+	<CustomIconCard
+		title="Fountain"
+		icon="file-icons:fountain"
+		color="#4ABDE2"
+		href="https://fountain.io"
+	>
 		A lightweight markup syntax for writing screenplays with simple plaintext
 		formatting — just like Markdown.
-	</Card>
-	<Card title="Fountain Editor - Obsidian Plugin">
-		A plugin that integrates the Fountain syntax into Obsidian's editor!
-	</Card>
-	<Card title="Other Plugins & External Tools!">
+	</CustomIconCard>
+	<CustomIconCard
+		title="Fountain Editor - Obsidian Plugin"
+		icon="obsidian-fountain-editor-logo"
+	>
+		This plugin integrates Fountain syntax into Obsidian's editor!
+	</CustomIconCard>
+	<Card title="Other Plugins & External Tools!" icon="random">
 		Effortlessly incorporate other Obsidian plugins, and external screenplay
 		tools and apps!
 	</Card>
-	<Card title="Huh???">
+	<Card title="Huh???" icon="magnifier">
 		You: "I like your funny words, magic man! What are all these different
 		names? I'm new to all this!" [Read more →](start-here/toolset)
 	</Card>
