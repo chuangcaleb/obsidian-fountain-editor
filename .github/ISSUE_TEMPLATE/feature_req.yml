@@ -1,7 +1,7 @@
 name: 💡 Feature Request
 description: Suggest an idea or improvement for this project
 title: "[feat-req] "
-# labels: []
+labels: ["🗄️ triage"]
 
 body:
   - type: markdown
