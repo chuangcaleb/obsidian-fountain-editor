@@ -1,6 +1,6 @@
 name: "\U0001F41B Bug Report"
-description: Reports for broken/unintended behavior
-title: "🐛 "
+description: Reports for broken/unexpected behavior
+title: "[Bug] "
 labels: ["\U0001FAB2 a/bug"]
 projects: ["chuangcaleb/2"]
 body:
@@ -12,47 +12,73 @@ body:
 
         ✅ I am using the latest version/release of the plugin
         ✅ I've checked that a similar bug report doesn't already exist
+
   - type: textarea
-    id: bug-description
+    id: description
     attributes:
       label: Describe the bug
-      description: A clear and concise description of what the bug is.
+      description: An optional general description of what the bug is.
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce the behavior
+      description: Describe how to consistently trigger the bug, with minimal steps/side-effects.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
     validations:
       required: true
+
   - type: textarea
-    id: bug-expectation
+    id: expected-behavior
     attributes:
       label: What's the expected result?
       description: Describe what you expect to happen.
+      placeholder: |
+        A clear and concise description of what you expected to happen.
     validations:
       required: true
+
   - type: textarea
-    id: bug-reproduction
+    id: screenshots
     attributes:
-      label: Steps to reproduce the behavior
-      description: Describe how to trigger the bug, with minimal steps/side effects. Add screenshots if applicable.
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
     validations:
-      required: true
+      required: false
+
   - type: input
     id: plugin-version
     attributes:
       label: Fountain Editor - Plugin Version
       placeholder: e.g. "v1.0.3"
+    validations:
+      required: true
+
   - type: input
     id: obsidian-version
     attributes:
       label: Obsidian Version
       placeholder: e.g. "v1.14.5"
-  - type: checkboxes
+
+  - type: dropdown
     id: environment
     attributes:
-      label: What environment are you seeing the problem on?
+      label: Environment
+      description: What environment(s) are you seeing the issue on?
+      multiple: true
       options:
-        - label: MacOS
-        - label: Windows
-        - label: Linux
-        - label: Android
-        - label: iOS
+        - MacOS
+        - Windows
+        - Linux
+        - Android
+        - iOS
+
   - type: checkboxes
     id: will-pr
     attributes:
