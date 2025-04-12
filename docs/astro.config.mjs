@@ -44,6 +44,6 @@ export default defineConfig({
 			},
 			customCss: ["./src/styles/theme.css", "./src/styles/custom.css"],
 		}),
-		icon(),
+		icon({iconDir: "src/assets/"}),
 	],
 });
