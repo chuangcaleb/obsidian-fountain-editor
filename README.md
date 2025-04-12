@@ -13,7 +13,7 @@ An [Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) sy
 > [!TIP]
 > Full documentation site can be found at [obsidian-fountain-editor.chuangcaleb.com](https://obsidian-fountain-editor.chuangcaleb.com). You should check it out!
 
-- [Install](obsidian://show-plugin?id=obsidian-fountain-editor)
+- [Install](https://obsidian.md/plugins?search=fountain-editor)
 - [Overview](docs/src/content/docs/start-here/overview.mdx)
 - [Contributing](docs/src/content/docs/contributing/index.md)
 - [Contact](docs/src/content/docs/contributing/contact.md)
