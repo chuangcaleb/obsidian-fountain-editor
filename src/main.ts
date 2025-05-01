@@ -47,7 +47,7 @@ export default class FountainPlugin extends Plugin {
 
 		// TODO: Pass the value to the view plugin better?
 		setExtraParseRange(this.settings.extraParseRange);
-	  }
+	}
 	
 	async saveSettings() {
 		await this.saveData(this.settings);
