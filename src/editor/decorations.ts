@@ -121,6 +121,12 @@ function getLineFormat(
 	return n.action;
 }
 
+// TODO: I didn't figure out how to do this properly
+let extraParseRange = 0;
+export function setExtraParseRange(range: number) {
+	extraParseRange = range;
+}
+
 export function buildDecorations(
 	view: EditorView,
 	isFountainStateField: StateField<boolean>,
@@ -144,7 +150,12 @@ export function buildDecorations(
 		inCommentBlock: false,
 	};
 
-	for (const {from, to} of view.visibleRanges) {
+	for (let {from, to} of view.visibleRanges) {
+
+		// Extend parse range
+		from = Math.max(from - extraParseRange, 0);
+		to = Math.min(to + extraParseRange, view.state.doc.length);
+
 		const visibleText = view.state.sliceDoc(from, to);
 		const maxLines = view.state.doc.lines;
 
