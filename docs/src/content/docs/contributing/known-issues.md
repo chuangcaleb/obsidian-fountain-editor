@@ -6,6 +6,7 @@ banner:
 
 - Boneyard token `*/` is formatted as emphasis/italics by Obsidian. In Live Preview, the `*` the syntax token is hidden.
   - I don't use Boneyards as much, especially now with the `%% Obsidian comment %%` syntax. Low priority.
+- Validated on Default theme. May not work on every theme
 
 ## Roadmap
 

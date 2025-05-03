@@ -1,5 +1,7 @@
 ---
 title: 🖋️ Marking Files for Fountain
+sidebar:
+  order: 1
 ---
 
 There are currently three ways to convert a regular Obsidian note into a hybrid Markdown+Fountain note.

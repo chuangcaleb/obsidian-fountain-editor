@@ -1,3 +1,7 @@
+.markdown-source-view.mod-cm6.is-readable-line-width.fountain .cm-sizer {
+	--file-line-width: var(--fountain-line-width);
+}
+
 .markdown-source-view.fountain .cm-content {
 	/* ----------------------------- main tokens ------------------------------ */
 
@@ -43,19 +47,42 @@
 	}
 
 	.cm-fountain-character {
-		padding-left: var(--fountain-character-left);
-		padding-right: var(--fountain-character-right);
+		/* in themes like Minimal, width is overridden by a more specific selector. We will need to set the CSS Variable instead. */
+		--line-width: var(--fountain-character-line-width);
+		width: var(--fountain-character-line-width);
+
+		body:not(.fountain-theme-fix) & {
+			left: calc(
+				(var(--fountain-line-width) - var(--fountain-character-line-width)) / 2
+			);
+		}
 	}
 
 	.cm-fountain-lyrics,
 	.cm-fountain-dialogue {
-		padding-left: var(--fountain-dialogue-left);
-		padding-right: var(--fountain-dialogue-right);
+		--line-width: var(--fountain-dialogue-line-width);
+		width: var(--fountain-dialogue-line-width);
+
+		body:not(.fountain-theme-fix) & {
+			left: calc(
+				(var(--fountain-line-width) - var(--fountain-dialogue-line-width)) / 2
+			);
+		}
 	}
 
 	.cm-fountain-parenthetical {
-		padding-left: var(--fountain-parenthesis-left);
-		padding-right: var(--fountain-parenthesis-right);
+		--line-width: var(--fountain-parenthetical-line-width);
+		width: var(--fountain-parenthetical-line-width);
+
+		body:not(.fountain-theme-fix) & {
+			left: calc(
+				(
+						var(--fountain-line-width) -
+							var(--fountain-parenthetical-line-width)
+					) /
+					2
+			);
+		}
 	}
 
 	/* ----------------------------- formatting ------------------------------- */
@@ -69,7 +96,7 @@
 	}
 
 	.cm-line > *:not(.cm-formatting) {
-		--code-comment: var(--fountain--code-comment, var(--text-muted));
+		--code-comment: var(--fountain-code-comment, var(--text-muted));
 	}
 }
 
