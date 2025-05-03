@@ -3,20 +3,21 @@ import type FountainPlugin from "./main.js";
 
 export type FountainEditorSettings = {
 	fixMinimal: boolean;
+	preferObsidianBlockquote: boolean;
 };
 
 export const DEFAULT_SETTINGS: FountainEditorSettings = {
 	fixMinimal: false,
+	preferObsidianBlockquote: false,
 };
 
-const minimalFixClass = "fountain-theme-fix";
-
-export const setMinimalFixState = {
+const themeFixClass = "fountain-theme-fix";
+export const setFixThemeState = {
 	add() {
-		document.body.classList.add(minimalFixClass);
+		document.body.classList.add(themeFixClass);
 	},
 	remove() {
-		document.body.classList.remove(minimalFixClass);
+		document.body.classList.remove(themeFixClass);
 	},
 };
 
@@ -35,7 +36,6 @@ export class FountainEditorSettingTab extends PluginSettingTab {
 
 		containerEl.createEl("h2", {text: "Fountain Editor Settings"});
 
-		// Add toggle for the body classname
 		new Setting(containerEl)
 			.setName("Fix broken styling on certain themes")
 			.setDesc("Fix Fountain formatting on themes like Minimal.")
@@ -48,9 +48,9 @@ export class FountainEditorSettingTab extends PluginSettingTab {
 
 						// Add or remove the class
 						if (value) {
-							setMinimalFixState.add();
+							setFixThemeState.add();
 						} else {
-							setMinimalFixState.remove();
+							setFixThemeState.remove();
 						}
 					}),
 			);

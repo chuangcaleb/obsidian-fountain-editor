@@ -5,7 +5,7 @@ import {
 	DEFAULT_SETTINGS,
 	type FountainEditorSettings,
 	FountainEditorSettingTab,
-	setMinimalFixState,
+	setFixThemeState,
 } from "./settings.js";
 import {onMetadataChanged, updateClass} from "./tracker.js";
 
@@ -33,7 +33,7 @@ export default class FountainPlugin extends Plugin {
 
 		// Apply the classname on load if the setting is enabled
 		if (this.settings.fixMinimal) {
-			setMinimalFixState.add();
+			setFixThemeState.add();
 		}
 	}
 
@@ -56,6 +56,6 @@ export default class FountainPlugin extends Plugin {
 		updateClass(this.app);
 
 		// Remove the classname when the plugin is unloaded
-		setMinimalFixState.remove();
+		setFixThemeState.remove();
 	}
 }
