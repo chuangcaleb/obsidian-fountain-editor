@@ -4,7 +4,6 @@ import {
 	type DecorationSet,
 	type EditorView,
 } from "@codemirror/view";
-import {editorInfoField} from "obsidian";
 import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
 import {type FountainContext, type FountainState} from "./interface.js";
 
@@ -117,6 +116,8 @@ function getLineFormat(
 	if (state.inBoneyard) {
 		return n.boneyard;
 	}
+
+	if (line.startsWith(">")) return null;
 
 	return n.action;
 }
