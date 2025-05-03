@@ -6,10 +6,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "rollup --config rollup.config.js -w",
-		"version": "node version-bump.mjs && git add manifest.json versions.json",
 		"build": "rollup --config rollup.config.js --environment BUILD:production",
 		"changeset": "changeset",
-		"version-packages": "changeset version"
+		"version": "changeset version && node version-bump.mjs"
 	},
 	"keywords": [],
 	"author": "",

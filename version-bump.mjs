@@ -1,7 +1,10 @@
 import {readFileSync, writeFileSync} from "node:fs";
-import process from "node:process";
 
-const targetVersion = process.env.npm_package_version;
+// const targetVersion = process.env.npm_package_version;
+// Read version from package.json
+const {version: targetVersion} = JSON.parse(
+	readFileSync("package.json", "utf8"),
+);
 
 // Read minAppVersion from manifest.json and bump version to target version
 const manifest = JSON.parse(readFileSync("manifest.json", "utf8"));
