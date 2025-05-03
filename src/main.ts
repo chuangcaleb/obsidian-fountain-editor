@@ -1,4 +1,4 @@
-import {Prec} from "@codemirror/state";
+import {Compartment} from "@codemirror/state";
 import {Plugin, type TFile} from "obsidian";
 import {fountainPlugin} from "./editor/plugin.js";
 import {
@@ -9,11 +9,26 @@ import {
 } from "./settings.js";
 import {onMetadataChanged, updateClass} from "./tracker.js";
 
+const fountainSettingsCompartment = new Compartment();
+
 export default class FountainPlugin extends Plugin {
 	settings: FountainEditorSettings;
 
 	async onload() {
-		this.registerEditorExtension(Prec.lowest(fountainPlugin));
+		/* ---------------------------- settings -------------------------------- */
+
+		await this.loadSettings();
+		this.addSettingTab(new FountainEditorSettingTab(this.app, this));
+
+		// Apply the classname on load if the setting is enabled
+		if (this.settings.fixMinimal) {
+			setFixThemeState.add();
+		}
+
+		/* ------------------------ editor extension ---------------------------- */
+
+		// this.registerEditorExtension(fountainPlugin);
+		this.registerEditorExtension(fountainPlugin(this.settings));
 
 		// Ensure `fountain` class is added to relevant leaves
 		this.app.workspace.on("active-leaf-change", () => {
@@ -26,15 +41,6 @@ export default class FountainPlugin extends Plugin {
 			onMetadataChanged(this.app, file);
 		});
 		updateClass(this.app);
-
-		/* ---------------------------- settings -------------------------------- */
-		await this.loadSettings();
-		this.addSettingTab(new FountainEditorSettingTab(this.app, this));
-
-		// Apply the classname on load if the setting is enabled
-		if (this.settings.fixMinimal) {
-			setFixThemeState.add();
-		}
 	}
 
 	async loadSettings() {

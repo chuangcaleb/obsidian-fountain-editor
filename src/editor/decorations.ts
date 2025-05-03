@@ -4,6 +4,7 @@ import {
 	type DecorationSet,
 	type EditorView,
 } from "@codemirror/view";
+import {type FountainEditorSettings} from "src/settings.js";
 import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
 import {type FountainContext, type FountainState} from "./interface.js";
 
@@ -91,6 +92,7 @@ function getLineFormat(
 	line: string,
 	state: FountainState,
 	context: FountainContext,
+	settings: FountainEditorSettings,
 ) {
 	if (handleEmptyLine(line, state)) {
 		return null;
@@ -103,6 +105,10 @@ function getLineFormat(
 	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
 		if (tRegex.test(line)) {
 			const token = handleToken(tId, state, context);
+			if (token === n.transition && settings.preferObsidianBlockquote) {
+				return null;
+			}
+
 			if (token !== null) {
 				return token;
 			}
@@ -125,6 +131,7 @@ function getLineFormat(
 export function buildDecorations(
 	view: EditorView,
 	isFountainStateField: StateField<boolean>,
+	settings: FountainEditorSettings,
 ): DecorationSet {
 	const isFountain = view.state.field(isFountainStateField, false);
 
@@ -161,7 +168,7 @@ export function buildDecorations(
 				beforeEmptyLine: visibleText[relativeTo + 1] === "\n",
 				isLastLine: line.number === maxLines,
 			};
-			const token = getLineFormat(lText, state, context);
+			const token = getLineFormat(lText, state, context, settings);
 
 			if (!token) {
 				pos = lTo + 1;
@@ -174,27 +181,35 @@ export function buildDecorations(
 			// Mark Decorations
 			const firstChar = lText[0];
 			const lastChar = lText[line.length - 1];
+
+			// action
 			if (token === n.action && firstChar === "!" && !lText.startsWith("![[")) {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
+			// scene heading
 			if (token === n.sceneHeading && firstChar === ".") {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
+			// lyric
 			if (token === n.lyrics && firstChar === "~") {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
+			// synopsis
 			if (token === n.synopsis && firstChar === "=") {
 				markDeco(lFrom, lFrom + 2, composeFntClass(token));
 			}
 
+			// character
 			if (token === n.character) {
+				// forced character
 				if (firstChar === "@") {
 					markDeco(lFrom, lFrom + 1, composeFntClass(token));
 				}
 
+				// character extension
 				if (lastChar === ")") {
 					const charExtension = lText.match(/(\(.*\))?$/g);
 					if (charExtension === null) {
@@ -210,6 +225,7 @@ export function buildDecorations(
 				}
 			}
 
+			// centered
 			if (token === n.centered && lastChar === "<") {
 				markDeco(lTo - 1, lTo, composeFntClass(token));
 			}

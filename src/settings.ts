@@ -54,5 +54,19 @@ export class FountainEditorSettingTab extends PluginSettingTab {
 						}
 					}),
 			);
+
+		new Setting(containerEl)
+			.setName("Prefer Obsidian's blockquote over Fountain's forced Transition")
+			.setDesc(
+				"Skips trying to convert single-lines that start with `>` from Obsidian blockquotes into Fountain's Transitions. Blockquotes are the preferred cleaner way to annotate your screenplay, but you will need to strip them out before rendering your Fountain document to PDF.",
+			)
+			.addToggle((toggle) =>
+				toggle
+					.setValue(this.plugin.settings.preferObsidianBlockquote)
+					.onChange(async (value) => {
+						this.plugin.settings.preferObsidianBlockquote = value;
+						await this.plugin.saveSettings();
+					}),
+			);
 	}
 }

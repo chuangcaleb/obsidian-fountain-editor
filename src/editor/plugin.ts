@@ -1,15 +1,17 @@
-import {StateEffect, StateField} from "@codemirror/state";
+import {type Extension, StateEffect, StateField} from "@codemirror/state";
 import {
 	Decoration,
 	type DecorationSet,
 	type EditorView,
-	type PluginSpec,
 	type PluginValue,
 	ViewPlugin,
 	type ViewUpdate,
 } from "@codemirror/view";
 import {type App, MarkdownView} from "obsidian";
+import {type FountainEditorSettings} from "src/settings.js";
 import {buildDecorations} from "./decorations.js";
+
+/* ------------------------------------ - ----------------------------------- */
 
 const updateIsFountainState = StateEffect.define<boolean>();
 
@@ -39,10 +41,12 @@ export function updateFileState({app, hasTag}: {app: App; hasTag: boolean}) {
 
 class FountainPlugin implements PluginValue {
 	decorations: DecorationSet;
-
-	constructor(view: EditorView) {
+	constructor(
+		view: EditorView,
+		private readonly settings: FountainEditorSettings,
+	) {
 		this.decorations = view.state.field(isFountainStateField)
-			? buildDecorations(view, isFountainStateField)
+			? buildDecorations(view, isFountainStateField, settings)
 			: Decoration.none;
 	}
 
@@ -54,18 +58,26 @@ class FountainPlugin implements PluginValue {
 				update.state.field(isFountainStateField);
 
 		if (shouldBuildDecorations) {
-			this.decorations = buildDecorations(update.view, isFountainStateField);
+			this.decorations = buildDecorations(
+				update.view,
+				isFountainStateField,
+				this.settings,
+			);
 		}
 	}
 
 	// destroy() {}
 }
 
-const pluginSpec: PluginSpec<FountainPlugin> = {
-	decorations: (value: FountainPlugin) => value.decorations,
-};
+export function fountainPlugin(settings: FountainEditorSettings): Extension {
+	const plugin = ViewPlugin.fromClass(
+		class extends FountainPlugin {
+			constructor(view: EditorView) {
+				super(view, settings);
+			}
+		},
+		{decorations: (value) => value.decorations},
+	);
 
-export const fountainPlugin = [
-	isFountainStateField,
-	ViewPlugin.fromClass(FountainPlugin, pluginSpec),
-];
+	return [isFountainStateField, plugin];
+}
