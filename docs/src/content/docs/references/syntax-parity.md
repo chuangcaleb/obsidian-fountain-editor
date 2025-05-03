@@ -2,7 +2,7 @@
 title: ⚖️ Formatting Syntax Parity
 description: A table to compare this plugin's formatting with the full official Fountain syntax.
 sidebar:
-  order: 1
+  order: 2
 ---
 
 This is a table to compare this plugin's formatting with the full official Fountain syntax.

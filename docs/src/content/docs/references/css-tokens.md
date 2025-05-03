@@ -1,5 +1,7 @@
 ---
 title: 🎨 CSS Tokens
+sidebar:
+  order: 5
 ---
 
 You can use [Obsidian's CSS snippets](https://help.obsidian.md/snippets) to tweak the styling.
