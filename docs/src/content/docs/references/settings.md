@@ -8,7 +8,7 @@ sidebar:
 
 ### ☑️ Prefer Obsidian's blockquote over Fountain's forced Transition
 
-Skips trying to convert single-lines that start with `>` from Obsidian blockquotes into Fountain's Transitions. Blockquotes are the preferred cleaner way to annotate your screenplay, but you will need to strip them out before rendering your Fountain document to PDF.
+Skips trying to convert single-lines that start with `>` from Obsidian blockquotes into Fountain's Transitions. Blockquotes are the preferred cleaner way to annotate your screenplay, but you will need to [strip them out](/resources/longform) before rendering your Fountain document to PDF.
 
 ## Visual
 

@@ -21,7 +21,7 @@ Markdown is still syntax-highlighted in Obsidian comments. If you use Longform a
 
 In the first two cases from the table, it is unavoidable in Fountain formatting. We should favor the Fountain formatting over the Markdown formatting. That means, no more italics with underscores, and no more blockquotes (which you shouldn't be using much in Fountain anwyays).
 
-There is now [an optional setting](️/references/settings/#-prefer-obsidians-blockquote-over-fountains-forced-transition) to forgo ever using Fountain forced-Transition, and instead always prefer Obsidian blockquotes. This will require users to manually strip out blockquotes before PDf rendering, since markdown blockquotes are interpreted as Transitions. The author of this plugin will definitely be using this!
+There is now [an optional setting](️/references/settings/#-prefer-obsidians-blockquote-over-fountains-forced-transition) to forgo ever using Fountain forced-Transition, and instead always prefer Obsidian blockquotes. This will require users to [strip out blockquotes](](/resources/longform)) before PDF rendering, since markdown blockquotes are interpreted as Transitions. The author of this plugin will definitely be using this!
 
 ## Markdown wikilinks vs Fountain Notes
 

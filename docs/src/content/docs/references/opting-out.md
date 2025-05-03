@@ -30,7 +30,7 @@ Technically, it still applies the `cm-fountain-synopsis` class name, but Fountai
 
 Obsidian's [Block/quotes](https://help.obsidian.md/syntax#Quotes) syntax conflicts with Fountain's Forced [Transition](https://fountain.io/syntax/#transition) syntax -- read details at [Syntax Conflicts](/resources/syntax-conflicts/).
 
-However, if you are able to strip out all the blockquotes before rendering your PDF, with [an optional setting](️/references/settings/#-prefer-obsidians-blockquote-over-fountains-forced-transition), you can use liberally blockquotes everywhere!
+However, [if you know how to strip out all the blockquotes before rendering your PDF](/resources/longform), and by [enabling an optional setting](️/references/settings/#-prefer-obsidians-blockquote-over-fountains-forced-transition), you can use liberally blockquotes everywhere!
 
 ```md title="Blockquote.fountain.md"
 > Usually, this is Fountain's forced Transition.
