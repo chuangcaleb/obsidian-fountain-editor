@@ -1,11 +1,16 @@
-.markdown-source-view.mod-cm6 {
+.markdown-source-view.fountain {
+	/* Screenplay font. */
+	--fountain-font-family: "Courier Prime", "Courier New", "Courier", monospace;
+
+	/*
+	* Line widths for each token.
+	* Also determines left-right margins.
+	*/
 	--fountain-line-width: 60ch;
 	--fountain-character-line-width: 16ch;
 	--fountain-dialogue-line-width: 38ch;
 	--fountain-parenthetical-line-width: 29ch;
 
-	--fountain-font-family: "Courier Prime", "Courier New", "Courier", monospace;
-
-	/* The color of text inside %% comments */
-	/* --fountain-code-comment: var(--text-normal); */
+	/* Color of text in %% Obsidian comment %% blocks and <!-- HTML comments --> (not set). */
+	/* --fountain-code-comment: */
 }
