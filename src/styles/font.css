@@ -4,6 +4,6 @@
 	.cm-line[class*="cm-fountain-"]:not(
 			:is(.cm-fountain-synopsis, .cm-fountain-section)
 		) {
-		font-family: var(--fountain--font-family);
+		font-family: var(--fountain-font-family);
 	}
 }

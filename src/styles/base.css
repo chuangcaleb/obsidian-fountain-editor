@@ -1,69 +1,11 @@
-/*
-Adapted from
-[Screenplay Format: Everything You Need to Know - NFI](https://www.nfi.edu/screenplay-format/)
-[Screenplay Format Guide: Margin Settings - Story Sense®](https://www.storysense.com/format/margins.htm)
-But ahh, still looks weird. I'm eyeballing values based on comparing the styling with images of printed-out familiar screenplays
-*/
-
 .markdown-source-view.mod-cm6 {
-	/*
-	"max" width is to expand to the maximum width of the editor (default)
-	This means we need wider margins/line widths
+	--fountain-line-width: 60ch;
+	--fountain-character-line-width: 16ch;
+	--fountain-dialogue-line-width: 38ch;
+	--fountain-parenthetical-line-width: 29ch;
 
-	"min" width is to constrain to the width of formatted Fountain screenplays (triggered with `cssclasses` of either `fountain-left` or `fountain-center`)
-	This means we need narrower margins/line widths
-
-	We follow a practice where CSS Variables with a second set of double-hyphens denote that these are variables that users can tweak;
-	whereas if there's only one set of double-hyphens (which are always at the start of the token), then those are internally used/calculated variables that should not be touched.
-	*/
-
-	/* user-configurable ----------------------------------------------- */
-
-	--fountain--line-width-factor: 6;
-
-	--fountain--character-left-factor: 2;
-	--fountain--character-right-factor: 1.5;
-	--fountain--dialogue-left-factor: 1.1;
-	--fountain--dialogue-right-factor: 1.1;
-	--fountain--parenthesis-left-factor: 1.5;
-	--fountain--parenthesis-right-factor: 1.1;
-
-	--fountain--font-family: "Courier Prime", "Courier New", "Courier", monospace;
-
-	--fountain--fixed-line-width-base: 1in;
+	--fountain-font-family: "Courier Prime", "Courier New", "Courier", monospace;
 
 	/* The color of text inside %% comments */
-	/* --fountain--code-comment: var(--text-normal); */
-
-	/* calculated -- do not touch -------------------------------------------- */
-	--fountain-final-line-width: min(100%, var(--file-line-width));
-
-	--fountain-character-left: calc(
-		var(--fountain--character-left-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-character-right: calc(
-		var(--fountain--character-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-dialogue-left: calc(
-		var(--fountain--dialogue-left-factor) / var(--fountain--line-width-factor) *
-			var(--fountain-final-line-width)
-	);
-	--fountain-dialogue-right: calc(
-		var(--fountain--dialogue-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-parenthesis-left: calc(
-		var(--fountain--parenthesis-left-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-	--fountain-parenthesis-right: calc(
-		var(--fountain--parenthesis-right-factor) /
-			var(--fountain--line-width-factor) * var(--fountain-final-line-width)
-	);
-
-	--fountain-fixed-line-width: calc(
-		var(--fountain--line-width-factor) * var(--fountain--fixed-line-width-base)
-	);
+	/* --fountain-code-comment: var(--text-normal); */
 }

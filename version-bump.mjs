@@ -1,6 +1,5 @@
 import {readFileSync, writeFileSync} from "node:fs";
 
-// const targetVersion = process.env.npm_package_version;
 // Read version from package.json
 const {version: targetVersion} = JSON.parse(
 	readFileSync("package.json", "utf8"),
