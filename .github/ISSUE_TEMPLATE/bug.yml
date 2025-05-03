@@ -7,11 +7,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        ##  Quick Checklist
         Thank you for taking the time to file a bug report! Please fill out this form as completely as possible.
 
-        ✅ I am using the latest version/release of the plugin
-        ✅ I've checked that a similar bug report doesn't already exist
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Quick Checklist
+      options:
+        - label: I am using the latest version/release of the plugin
+          required: true
+        - label: I've checked that a similar bug report doesn't already exist
+          required: true
 
   - type: textarea
     id: description
@@ -56,7 +62,7 @@ body:
     id: plugin-version
     attributes:
       label: Fountain Editor - Plugin Version
-      placeholder: e.g. "v1.0.3"
+      placeholder: e.g. "1.0.3"
     validations:
       required: true
 
@@ -64,7 +70,7 @@ body:
     id: obsidian-version
     attributes:
       label: Obsidian Version
-      placeholder: e.g. "v1.14.5"
+      placeholder: e.g. "1.14.5"
 
   - type: dropdown
     id: environment

@@ -9,14 +9,20 @@ body:
       value: |
         Thanks for taking the time to suggest a feature! Please complete the form to help us understand your idea and how it would improve the project.
 
-        ##  Quick Checklist
-
-        ✅ I've checked that a similar feature request doesn't already exist
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Quick Checklist
+      options:
+        - label: I've checked that a similar feature request doesn't already exist
+          required: true
+        - label: "I understand that I should limit the scope of the request to a minimal specification, and that I should open a separate feature request if there are more than one items being discussed (see: scope creep)"
+          required: true
 
   - type: input
     id: related-area
     attributes:
-      label: Related Area
+      label: Related Area/Scope
       description: What part of the project is this feature related to?
       placeholder: e.g. Syntax Parity, Styling, CodeMirror, perf, docs
     validations:
@@ -53,3 +59,7 @@ body:
     id: alternatives-considered
     attributes:
       label: Alternatives
+      description: Are there Obsidian-internal plugins, or external third-party tools that can substitute this unmet feature? If none, please explicitly specify why.
+      placeholder: One alternative would be to...
+    validations:
+      required: true
