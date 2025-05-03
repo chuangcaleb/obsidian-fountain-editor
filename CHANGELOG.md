@@ -26,7 +26,7 @@ There is now a toggle in Settings to fix the styling if you are using Minimal th
 
 ### Markdown Blockquote Annotations
 
-You can now use Markdown blockquotes as screenplay annotations. This is a new more stable alternative to the `%% Obsidian comment %%` annotation -- see[#58](https://github.com/chuangcaleb/obsidian-fountain-editor/pull/58/files). There is also now a setting to opt-out of formatting Fountain forced-Transitions.
+You can now use Markdown blockquotes as screenplay annotations. This is a new more stable alternative to the `%% Obsidian comment %%` annotation -- see [#58](https://github.com/chuangcaleb/obsidian-fountain-editor/pull/58/files). There is also now a setting to opt-out of formatting Fountain forced-Transitions.
 
 Note that if you use Markdown blockquotes, you will need to strip your document of blockquotes before rendering Fountain to PDF.
 
