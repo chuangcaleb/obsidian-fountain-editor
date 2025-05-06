@@ -1,5 +1,11 @@
 # obsidian-fountain-editor
 
+## 1.4.1
+
+### Patch Changes
+
+- fix: preferObsidianBlockquote should not break all Transitions
+
 ## 1.4.0
 
 ### Consistent document layout widths

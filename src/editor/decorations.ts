@@ -105,7 +105,12 @@ function getLineFormat(
 	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
 		if (tRegex.test(line)) {
 			const token = handleToken(tId, state, context);
-			if (token === n.transition && settings.preferObsidianBlockquote) {
+			// setting to early exit on transition-blockquotes
+			if (
+				settings.preferObsidianBlockquote &&
+				token === n.transition &&
+				line.startsWith(">")
+			) {
 				return null;
 			}
 
