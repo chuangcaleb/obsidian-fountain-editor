@@ -13,4 +13,7 @@
 
 	/* Color of text in %% Obsidian comment %% blocks and <!-- HTML comments --> (not set). */
 	/* --fountain-code-comment: */
+
+	/* Color of Fountain formatting symbols */
+	--fountain-formatting-color: var(--text-faint);
 }

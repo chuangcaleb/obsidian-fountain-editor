@@ -25,6 +25,9 @@ Currently, you can find these defaults at [base.css](https://github.com/chuangca
 
 /* Color of text in %% Obsidian comment %% blocks and <!-- HTML comments --> (not set). */
 /* --fountain-code-comment: */
+
+/* Color of Fountain formatting symbols */
+--fountain-formatting-color: var(--text-faint);
 ```
 
 Technical note: it is recommended to use the CSS `ch` width unit, to ensure consistent layout with industry-standard rendered PDFs of screenplays. This can be achieved since monospace fonts have consistent character widths -- read more at [Sizing Units | web.dev](https://web.dev/learn/css/sizing/#absolute_lengths).

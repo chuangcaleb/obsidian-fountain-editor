@@ -92,7 +92,7 @@
 	.cm-fountain-formatting-boneyard-start,
 	.cm-fountain-formatting-boneyard-end,
 	.cm-formatting[class*="cm-fountain-formatting-"] {
-		color: var(--text-faint);
+		color: var(--fountain-formatting-color);
 	}
 
 	.cm-line > *:not(.cm-formatting) {
