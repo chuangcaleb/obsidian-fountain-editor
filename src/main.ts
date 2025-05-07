@@ -21,7 +21,7 @@ export default class FountainPlugin extends Plugin {
 		this.addSettingTab(new FountainEditorSettingTab(this.app, this));
 
 		// Apply the classname on load if the setting is enabled
-		if (this.settings.fixMinimal) {
+		if (this.settings.fixThemesWithCustomLineWidth) {
 			setFixThemeState.add();
 		}
 

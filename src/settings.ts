@@ -2,12 +2,12 @@ import {PluginSettingTab, Setting, type App} from "obsidian";
 import type FountainPlugin from "./main.js";
 
 export type FountainEditorSettings = {
-	fixMinimal: boolean;
+	fixThemesWithCustomLineWidth: boolean;
 	preferObsidianBlockquote: boolean;
 };
 
 export const DEFAULT_SETTINGS: FountainEditorSettings = {
-	fixMinimal: false,
+	fixThemesWithCustomLineWidth: false,
 	preferObsidianBlockquote: false,
 };
 
@@ -41,9 +41,9 @@ export class FountainEditorSettingTab extends PluginSettingTab {
 			.setDesc("Fix Fountain formatting on themes like Minimal.")
 			.addToggle((toggle) =>
 				toggle
-					.setValue(this.plugin.settings.fixMinimal)
+					.setValue(this.plugin.settings.fixThemesWithCustomLineWidth)
 					.onChange(async (value) => {
-						this.plugin.settings.fixMinimal = value;
+						this.plugin.settings.fixThemesWithCustomLineWidth = value;
 						await this.plugin.saveSettings();
 
 						// Add or remove the class
