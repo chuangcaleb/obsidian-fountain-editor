@@ -18,6 +18,8 @@ body:
           required: true
         - label: I've checked that a similar bug report doesn't already exist
           required: true
+        - label: I can still replicate the issue in an empty vault with the default Theme, no CSS Snippets, and no other plugins
+          required: true
 
   - type: textarea
     id: description
@@ -44,7 +46,7 @@ body:
     id: expected-behavior
     attributes:
       label: What's the expected result?
-      description: Describe what you expect to happen.
+      description: Describe what you expect to happen. This will determine whether the fix actually resolves and closes your reported issue.
       placeholder: |
         A clear and concise description of what you expected to happen.
     validations:
@@ -84,6 +86,14 @@ body:
         - Linux
         - Android
         - iOS
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Assume the reader is starting from a fresh default Obsidian—explain as much as you can about your workspace setup (active theme, enabled plugins, setting configurations etc.).
+    validations:
+      required: true
 
   - type: checkboxes
     id: will-pr
