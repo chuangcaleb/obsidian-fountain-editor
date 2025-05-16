@@ -92,8 +92,6 @@ body:
     attributes:
       label: Additional Context
       description: Assume the reader is starting from a fresh default Obsidian—explain as much as you can about your workspace setup (active theme, enabled plugins, setting configurations etc.).
-    validations:
-      required: true
 
   - type: checkboxes
     id: will-pr
