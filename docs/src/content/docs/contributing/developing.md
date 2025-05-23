@@ -5,6 +5,8 @@ banner:
   content: This page is a stub. You can help by expanding it.
 ---
 
+This document describes how to contribute code to the project. If you are not technical, there are many other ways to [contribute](/contributing)!
+
 The main relevant files you can inspect are [package.json](/package.json), [rollup.config.js](/rollup.config.js) and [release.yml](/.github/workflows/release.yml).
 
 ## Node
@@ -46,4 +48,4 @@ Lazy branching strategy, I push to main for now, but do open Merge Requests.
 
 OH and do leave a comment on the GitHub Issue or in one of the Discussion threads if you're going to work on a ticket, so that I know to not start on it as well, and we would end up doing duplicate work.
 
-Feel free to [contact](/README.md#🤙-contact) me any time!
+Feel free to [contact](/contributing/contact) me any time!

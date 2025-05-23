@@ -14,9 +14,9 @@ An [Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) sy
 
 - [Install plugin](https://obsidian.md/plugins?search=fountain-editor)
 - [Wiki](https://obsidian-fountain-editor.chuangcaleb.com)
-  - [Overview](docs/src/content/docs/start-here/overview.mdx)
-  - [Contributing](docs/src/content/docs/contributing/index.md)
-  - [Contact](docs/src/content/docs/contributing/contact.md)
+  - [Overview](https://obsidian-fountain-editor.chuangcaleb.com/start-here/overview)
+  - [Contributing](https://obsidian-fountain-editor.chuangcaleb.com/contributing/)
+  - [Contact](https://obsidian-fountain-editor.chuangcaleb.com/contributing/contact/)
 
 ## 🔨 Usage
 
@@ -86,7 +86,7 @@ Effortlessly incorporate other Obsidian plugins, and external screenplay tools a
 
 ### Huh???
 
-You: “I like your funny words, magic man! What are all these different names? I’m new to all this!” Read more →
+You: “I like your funny words, magic man! What are all these different names? I’m new to all this!” [Read more →](https://obsidian-fountain-editor.chuangcaleb.com/start-here/toolset)
 
 ## 🌟 Key Features
 
