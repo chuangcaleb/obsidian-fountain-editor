@@ -1,5 +1,65 @@
 # obsidian-fountain-editor
 
+## 1.4.2
+
+### Patch Changes
+
+#### Enhance scene heading regex for non-English languages
+
+Extended regex detection for Scene Headings and Transitions regex, for the following non-Latin languages and character sets.
+
+- Latin (already present)
+- Russian
+- Ukrainian
+- Bulgarian
+- Serbian/Macedonian
+- Greek
+- Hebrew
+- Arabic
+- Turkish
+- "Romance"
+
+Note that while the Transition token now extends the character set, the suffix `TO:` is still expected, as most non-English industries still use that U.S.-based standard. We often see CUT TO: even in fully Russian, Hebrew, or Greek scripts. Contact me if you would like this to be enhanced!
+
+```ts
+const sceneHeadingPrefixesMap = {
+ // - Latin: INT, EXT, EST, I/E, INT/EXT
+ latin: ["int", "ext", "est", "i/e", "int/ext"],
+
+ // - Russian: ИНТ, ЭКСТ, ЭСТ, И/Э, ИНТ/ЭКСТ
+ russian: ["инт", "экст", "эст", "и/э", "инт/экст"],
+
+ // - Ukrainian: ІНТ, ЕКСТ, ЕСТ, І/Е, ІНТ/ЕКСТ
+ ukrainian: ["інт", "екст", "ест", "і/е", "інт/екст"],
+
+ // - Bulgarian: ВН, ИЗН, ВН/ИЗН
+ bulgarian: ["вн", "изн", "вн/изн"],
+
+ // - Serbian/Macedonian: ВН, НАДВ, ВН/НАДВ
+ serbianMacedonian: ["вн", "надв", "вн/надв"],
+
+ // - Greek: ΕΣΩ. (INT), ΕΞΩ. (EXT), ΕΣΩ/ΕΞΩ. (INT/EXT)
+ //   Sometimes ΕΣΤ. for "establishing"
+ greek: ["εσω", "εξω", "εσω/εξω", "εστ"],
+
+ // - Hebrew: פנ. (INT = פנימי), חוץ. (EXT), פנ/חוץ. (INT/EXT)
+ //   NB: Hebrew is RTL but regex still matches left-to-right in source
+ hebrew: ["פנ", "חוץ", "פנ/חוץ"],
+
+ // - Arabic: د. (داخل = INT), خ. (خارج = EXT), د/خ. (INT/EXT)
+ //   Sometimes spelled in full: داخل, خارج
+ arabic: ["د", "خ", "د/خ", "داخل", "خارج", "داخل/خارج"],
+
+ // - Turkish: İÇ (INT), DIŞ (EXT), İÇ/DIŞ
+ turkish: ["iç", "dış", "iç/dış"],
+
+ // - French/Spanish/Italian (they often keep English, but some use native)
+ //   French: INTÉR. / EXT. ; Spanish: INT. / EXT. ; Italian: INT. / EST.
+ //   Adding common alternatives
+ romance: ["intér", "inter", "est", "ext"],
+};
+```
+
 ## 1.4.1
 
 ### Patch Changes
