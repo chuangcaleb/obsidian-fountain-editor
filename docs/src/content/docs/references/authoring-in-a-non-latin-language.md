@@ -19,7 +19,7 @@ The plugin aims to cover these main languages/alphabets.
 
 This is most obvious in Scene Heading tokens, which typically requires an `EXT.` or `INT.` prefix. Usually, this (literally) doesn't translate well in other languages. But the plugin should parse the following correctly!
 
-```fountain
+```
 ИНТ. ПЕЩЕРА — ДЕНЬ
 
 Полевка метнулась, но в кадр с глухим стуком врезается огромная львиная лапа

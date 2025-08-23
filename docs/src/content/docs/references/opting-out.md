@@ -16,7 +16,7 @@ Fountain's [Synopses](https://fountain.io/syntax/#sections-and-synopses) is trea
 
 Technically, it still applies the `cm-fountain-synopsis` class name, but Fountain Synopsis and Headings are excluded from additional Fountain styling.
 
-![demo of using synopsis](/src/assets/synopsis.png)
+![demo of using synopsis](../../../assets/synopsis.png)
 
 - Pros:
   - Valid Fountain syntax, so you don't need any pre-processing to strip it out or whatever.
@@ -46,7 +46,7 @@ However, [if you know how to strip out all the blockquotes before rendering your
 
 This is the plugin author's recommended way to annotate screenplays with markdown.
 
-![demo of using blockquote](/src/assets/blockquote.png)
+![demo of using blockquote](../../../assets/blockquote.png)
 
 - Pros
   - Natively supported by Obsidian

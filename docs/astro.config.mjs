@@ -9,9 +9,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Obsidian Fountain Editor",
-			social: {
-				github: "https://github.com/chuangcaleb/obsidian-fountain-editor",
-			},
+			social: [
+				{
+					icon: "github",
+					label: "GitHub",
+					href: "https://github.com/chuangcaleb/obsidian-fountain-editor",
+				},
+			],
 			favicon: "/favicon.ico",
 			sidebar: [
 				{

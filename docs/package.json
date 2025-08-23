@@ -1,22 +1,22 @@
 {
-  "name": "docs",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/starlight": "^0.32.4",
-    "@iconify-json/file-icons": "^1.2.1",
-    "@iconify-json/logos": "^1.2.4",
-    "@iconify-json/simple-icons": "^1.2.31",
-    "astro": "^5.5.3",
-    "astro-icon": "^1.1.5",
-    "sharp": "^0.32.5"
-  }
+	"name": "docs",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/starlight": "^0.35.2",
+		"@iconify-json/file-icons": "^1.2.2",
+		"@iconify-json/logos": "^1.2.9",
+		"@iconify-json/simple-icons": "^1.2.48",
+		"astro": "^5.13.3",
+		"astro-icon": "^1.1.5",
+		"sharp": "^0.34.3"
+	}
 }
