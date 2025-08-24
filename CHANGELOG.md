@@ -1,5 +1,11 @@
 # obsidian-fountain-editor
 
+## 1.4.3
+
+### Patch Changes
+
+- fix: russian/ukrainian ext should use НАТ
+
 ## 1.4.2
 
 ### Patch Changes
