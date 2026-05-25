@@ -82,7 +82,7 @@ export const LINE_TOKENS = [
 		// - Cyrillic uppercase (0400–052F)
 		// Fountain Power User: `@`-prefix, e.g. `@O'McDONALD`
 		regex:
-		/^[^\S\r\n]*(?=.*[\p{Lu}\u0400-\u04FF\u0500-\u052F])[A-Z\d\u00C0-\u00DEF\u0400-\u04FF\u0500-\u052F \t'._-]+\s?(\(.*\))?$|@.*$/u,
+			/^[^\S\r\n]*(?=.*[\p{Lu}\u0400-\u04FF\u0500-\u052F])[A-Z\d\u00C0-\u00DEF\u0400-\u04FF\u0500-\u052F \t'._-]+\s?(\(.*\))?$|@.*$/u,
 	},
 	{
 		id: n.dialogue,

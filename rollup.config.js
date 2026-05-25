@@ -1,7 +1,7 @@
+import process from "node:process";
 import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import process from "node:process";
 import postcssImport from "postcss-import";
 import postcssPresetEnv from "postcss-preset-env";
 import copy from "rollup-plugin-copy";
@@ -42,9 +42,9 @@ const jsConfig = {
 			rootDir: "./src",
 		}),
 		commonjs(),
-		isProduction ? terser({ format: { comments: false } }) : undefined,
+		isProduction ? terser({format: {comments: false}}) : undefined,
 		copy({
-			targets: [{ src: "manifest.json", dest: OUT_DIR }],
+			targets: [{src: "manifest.json", dest: OUT_DIR}],
 			hook: "writeBundle",
 			// Verbose: true,
 			overwrite: true,
@@ -54,7 +54,7 @@ const jsConfig = {
 
 const cssConfig = {
 	input: "src/styles/index.css",
-	output: { file: OUT_DIR + "/styles.css" },
+	output: {file: OUT_DIR + "/styles.css"},
 	plugins: [
 		postcss({
 			extract: true,
