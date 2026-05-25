@@ -1,53 +1,57 @@
 // @ts-check
-import {defineConfig} from "astro/config";
-import starlight from "@astrojs/starlight";
-import icon from "astro-icon";
+import {defineConfig} from 'astro/config';
+import starlight from '@astrojs/starlight';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://obsidian-fountain-editor.chuangcaleb.com",
+	site: 'https://obsidian-fountain-editor.chuangcaleb.com',
 	integrations: [
 		starlight({
-			title: "Obsidian Fountain Editor",
+			title: 'Obsidian Fountain Editor',
 			social: [
 				{
-					icon: "github",
-					label: "GitHub",
-					href: "https://github.com/chuangcaleb/obsidian-fountain-editor",
+					icon: 'github',
+					label: 'GitHub',
+					href: 'https://github.com/chuangcaleb/obsidian-fountain-editor',
 				},
 			],
-			favicon: "/favicon.ico",
+			favicon: '/favicon.ico',
 			sidebar: [
 				{
-					label: "Start Here",
-					autogenerate: {directory: "start-here"},
+					label: 'Start Here',
+					autogenerate: {directory: 'start-here'},
 				},
 				{
-					label: "References",
-					autogenerate: {directory: "references"},
+					label: 'References',
+					autogenerate: {directory: 'references'},
 				},
 				{
-					label: "Resources",
-					autogenerate: {directory: "resources"},
+					label: 'Resources',
+					autogenerate: {directory: 'resources'},
 				},
 				// {
 				// 	label: "Guides",
 				// 	autogenerate: {directory: "guides"},
 				// },
 				{
-					label: "Contributing",
-					autogenerate: {directory: "contributing"},
+					label: 'Contributing',
+					autogenerate: {directory: 'contributing'},
+				},
+				{
+					label: 'AI',
+					autogenerate: {directory: 'ai'},
 				},
 			],
 			editLink: {
 				baseUrl:
-					"https://github.com/chuangcaleb/obsidian-fountain-editor/edit/master/docs/",
+					'https://github.com/chuangcaleb/obsidian-fountain-editor/edit/master/docs/',
 			},
 			logo: {
-				src: "./src/assets/obsidian-fountain-editor-logo.svg",
+				src: './src/assets/obsidian-fountain-editor-logo.svg',
 			},
-			customCss: ["./src/styles/theme.css", "./src/styles/custom.css"],
+			customCss: ['./src/styles/theme.css', './src/styles/custom.css'],
 		}),
-		icon({iconDir: "src/assets/"}),
+		icon({iconDir: 'src/assets/'}),
 	],
 });

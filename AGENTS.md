@@ -2,7 +2,7 @@
 
 > This file is the **top-level entry point** for AI agents working with this project.
 > It is **agent-agnostic** — not tied to Continue, Cursor, Copilot, or any specific AI tool.
-> Each section references a context file in `.docs/src/content/docs/ai/` containing focused information.
+> Each section references a context file in `.docs/src/content/ai/` containing focused information.
 
 ---
 
