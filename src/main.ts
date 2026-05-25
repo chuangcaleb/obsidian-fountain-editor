@@ -9,10 +9,8 @@ import {
 } from "./settings.js";
 import {onMetadataChanged, updateClass} from "./tracker.js";
 
-const fountainSettingsCompartment = new Compartment();
-
 export default class FountainPlugin extends Plugin {
-	settings: FountainEditorSettings;
+	settings: FountainEditorSettings = DEFAULT_SETTINGS;
 
 	async onload() {
 		/* ---------------------------- settings -------------------------------- */
@@ -44,11 +42,10 @@ export default class FountainPlugin extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign(
-			{},
-			DEFAULT_SETTINGS,
-			(await this.loadData()) as FountainEditorSettings,
-		);
+		this.settings = {
+			...DEFAULT_SETTINGS,
+			...((await this.loadData()) as FountainEditorSettings),
+		};
 	}
 
 	async saveSettings() {
@@ -56,8 +53,8 @@ export default class FountainPlugin extends Plugin {
 	}
 
 	onunload() {
-		this.app.metadataCache.off("changed", (file: TFile) => {
-			onMetadataChanged(this.app, file);
+		this.app.metadataCache.off("changed", (file) => {
+			onMetadataChanged(this.app, file as TFile);
 		});
 		updateClass(this.app);
 
