@@ -14,10 +14,10 @@ export const DEFAULT_SETTINGS: FountainEditorSettings = {
 const themeFixClass = "fountain-theme-fix";
 export const setFixThemeState = {
 	add() {
-		document.body.classList.add(themeFixClass);
+		activeDocument.body.classList.add(themeFixClass);
 	},
 	remove() {
-		document.body.classList.remove(themeFixClass);
+		activeDocument.body.classList.remove(themeFixClass);
 	},
 };
 
