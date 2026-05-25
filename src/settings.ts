@@ -31,10 +31,7 @@ export class FountainEditorSettingTab extends PluginSettingTab {
 
 	display(): void {
 		const {containerEl} = this;
-
 		containerEl.empty();
-
-		containerEl.createEl("h2", {text: "Fountain Editor Settings"});
 
 		new Setting(containerEl)
 			.setName("Fix broken styling on certain themes")
