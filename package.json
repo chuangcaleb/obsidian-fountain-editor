@@ -25,7 +25,6 @@
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^12.3.0",
 		"@types/node": "^22.19.18",
-		"builtin-modules": "5.0.0",
 		"obsidian": "latest",
 		"postcss": "^8.5.14",
 		"postcss-import": "^16.1.1",
