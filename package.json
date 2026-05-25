@@ -16,25 +16,25 @@
 	"dependencies": {
 		"@codemirror/language": "^6.12.3",
 		"@codemirror/state": "^6.6.0",
-		"@codemirror/view": "^6.42.1"
+		"@codemirror/view": "^6.43.0"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.31.0",
-		"@rollup/plugin-commonjs": "^28.0.9",
+		"@rollup/plugin-commonjs": "^29.0.2",
 		"@rollup/plugin-node-resolve": "^16.0.3",
-		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-terser": "^1.0.0",
 		"@rollup/plugin-typescript": "^12.3.0",
-		"@types/node": "^22.19.18",
+		"@types/node": "^25.9.1",
 		"obsidian": "latest",
-		"postcss": "^8.5.14",
+		"postcss": "^8.5.15",
 		"postcss-import": "^16.1.1",
-		"postcss-preset-env": "^10.6.1",
-		"rollup": "^4.60.3",
+		"postcss-preset-env": "^11.3.0",
+		"rollup": "^4.60.4",
 		"rollup-plugin-copy": "^3.5.0",
 		"rollup-plugin-postcss": "^4.0.2",
 		"tslib": "2.8.1",
-		"typescript": "5.8.2",
-		"xo": "^0.60.0"
+		"typescript": "6.0.3",
+		"xo": "^2.0.2"
 	},
 	"engines": {
 		"node": ">=18.20.8"
