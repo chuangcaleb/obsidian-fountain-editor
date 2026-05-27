@@ -1,19 +1,19 @@
-import process from "node:process";
-import commonjs from "@rollup/plugin-commonjs";
-import terser from "@rollup/plugin-terser";
-import typescript from "@rollup/plugin-typescript";
-import postcssImport from "postcss-import";
-import postcssPresetEnv from "postcss-preset-env";
-import copy from "rollup-plugin-copy";
-import postcss from "rollup-plugin-postcss";
+import process from 'node:process';
+import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
+import typescript from '@rollup/plugin-typescript';
+import postcssImport from 'postcss-import';
+import postcssPresetEnv from 'postcss-preset-env';
+import copy from 'rollup-plugin-copy';
+import postcss from 'rollup-plugin-postcss';
 
-const TEST_VAULT_PLUGIN_DIR =
-	"obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor";
-const BUILD_DIR = "build";
+const TEST_VAULT_PLUGIN_DIR
+	= 'obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor';
+const BUILD_DIR = 'build';
 
 /* ------------------------------------ - ----------------------------------- */
 
-const isProduction = process.env.BUILD === "production";
+const isProduction = process.env.BUILD === 'production';
 const OUT_DIR = isProduction ? BUILD_DIR : TEST_VAULT_PLUGIN_DIR;
 
 const banner = `/*
@@ -23,14 +23,14 @@ if you want to view the source, visit the plugin's github repository
 `;
 
 const jsConfig = {
-	input: "src/main.ts",
-	external: ["obsidian", "@codemirror/view", "@codemirror/state"],
+	input: 'src/main.ts',
+	external: ['obsidian', '@codemirror/view', '@codemirror/state'],
 	output: {
 		dir: OUT_DIR,
-		format: "cjs",
+		format: 'cjs',
 		sourcemapExcludeSources: isProduction,
-		exports: "default",
-		sourcemap: isProduction ? false : "inline",
+		exports: 'default',
+		sourcemap: isProduction ? false : 'inline',
 		banner: isProduction ? banner : undefined,
 	},
 	plugins: [
@@ -39,13 +39,13 @@ const jsConfig = {
 			inlineSourceMap: false,
 			outDir: OUT_DIR,
 			inlineSources: !isProduction,
-			rootDir: "./src",
+			rootDir: './src',
 		}),
 		commonjs(),
 		isProduction ? terser({format: {comments: false}}) : undefined,
 		copy({
-			targets: [{src: "manifest.json", dest: OUT_DIR}],
-			hook: "writeBundle",
+			targets: [{src: 'manifest.json', dest: OUT_DIR}],
+			hook: 'writeBundle',
 			// Verbose: true,
 			overwrite: true,
 		}),
@@ -53,8 +53,8 @@ const jsConfig = {
 };
 
 const cssConfig = {
-	input: "src/styles/index.css",
-	output: {file: OUT_DIR + "/styles.css"},
+	input: 'src/styles/index.css',
+	output: {file: OUT_DIR + '/styles.css'},
 	plugins: [
 		postcss({
 			extract: true,

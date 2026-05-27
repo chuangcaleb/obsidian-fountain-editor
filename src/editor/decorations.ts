@@ -1,12 +1,12 @@
-import {RangeSetBuilder, type StateField} from "@codemirror/state";
+import {RangeSetBuilder, type StateField} from '@codemirror/state';
 import {
 	Decoration,
 	type DecorationSet,
 	type EditorView,
-} from "@codemirror/view";
-import {type FountainEditorSettings} from "../settings.js";
-import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
-import {type FountainContext, type FountainState} from "./interface.js";
+} from '@codemirror/view';
+import {type FountainEditorSettings} from '../settings.js';
+import {LINE_TOKENS, TOKEN_NAMES as n} from './consts.js';
+import {type FountainContext, type FountainState} from './interface.js';
 
 function composeFntClass(t: string) {
 	return `cm-formatting cm-fountain-formatting-${t}`;
@@ -29,14 +29,14 @@ function handleEmptyLine(line: string, state: FountainState) {
 /** Skip formatting within %% comments */
 function handleCommentBlock(line: string, state: FountainState) {
 	if (state.inCommentBlock) {
-		if (line.includes("%%")) {
+		if (line.includes('%%')) {
 			state.inCommentBlock = false;
 		}
 
 		return true;
 	}
 
-	if (line.includes("%%")) {
+	if (line.includes('%%')) {
 		state.inCommentBlock = true;
 		return true;
 	}
@@ -64,9 +64,9 @@ function handleToken(
 
 	if (tId === n.character) {
 		if (
-			context.afterEmptyLine &&
-			!context.beforeEmptyLine &&
-			!context.isLastLine
+			context.afterEmptyLine
+			&& !context.beforeEmptyLine
+			&& !context.isLastLine
 		) {
 			state.inDialogue = true;
 		} else {
@@ -79,8 +79,8 @@ function handleToken(
 	}
 
 	if (
-		tId === n.transition &&
-		!(context.afterEmptyLine && context.beforeEmptyLine)
+		tId === n.transition
+		&& !(context.afterEmptyLine && context.beforeEmptyLine)
 	) {
 		return null;
 	}
@@ -105,11 +105,11 @@ function getLineFormat(
 	for (const {id: tId, regex: tRegex} of LINE_TOKENS) {
 		if (tRegex.test(line)) {
 			const token = handleToken(tId, state, context);
-			// setting to early exit on transition-blockquotes
+			// Setting to early exit on transition-blockquotes
 			if (
-				settings.preferObsidianBlockquote &&
-				token === n.transition &&
-				line.startsWith(">")
+				settings.preferObsidianBlockquote
+				&& token === n.transition
+				&& line.startsWith('>')
 			) {
 				return null;
 			}
@@ -128,7 +128,9 @@ function getLineFormat(
 		return n.boneyard;
 	}
 
-	if (line.startsWith(">")) return null;
+	if (line.startsWith('>')) {
+		return null;
+	}
 
 	return n.action;
 }
@@ -161,7 +163,7 @@ export function buildDecorations(
 		const visibleText = view.state.sliceDoc(from, to);
 		const maxLines = view.state.doc.lines;
 
-		for (let pos = from; pos <= to; ) {
+		for (let pos = from; pos <= to;) {
 			const line = view.state.doc.lineAt(pos);
 			const {from: lFrom, to: lTo, text: lText} = line;
 
@@ -169,8 +171,8 @@ export function buildDecorations(
 			const relativeTo = lTo - from;
 
 			const context = {
-				afterEmptyLine: visibleText[relativeFrom - 2] === "\n",
-				beforeEmptyLine: visibleText[relativeTo + 1] === "\n",
+				afterEmptyLine: visibleText[relativeFrom - 2] === '\n',
+				beforeEmptyLine: visibleText[relativeTo + 1] === '\n',
 				isLastLine: line.number === maxLines,
 			};
 			const token = getLineFormat(lText, state, context, settings);
@@ -180,58 +182,56 @@ export function buildDecorations(
 				continue;
 			}
 
-			const deco = Decoration.line({class: "cm-fountain-" + token});
+			const deco = Decoration.line({class: 'cm-fountain-' + token});
 			builder.add(lFrom, lFrom, deco);
 
 			// Mark Decorations
 			const firstChar = lText[0];
 			const lastChar = lText[line.length - 1];
 
-			// action
-			if (token === n.action && firstChar === "!" && !lText.startsWith("![[")) {
+			// Action
+			if (token === n.action && firstChar === '!' && !lText.startsWith('![[')) {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
-			// scene heading
-			if (token === n.sceneHeading && firstChar === ".") {
+			// Scene heading
+			if (token === n.sceneHeading && firstChar === '.') {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
-			// lyric
-			if (token === n.lyrics && firstChar === "~") {
+			// Lyric
+			if (token === n.lyrics && firstChar === '~') {
 				markDeco(lFrom, lFrom + 1, composeFntClass(token));
 			}
 
-			// synopsis
-			if (token === n.synopsis && firstChar === "=") {
+			// Synopsis
+			if (token === n.synopsis && firstChar === '=') {
 				markDeco(lFrom, lFrom + 2, composeFntClass(token));
 			}
 
-			// character
+			// Character
 			if (token === n.character) {
-				// forced character
-				if (firstChar === "@") {
+				// Forced character
+				if (firstChar === '@') {
 					markDeco(lFrom, lFrom + 1, composeFntClass(token));
 				}
 
-				// character extension
-				if (lastChar === ")") {
+				// Character extension
+				if (lastChar === ')') {
 					const charExtension = lText.match(/(\(.*\))?$/g);
 					if (charExtension === null) {
-						console.error(
-							"Character regex broken; char ext segment should exist",
-						);
+						console.error('Character regex broken; char ext segment should exist');
 						continue;
 					}
 
 					const charExtensionLength = charExtension[0].length;
 					const charExtensionStart = lTo - charExtensionLength;
-					markDeco(charExtensionStart, lTo, "cm-fountain-character-extension");
+					markDeco(charExtensionStart, lTo, 'cm-fountain-character-extension');
 				}
 			}
 
-			// centered
-			if (token === n.centered && lastChar === "<") {
+			// Centered
+			if (token === n.centered && lastChar === '<') {
 				markDeco(lTo - 1, lTo, composeFntClass(token));
 			}
 

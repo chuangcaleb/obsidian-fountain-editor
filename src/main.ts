@@ -1,12 +1,12 @@
-import {Plugin, type TFile} from "obsidian";
-import {fountainPlugin} from "./editor/plugin.js";
+import {Plugin, type TFile} from 'obsidian';
+import {fountainPlugin} from './editor/plugin.js';
 import {
 	DEFAULT_SETTINGS,
 	type FountainEditorSettings,
 	FountainEditorSettingTab,
 	setFixThemeState,
-} from "./settings.js";
-import {onMetadataChanged, updateClass} from "./tracker.js";
+} from './settings.js';
+import {onMetadataChanged, updateClass} from './tracker.js';
 
 export default class FountainPlugin extends Plugin {
 	settings: FountainEditorSettings = DEFAULT_SETTINGS;
@@ -28,13 +28,13 @@ export default class FountainPlugin extends Plugin {
 		this.registerEditorExtension(fountainPlugin(this.settings));
 
 		// Ensure `fountain` class is added to relevant leaves
-		this.app.workspace.on("active-leaf-change", () => {
+		this.app.workspace.on('active-leaf-change', () => {
 			updateClass(this.app);
 		});
-		this.app.workspace.on("file-open", () => {
+		this.app.workspace.on('file-open', () => {
 			updateClass(this.app);
 		});
-		this.app.metadataCache.on("changed", (file: TFile) => {
+		this.app.metadataCache.on('changed', (file: TFile) => {
 			onMetadataChanged(this.app, file);
 		});
 		updateClass(this.app);
@@ -52,7 +52,7 @@ export default class FountainPlugin extends Plugin {
 	}
 
 	onunload() {
-		this.app.metadataCache.off("changed", (file) => {
+		this.app.metadataCache.off('changed', file => {
 			onMetadataChanged(this.app, file as TFile);
 		});
 		updateClass(this.app);

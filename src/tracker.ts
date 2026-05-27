@@ -1,9 +1,9 @@
-import {type App, MarkdownView, type TFile} from "obsidian";
-import { updateFileState } from "./editor/plugin";
+import {type App, MarkdownView, type TFile} from 'obsidian';
+import {updateFileState} from './editor/plugin';
 
 export function onMetadataChanged(app: App, file: TFile) {
 	const activeFile = getActiveMarkdownFile(app);
-	if (activeFile && activeFile.path === file.path) {
+	if (activeFile?.path === file.path) {
 		updateClass(app);
 	}
 }
@@ -15,7 +15,7 @@ export function updateClass(app: App) {
 		return;
 	}
 
-	if (file.extension === "fountain" || file.basename.endsWith(".fountain")) {
+	if (file.extension === 'fountain' || file.basename.endsWith('.fountain')) {
 		toggleClass(app, true);
 		return;
 	}
@@ -23,7 +23,7 @@ export function updateClass(app: App) {
 	const metadata = app.metadataCache.getFileCache(file);
 	if (metadata?.frontmatter?.tags) {
 		const tags = metadata.frontmatter.tags as string[];
-		if (tags.includes("fountain")) {
+		if (tags.includes('fountain')) {
 			toggleClass(app, true);
 			return;
 		}
@@ -31,7 +31,7 @@ export function updateClass(app: App) {
 
 	if (metadata?.frontmatter?.cssclasses) {
 		const cssclasses = metadata.frontmatter.cssclasses as string[];
-		if (cssclasses.includes("fountain")) {
+		if (cssclasses.includes('fountain')) {
 			toggleClass(app, true);
 			return;
 		}
@@ -42,11 +42,14 @@ export function updateClass(app: App) {
 
 function toggleClass(app: App, add: boolean) {
 	const view = app.workspace.getActiveViewOfType(MarkdownView);
-	const sourceView = view?.containerEl.querySelector(".markdown-source-view");
+	const sourceView = view?.containerEl.querySelector('.markdown-source-view');
 
 	updateFileState({app, hasTag: add});
-	if (!sourceView) return;
-	sourceView.classList.toggle("fountain", add);
+	if (!sourceView) {
+		return;
+	}
+
+	sourceView.classList.toggle('fountain', add);
 }
 
 function getActiveMarkdownFile(app: App): TFile | undefined {

@@ -1,4 +1,4 @@
-import {type Extension, StateEffect, StateField} from "@codemirror/state";
+import {type Extension, StateEffect, StateField} from '@codemirror/state';
 import {
 	Decoration,
 	type DecorationSet,
@@ -6,10 +6,10 @@ import {
 	type PluginValue,
 	ViewPlugin,
 	type ViewUpdate,
-} from "@codemirror/view";
-import {type App, MarkdownView} from "obsidian";
-import {buildDecorations} from "./decorations.js";
-import { FountainEditorSettings } from "../settings.js";
+} from '@codemirror/view';
+import {type App, MarkdownView} from 'obsidian';
+import {type FountainEditorSettings} from '../settings.js';
+import {buildDecorations} from './decorations.js';
 
 /* ------------------------------------ - ----------------------------------- */
 
@@ -32,7 +32,10 @@ const isFountainStateField = StateField.define<boolean>({
 
 export function updateFileState({app, hasTag}: {app: App; hasTag: boolean}) {
 	const markdownView = app.workspace.getActiveViewOfType(MarkdownView);
-	if (!markdownView || !("cm" in markdownView.editor)) return;
+	if (!markdownView || !('cm' in markdownView.editor)) {
+		return;
+	}
+
 	const cmEditor = markdownView.editor.cm as EditorView;
 	cmEditor.dispatch({effects: updateIsFountainState.of(hasTag)});
 }
@@ -51,11 +54,11 @@ class FountainPlugin implements PluginValue {
 	}
 
 	update(update: ViewUpdate) {
-		const shouldBuildDecorations =
-			update.docChanged ||
-			update.viewportChanged ||
-			update.startState.field(isFountainStateField) !==
-				update.state.field(isFountainStateField);
+		const shouldBuildDecorations
+			= update.docChanged
+				|| update.viewportChanged
+				|| update.startState.field(isFountainStateField)
+				!== update.state.field(isFountainStateField);
 
 		if (shouldBuildDecorations) {
 			this.decorations = buildDecorations(
@@ -66,7 +69,7 @@ class FountainPlugin implements PluginValue {
 		}
 	}
 
-	// destroy() {}
+	// Destroy() {}
 }
 
 export function fountainPlugin(settings: FountainEditorSettings): Extension {
@@ -76,7 +79,7 @@ export function fountainPlugin(settings: FountainEditorSettings): Extension {
 				super(view, settings);
 			}
 		},
-		{decorations: (value) => value.decorations},
+		{decorations: value => value.decorations},
 	);
 
 	return [isFountainStateField, plugin];
