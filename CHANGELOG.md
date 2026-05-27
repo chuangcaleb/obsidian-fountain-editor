@@ -1,5 +1,10 @@
 # obsidian-fountain-editor
 
+## 1.4.9
+
+- internal documentation
+- modern release workflow
+
 ## 1.4.8
 
 - [#42](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/42): Allow wikilinks as valid Fountain!Character syntax.
