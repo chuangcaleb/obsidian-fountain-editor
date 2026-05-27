@@ -4,34 +4,20 @@
 
 - **Node.js** >= 18.20.8
 - **pnpm**
-- **Obsidian** (for testing the plugin in a vault)
-- **TypeScript**
+- **Obsidian** (for testing)
 - Familiarity with Fountain syntax (<https://fountain.io>)
 
-## Installation for Development
+## Install & Run
 
 ```sh
-# Install dependencies
 pnpm install
-```
 
-> **Note:** The rollup dev config auto-creates/uses `./obsidian-fountain-editor-test/` as a test vault.
-
-## Development Workflow
-
-```sh
-# Watch mode — builds automatically on file changes
+# Watch mode — auto-builds on file changes. Outputs to test vault.
 pnpm dev
-
-# Production build
-pnpm build
 ```
 
-**Output locations:**
+**Dev output:** `obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor/` (auto-created)
 
-- **Dev build** → `obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor/`
-- **Production build** → `build/`
-
-The development build outputs CJS format `main.js`, processed `styles.css`, and a copy of `manifest.json`.
+Open `obsidian-fountain-editor-test/` in Obsidian, create a note with `cssclasses: fountain` in frontmatter. Styling appears on save.
 
 See `docs/src/content/docs/contributing/developing.md` for more.

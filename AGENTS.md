@@ -2,7 +2,7 @@
 
 > This file is the **top-level entry point** for AI agents working with this project.
 > It is **agent-agnostic** — not tied to Continue, Cursor, Copilot, or any specific AI tool.
-> Each section references a context file in `.docs/src/content/ai/` containing focused information.
+> Each section references a context file in `docs/src/content/ai/` containing focused information.
 
 ---
 
@@ -27,15 +27,27 @@ This avoids bloating the context window with irrelevant information.
 
 ## Context Files
 
-| File | Focus | Tokens Estimate |
+| File | Focus | Tokens (cl100k_base) |
 |---|---|---|
-| `00-project.md` | Project overview, purpose, tech stack, high-level architecture | ~300 |
-| `01-setup.md` | Prerequisites, installation, dev workflow, build commands | ~250 |
-| `02-structure.md` | Directory layout, key files & roles, configuration files | ~400 |
-| `03-concepts.md` | Fountain token types, decoration pipeline, multilingual support, settings | ~600 |
-| `04-workflow.md` | Coding standards, testing approach, build/deploy, contribution guidelines | ~350 |
-| `05-tasks.md` | Step-by-step guides for common development tasks | ~400 |
-| `06-troubleshooting.md` | Common issues, solutions, debugging tips | ~300 |
+| `00-project.md` | Project overview, purpose, tech stack, architecture | ~488 |
+| `01-setup.md` | Prerequisites, install, dev watch mode | ~212 |
+| `02-structure.md` | Directory layout, key files & roles, config files | ~970 |
+| `03-concepts.md` | Token types, decoration pipeline, CM6/API primer, rationale, gotchas | ~1400 |
+| `04-workflow.md` | Coding standards, commands, CI/CD, contribution guide, gotchas | ~878 |
+| `05-tasks.md` | Step-by-step dev tasks, gotchas | ~947 |
+| `06-troubleshooting.md` | Common issues, debugging tips, anti-patterns | ~985 |
+| `CONTEXT.md` | Domain glossary, design principles, flagged ambiguities, ADR refs | ~1200 |
+| `adr/001-wikilink-override.md` | ADR: Fountain Notes overridden by Obsidian wikilinks | ~80 |
+
+---
+
+## Agent Constraints
+
+- NEVER commit `data.json`, `.env`, vault paths, or `notes.md`
+- NEVER remove `.js` extension from relative imports — breaks Rollup
+- NEVER implement Fountain Notes (`[[...]]`) — Obsidian wikilinks win, see ADR-001
+- ALWAYS run `npx xo` before commit — lint gate
+- ALWAYS use `pnpm` not npm/yarn
 
 ---
 
@@ -57,3 +69,10 @@ Please load `00-project.md` and `03-concepts.md` to understand the project and i
 
 *Last updated: 2026-05-27*
 *This file is agent-agnostic and compatible with any AI coding assistant.*
+
+---
+
+## Domain Glossary & Decisions
+
+- **Glossary:** `docs/src/content/ai/CONTEXT.md` — domain terminology (pure glossary, no implementation)
+- **ADRs:** `docs/src/content/ai/adr/` — architecture decision records (created when needed)

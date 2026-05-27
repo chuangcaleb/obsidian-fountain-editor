@@ -2,6 +2,12 @@
 
 **Obsidian Fountain Editor** is a community plugin for [Obsidian](https://obsidian.md) that provides syntax highlighting and formatting for [Fountain](https://fountain.io) screenplay markup directly in the Obsidian editor. It integrates with CodeMirror 6 (Obsidian's underlying editor) to apply line-level decorations and CSS tokens, giving screenwriters a visual editing experience comparable to dedicated screenplay software.
 
+## Project Links
+
+- **GitHub:** <https://github.com/chuangcaleb/obsidian-fountain-editor>
+- **Plugin on Obsidian:** <https://community.obsidian.md/plugins/fountain-editor>
+- **Wiki:** `docs/src/content/docs`
+
 ## Key Technologies
 
 | Technology | Purpose |
@@ -40,8 +46,4 @@ User (Obsidian)
          └─ CSS variables & classes for syntax tokens
 ```
 
-## Project Links
 
-- **GitHub:** <https://github.com/chuangcaleb/obsidian-fountain-editor>
-- **Plugin on Obsidian:** <https://community.obsidian.md/plugins/fountain-editor>
-- **Wiki:** Markdown content is in `docs/src/content/docs`

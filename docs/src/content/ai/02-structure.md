@@ -43,7 +43,7 @@ obsidian-fountain-editor/
 | `tracker.ts` | Watches file open/change events; determines if the active note should be treated as Fountain (checks extension, tags, cssclasses) |
 | `editor/plugin.ts` | Defines `isFountainStateField` (CodeMirror StateField) and `FountainPlugin` (ViewPlugin) that applies decorations |
 | `editor/decorations.ts` | Core tokenizer: reads visible lines, determines Fountain element types, builds `DecorationSet` |
-| `editor/consts.ts` | All regex patterns for Fountain tokens (scene heading, character, dialogue, etc.) with multilingual support |
+| `editor/consts.ts` | Fountain token regex definitions (scene heading, character, dialogue, etc.) with multilingual support |
 | `editor/interface.ts` | `FountainState` and `FountainContext` type definitions |
 
 ### Styles (`src/styles/`)

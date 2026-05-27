@@ -3,46 +3,30 @@
 ## Coding Standards
 
 - **Language:** TypeScript with strict null checks (`strictNullChecks: true` in tsconfig.json)
-- **Linting:** Uses [xo](https://github.com/xojs/xo) (`.xo-config.cjs`) — zero-config JS linter built on ESLint
+- **Linting:** Uses [xo](https://github.com/xojs/xo) (`.xo-config.cjs`) — ESLint-based
   - `@typescript-eslint/naming-convention`: off
   - `capitalized-comments`: off
   - Prettier integration: enabled
 - **Formatting:** Prettier (`.prettierrc`)
-  - Tab width: 2
-  - Use tabs (not spaces)
-  - Single quotes: disabled (double quotes)
-- **Imports:** Use ES module syntax with `.js` extensions in relative imports
-  - Example: `import { ... } from "./editor/plugin.js"`
-  - This is required because Obsidian's build expects ES module resolution
-- **CSS:** Uses PostCSS with:
-  - `postcss-import` — allows `@import` statements in CSS
-  - `postcss-preset-env` — enables modern CSS features with autoprefixing
-- **Editor:** `.editorconfig` file enforces consistent indentation across editors
+  - Tab width: 2, tabs not spaces, double quotes (single quotes disabled)
+- **Imports:** ES module syntax with `.js` extensions in relative imports
+  - `import { ... } from "./editor/plugin.js"` — required for Obsidian build
+- **CSS:** PostCSS with `postcss-import` + `postcss-preset-env` (autoprefixing)
+- **Editor:** `.editorconfig` enforces consistent indentation
 
-## Testing Approach
-
-Currently, **no automated tests exist**. Testing is manual:
-
-1. Run `pnpm dev` to auto-build on file changes
-2. Open the test vault (`obsidian-fountain-editor-test/`) in Obsidian
-3. Create/edit a Fountain note (e.g., with `cssclasses: fountain` in frontmatter)
-4. Verify syntax highlighting appears correctly
-5. Check the Obsidian Developer Console (`Ctrl+Shift+I`) for errors
-6. Test edge cases: empty notes, mixed Fountain+Markdown, all token types
-
-> **TODO:** Future work could add test infrastructure — vitest for unit tests on the tokenizer, snapshot tests for decoration output, or Playwright for integration tests within Obsidian.
-
-## Build & Deployment Pipeline
-
-### Commands
+## Commands (All Commands)
 
 | Command | Purpose |
 |---|---|
-| `pnpm dev` | Watch mode — auto-builds on any file change. Outputs to test vault. |
+| `pnpm dev` | Watch mode — auto-builds on file change. Outputs to test vault. |
 | `pnpm build` | Production build to `build/` directory. |
+| `pnpm docs:dev` | Start Astro docs dev server (`cd docs && pnpm dev`). |
 | `pnpm version patch|minor|major` | Bump version in package.json, sync manifest.json + versions.json. |
 
-### Rollup Plugins Used
+**Dev output:** `obsidian-fountain-editor-test/.obsidian/plugins/fountain-editor/`
+**Production output:** `build/` — produces `main.js`, `styles.css`, `manifest.json`
+
+## Rollup Plugins Used
 
 - `@rollup/plugin-typescript` — TypeScript compilation
 - `@rollup/plugin-commonjs` — CJS module conversion
@@ -50,7 +34,7 @@ Currently, **no automated tests exist**. Testing is manual:
 - `rollup-plugin-postcss` — PostCSS processing
 - `rollup-plugin-copy` — Copies manifest.json to output
 
-### Version Bump Process
+## Version Bump Process
 
 The release workflow is triggered by pushing a semver tag (e.g. `1.4.9`). Tags are bare semver (no `v` prefix) per Obsidian plugin spec.
 
@@ -67,34 +51,58 @@ The release workflow is triggered by pushing a semver tag (e.g. `1.4.9`). Tags a
    - Uploads `main.js`, `manifest.json`, `styles.css` as release assets
 6. Optionally add a CHANGELOG.md link to the release body in GitHub UI
 
-### CI Workflow
+## Testing Approach
 
-Every pull request to `master` and every push to `master` runs:
-- **Typecheck:** `tsc --noEmit`
-- **Lint:** `xo`
-- **Build:** `pnpm build`
+No automated tests. Testing is manual:
 
-This ensures code quality before merging.
+1. Run `pnpm dev` to auto-build
+2. Open test vault (`obsidian-fountain-editor-test/`) in Obsidian
+3. Create Fountain note (e.g., `cssclasses: fountain` in frontmatter)
+4. Verify syntax highlighting, check Dev Console (`Ctrl+Shift+I`) for errors
+5. Test edge cases: empty notes, mixed Fountain+Markdown, all token types
+
+> **TODO:** Future work — vitest for unit tokenizer tests, snapshot tests for decorations, Playwright for Obsidian integration tests.
+
+## Common Gotchas
+
+### `.js` extension required in imports
+
+TypeScript sources use `.js` extension: `import {x} from "./foo.js"`. Omission causes Rollup build failure. Standard Obsidian plugin convention.
+
+### LINE_TOKENS order is match-first
+
+First matching regex wins. Adding new token after broader regex means it never matches. Insert position carefully.
+
+### xo lint is strict
+
+`npx xo` enforces double quotes, tabs, no unused vars. Prettier integration active — format first, then lint.
+
+### No `pnpm test`
+
+No test command exists. Verify changes manually in Obsidian test vault.
 
 ## Contribution Guidelines
 
-1. **Fork** the repository on GitHub.
-2. **Create a feature branch:** `git checkout -b feat/my-feature`
-3. **Make changes** and test thoroughly in Obsidian.
-4. **Follow coding standards** (xo lint, Prettier formatting).
-5. **Use conventional commits:**
-   - `feat: add support for ...`
-   - `fix: correct scene heading detection when ...`
-   - `docs: update documentation for ...`
-   - `refactor: simplify decoration builder`
-6. **Run lint:** `npx xo` (ensure no errors)
-7. **Open a pull request** against the `main` branch.
-8. In the PR description, explain the change and note how it was tested.
+1. **Fork** on GitHub
+2. **Feature branch:** `git checkout -b feat/my-feature`
+3. **Make changes** and test in Obsidian
+4. **Follow standards:** xo lint, Prettier formatting
+5. **Conventional commits:**
+   - `feat:`, `fix:`, `docs:`, `refactor:` prefixes
+6. **Run lint:** `npx xo` (no errors)
+7. **Open PR** against `main`, explain change and testing approach
+
+Issue templates at `.github/ISSUE_TEMPLATE/`:
+
+- `bug.yml` — structured bug report
+- `feature_req.yml` — feature request with use case
+- `task.yml` — dev task checklist
+- `config.yml` — directs to templates, disables blank issues
 
 ## Documentation Site
 
-The documentation site is built with **Astro** and lives in `docs/`.
+Built with **Astro** in `docs/`:
 
-- Content: Markdown/MDX files in `docs/src/content/docs/`
-- Development: `cd docs && pnpm install && pnpm dev`
-- The site is deployed to `obsidian-fountain-editor.chuangcaleb.com`
+- Content: `docs/src/content/docs/`
+- Dev: `pnpm docs:dev`
+- Deployed to `https://obsidian-fountain-editor.chuangcaleb.com`
