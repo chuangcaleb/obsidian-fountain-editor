@@ -57,3 +57,10 @@ Please load `00-project.md` and `03-concepts.md` to understand the project and i
 
 *Last updated: 2025-04-14*
 *This file is agent-agnostic and compatible with any AI coding assistant.*
+
+---
+
+## Domain Glossary & Decisions
+
+- **Glossary:** `docs/src/content/ai/context.md` — domain terminology (pure glossary, no implementation)
+- **ADRs:** `docs/src/content/ai/adr/` — architecture decision records (created when needed)
