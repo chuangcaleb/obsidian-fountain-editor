@@ -4,7 +4,7 @@ import {
 	type DecorationSet,
 	type EditorView,
 } from "@codemirror/view";
-import {type FountainEditorSettings} from "src/settings.js";
+import {type FountainEditorSettings} from "../settings.js";
 import {LINE_TOKENS, TOKEN_NAMES as n} from "./consts.js";
 import {type FountainContext, type FountainState} from "./interface.js";
 

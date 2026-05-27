@@ -8,8 +8,8 @@ import {
 	type ViewUpdate,
 } from "@codemirror/view";
 import {type App, MarkdownView} from "obsidian";
-import {type FountainEditorSettings} from "src/settings.js";
 import {buildDecorations} from "./decorations.js";
+import { FountainEditorSettings } from "../settings.js";
 
 /* ------------------------------------ - ----------------------------------- */
 

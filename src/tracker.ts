@@ -1,5 +1,5 @@
 import {type App, MarkdownView, type TFile} from "obsidian";
-import {updateFileState} from "src/editor/plugin";
+import { updateFileState } from "./editor/plugin";
 
 export function onMetadataChanged(app: App, file: TFile) {
 	const activeFile = getActiveMarkdownFile(app);
