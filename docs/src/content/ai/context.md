@@ -1,179 +1,128 @@
 # Obsidian Fountain Editor
 
-Domain glossary for the Fountain screenplay syntax plugin within Obsidian. Terms are specific to the hybrid Fountain+Markdown editing experience this plugin provides.
+Domain glossary for the Fountain screenplay syntax plugin. Terms specific to hybrid Fountain+Markdown editing in Obsidian.
 
 ## Fountain Screenplay Elements
 
-**Scene Heading**:
-A line identifying a new scene location and time of day (e.g. `INT. HOUSE - DAY`). Detected via multilingual prefix set.
+**Scene Heading**: Location+time detection via multilingual prefix set (INT, EXT, ИНТ, НАТ, etc.). `iu` flag regex.
 _Avoid_: Slug line
 
-**Action**:
-Descriptive prose describing on-screen activity. The default line type when no other token matches. Plugin does not apply custom formatting.
+**Action**: Default line type when no token matches. Descriptive prose.
 _Avoid_: Description, narrative
 
-**Character**:
-An uppercase name (or `@`-prefixed name) identifying a speaking participant.
+**Character**: Uppercase name or `@`-prefixed name identifying speaker. Valid only after empty line.
 _Avoid_: Speaker, person
 
-**Dialogue**:
-Spoken words attributed to a Character. Valid only after a Character line and before an empty line.
-_Avoid_: Speech, line, dialog
+**Dialogue**: Spoken words after Character line, before next empty line. `inDialogue` state controls this.
+_Avoid_: Speech, dialog
 
-**Parenthetical**:
-A delivery direction within Dialogue, wrapped in `()`.
+**Parenthetical**: Delivery direction in Dialogue, wrapped in `()`. Valid only when `inDialogue` is true.
 _Avoid_: Wryly, direction
 
-**Character Extension**:
-A parenthetical suffix on a Character name indicating delivery context (e.g. `(V.O.)`, `(CONT'D)`). Rendered italic.
+**Character Extension**: Parenthetical suffix on Character name (`(V.O.)`, `(CONT'D)`). Rendered italic.
 _Avoid_: Extension, character modifier
 
-**Dual Dialogue**:
-Two Characters speaking simultaneously, indicated by `^` suffix on a Character name. Not currently handled by the plugin.
+**Dual Dialogue**: Two speakers simultaneously, indicated by `^` suffix. Not implemented.
 _Avoid_: Simultaneous dialogue
 
-**Lyric**:
-A song or musical line, prefixed with `~`.
+**Lyric**: Song/musical line prefixed with `~`.
 _Avoid_: Lyrics, song
 
-**Centered Text**:
-Text centered on the page, wrapped in `> text <`. The `>` prefix conflicts with Markdown blockquotes.
+**Centered Text**: Text centered on page, wrapped in `> text <`. `>` conflicts with blockquotes.
 _Avoid_: Center, centered
 
-**Transition**:
-An editing transition (e.g. `CUT TO:`), valid only between empty lines. Can also be forced with the `>` prefix, which conflicts with Markdown blockquotes.
+**Transition**: Editing transition (e.g. `CUT TO:`). Valid only between empty lines. `>` prefix forces it — conflicts with blockquotes.
 _Avoid_: Cut, edit
 
-**Section**:
-A structural divider or outline heading, prefixed with `#`. Not screenplay output.
+**Section**: Structural divider prefixed with `#`. Not screenplay output.
 _Avoid_: Heading, divider
 
-**Synopsis**:
-A summary or annotation note, prefixed with `=`. Not screenplay output. Acts as an Escape Hatch for plain Markdown.
+**Synopsis**: Summary note prefixed with `=`. Not screenplay output. Acts as Escape Hatch.
+_Avoid_: Summary, annotation
 
-**Boneyard**:
-A multi-line comment block delimited by `/*` and `*/`. Content rendered faint, excluded from screenplay output. Closing `*/` token can be misparsed as italic by Obsidian.
+**Boneyard**: Multi-line comment block delimited by `/*` `*/`. Content rendered faint.
 _Avoid_: Block comment
 
-**Comment Block**:
-An Obsidian-flavoured comment delimited by `%%`. Content skipped entirely by parser. Acts as an Escape Hatch for plain Markdown.
+**Comment Block**: Obsidian-flavoured comment delimited by `%%`. Content skipped entirely by parser. No nesting. No escape.
 _Avoid_: Obsidian comment, percent comment
 
-**Page Break**:
-A forced page separator, indicated by three or more `=` characters. Not currently formatted by the plugin.
+**Page Break**: Forced page separator, 3+ `=` characters. Not formatted.
+_Avoid_: Page separator
 
-**Title Page**:
-Key:value metadata at the start of a Fountain document according to Fountain spec. Plugin does not apply additional styling.
+**Title Page**: Key:value metadata at document start per Fountain spec. No plugin styling.
 
-**Fountain Notes**:
-Annotation syntax using `[[ ]]` brackets. Conflicts with Obsidian wikilinks which use identical syntax. Obsidian wikilinks take precedence. The project decides to ignore this Fountain spec.
+**Fountain Notes**: Annotation syntax `[[ ]]`. Overridden by Obsidian wikilinks — see ADR-001.
 _Avoid_: Wikilinks, annotations
 
-**Scene Numbers**:
-Sequential identifiers appended to Scene Headings via `#1#` suffix. Planned, not yet implemented.
+**Scene Numbers**: Sequential IDs appended to Scene Headings via `#1#` suffix. Planned, not implemented.
 _Avoid_: Scene IDs, numbering
 
-**Line Break**:
-A forced line break within an Action block, indicated by two spaces at end of line.
+**Line Break**: Forced break within Action block, indicated by two trailing spaces.
 
 ## Fountain Syntax
 
-**Forced Line**:
-A single-character prefix that overrides default line-type detection. `!` = Action, `@` = Character, `.` = Scene Heading, `>` = Transition.
-_Avoid_: Override, power user syntax
+**Forced Line**: Single-character prefix overriding default detection. `!` = Action, `@` = Character, `.` = Scene Heading, `>` = Transition.
+_Avoid_: Override, power user
 
-**Empty Line**:
-A blank line (length < 2) that resets dialogue mode and constrains valid token positions (Character only after empty line, Transition only between empty lines).
+**Empty Line**: Blank line (length < 2) resets dialogue mode. Constraints: Character only after empty line, Transition only between empty lines.
 
-**Scene Heading Prefix Set**:
-The multilingual vocabulary of location-indicating words for Scene Heading detection. Supports Latin, Russian, Ukrainian, Bulgarian, Serbian/Macedonian, Greek, Hebrew, Arabic, Turkish, and Romance language prefixes.
-_Avoid_: Scene prefixes, location prefixes
+**Scene Heading Prefix Set**: Multilingual vocabulary for location words. Latin, Russian, Ukrainian, Bulgarian, Serbian/Macedonian, Greek, Hebrew, Arabic, Turkish, Romance.
+_Avoid_: Scene prefixes
 
-**Fountain State**:
-Parser tracking flags that persist across lines during a decoration pass: `inDialogue`, `inBoneyard`, `inCommentBlock`. Reset each pass.
+**Fountain State**: Parser flags (`inDialogue`, `inBoneyard`, `inCommentBlock`) reset per decoration pass. Persist across lines WITHIN pass only.
 _Avoid_: Parser state
 
 ## Detection
 
-**Fountain Marker**:
-A signal that a note should activate Fountain formatting. Three methods: `.fountain.md` extension, frontmatter `tags: fountain`, or frontmatter `cssclasses: fountain`.
-_Avoid_: Fountain flag, activation marker
+**Fountain Marker**: Signal activating Fountain formatting. Three methods: `.fountain.md` extension, frontmatter `tags: fountain`, frontmatter `cssclasses: fountain`.
+_Avoid_: Fountain flag
 
-**Fountain Active**:
-A per-editor boolean that controls whether the CodeMirror extension builds decorations. The CSS class `fountain` is applied to `.markdown-source-view` when true.
+**Fountain Active**: Per-editor boolean controlling decoration build. CSS class `fountain` on `.markdown-source-view` when true.
 
 ## Design Principles
 
-**Hybrid Syntax**:
-The paradigm of mixing Fountain screenplay syntax and Markdown annotation syntax in the same document.
+Fountain-first / Obsidian-second: Fountain wins on `>` conflict by default, reversible via Prefer Blockquotes.
 
-**Fountain-compliant**:
-Design principle: all hybrid files must remain compatible with standard Fountain processors. Non-Fountain syntax must be removable with simple regex.
+Fountain-compliant: All hybrid files must remain compatible with standard Fountain processors. Non-Fountain syntax removable via simple regex.
 
-**Fountain-first / Obsidian-second**:
-Design priority: when Fountain and Obsidian syntax conflict, Fountain takes precedence by default. Reversible via the Prefer Blockquotes setting.
+View-only: Plugin applies visual formatting only. Never modifies file content.
+_Avoid_: Read-only
 
-**View-only**:
-Design principle: the plugin only applies visual formatting to the editor. It never modifies file contents.
-_Avoid_: Read-only, cosmetic
+Styling Parity: In-editor styling should match Fountain-exported PDF.
+_Avoid_: PDF matching
 
-**Styling Parity**:
-Design principle: in-editor styling should closely match a Fountain-exported PDF.
-_Avoid_: PDF matching, visual parity
+Hybrid Syntax: Mixing Fountain screenplay and Markdown annotation in one document.
 
 ## Workflow Concepts
 
-**Atomic Slices**:
-A writing approach where each scene or sequence lives in its own file, as opposed to a single monolithic screenplay.
+**Atomic Slices**: Each scene/sequence in own file, not monolithic.
+_Avoid_: Single file
 
-**Escape Hatches**:
-Methods to write plain Markdown within a Fountain-marked document. Three options: Synopsis (`=`), Blockquotes (`>` with Prefer Blockquotes enabled), Obsidian Comments (`%%`).
-_Avoid_: Opting out, bypass
+**Escape Hatches**: Methods for plain Markdown inside Fountain docs: Synopsis (`=`), Blockquotes (`>` with preferObsidianBlockquote), Obsidian Comments (`%%`).
+_Avoid_: Opting out
 
-**Synergistic Tools**:
-Companion Obsidian plugins extending the Fountain workflow, such as Longform (compilation) and Better Fountain (PDF export).
-_Avoid_: External tools, companions
+**Synergistic Tools**: Companion plugins: Longform (compilation), Better Fountain (PDF export).
+_Avoid_: External tools
 
-**Callouts**:
-Obsidian's extended blockquote syntax (`> [!note]`, `> [!tip]`). Usable inside Fountain documents when Prefer Blockquotes is enabled.
-_Avoid_: Alerts, admonitions
+**Callouts**: Obsidian blockquote extensions (`> [!note]`). Usable when Prefer Blockquotes enabled.
+_Avoid_: Alerts
 
-**Strip Blockquotes**:
-Removing `>`-prefixed lines before PDF export. Required when using blockquotes for annotations with Prefer Blockquotes enabled.
-_Avoid_: Blockquote removal
+**Strip Blockquotes**: Removing `>` lines before PDF export. Required when using blockquote annotations.
 
-**Reading Mode**:
-Obsidian's non-editable document preview. Plugin does not yet apply formatting in this mode.
-
-## Settings
-
-**Fix Minimal Theme**:
-A setting (`fixMinimal`) disables custom left-offset positioning for Character, Dialogue, and Parenthetical lines. Used to resolve conflicts with themes like Minimal.
-
-**Prefer Blockquotes**:
-A setting (`preferObsidianBlockquote`) reverses the Fountain-first priority for `>` lines, treating them as Obsidian blockquotes instead of Transitions.
+**Reading Mode**: Obsidian's non-editable preview. No plugin formatting.
+_Avoid_: Preview mode
 
 ## Flagged Ambiguities
 
-**`>` character**:
-Used by both Fountain (Transition prefix, Centered Text wrapper) and Markdown (blockquote prefix). Resolved by the Prefer Blockquotes setting.
+**`>` character**: Three meanings — Transition prefix, Centered Text wrapper, Markdown blockquote. Prefer Blockquotes setting resolves Transition vs blockquote. Centered Text always wins.
 
-**`[[ ]]` brackets**:
-Used by both Fountain (Notes annotation, `Fountain Notes`) and Obsidian (wikilinks). Fountain Notes are overridden entirely — Obsidian wikilinks always win.
+**`[[ ]]` brackets**: Fountain Notes vs Obsidian wikilinks. Wikilinks always win. ADR-001 documents the decision — not configurable.
 
-**`=` prefix**:
-Used by Fountain (Synopsis) and some Markdown parsers (heading underline). Obsidian does not implement heading underline syntax, so no practical conflict.
+**`=` prefix**: Fountain Synopsis vs heading underline. Obsidian doesn't implement heading underline — no practical conflict.
 
-## Example Dialogue
+**`*/` sequence**: Boneyard close vs italic delimiter. Obsidian Markdown parser sees `*/` as italic. Plugin CSS overrides with `color: var(--text-faint)`.
 
-**Dev**: "I want a Callout inside my screenplay, but the plugin renders it as a Transition."
+## Design Decisions
 
-**Writer**: "That's the `>` conflict. Every `>` line is Fountain-first by default."
-
-**Dev**: "Enable Prefer Blockquotes in settings?"
-
-**Writer**: "Yes. Then `>` becomes blockquote. But you must Strip Blockquotes before PDF export or they'll appear in your screenplay."
-
-**Dev**: "Can I use other Escape Hatches too — Synopsis for one-liners, Comment Blocks for longer notes?"
-
-**Writer**: "Exactly. All three are Fountain-compliant: trivially removable via regex. Synopsis is cleanest for short notes. Comment blocks for anything multi-line."
+The following decisions are documented in `adr/`:
+- **ADR-001**: Fountain Notes (`[[...]]`) overridden by Obsidian wikilinks. Hard boundary, no setting.

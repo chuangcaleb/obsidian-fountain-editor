@@ -6,6 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "rollup --config rollup.config.js -w",
+		"docs:dev": "cd docs && pnpm dev",
 		"build": "rollup --config rollup.config.js --environment BUILD:production",
 		"changeset": "changeset",
 		"version": "changeset version && node version-bump.mjs"

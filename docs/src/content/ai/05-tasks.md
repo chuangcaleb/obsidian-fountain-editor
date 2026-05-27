@@ -146,3 +146,22 @@ if (settings.myNewSetting) {
 ## Updating the Documentation Site
 
 Content lives in `docs/src/content/docs/` as Markdown/MDX files. Agents should only need to edit or add new `.mdx` files there, and should not start the documentation dev server.
+
+---
+
+## Common Gotchas
+
+### Token order in LINE_TOKENS
+Adding token at end of array is safe only if no broader regex above it catches the same input. Scene heading regex is broad (multilingual prefixes) — new tokens before scene headings must be more specific.
+
+### state resets per buildDecorations() call
+`inDialogue`, `inBoneyard`, `inCommentBlock` reset every decoration pass. They persist across lines WITHIN a pass but NOT between edits. If dialogue tracking seems wrong, check state isn't resetting mid-pass.
+
+### Decorations only build for visible ranges
+`view.visibleRanges` limits work to viewport. For debugging, scroll to target line or use Console to check `FountainPlugin.decorations`.
+
+### Boneyard */ misparsed as italic
+Obsidian Markdown parser sees `*/` as italic delimiter. Plugin CSS must override with `color: var(--text-faint)`.
+
+### `[[` is wikilink, not Fountain Note
+Fountain Notes spec uses `[[...]]` for annotations. Obsidian wikilinks take precedence. Plugin intentionally ignores Fountain Notes. See ADR-001.

@@ -99,3 +99,22 @@ const metadata = app.metadataCache.getFileCache(file);
 const tags = metadata?.frontmatter?.tags;
 const cssclasses = metadata?.frontmatter?.cssclasses;
 ```
+
+---
+
+## Anti-Patterns
+
+### Don't modify sceneHeadingPrefixesMap without dedupe check
+Languages share prefixes (e.g., `EST` in Latin + Greek + Romance). `new Set()` deduplicates but if two entries differ but match same text (e.g., `ext` vs `ext.`), only one survives.
+
+### Don't remove state.inDialogue resets
+Every `buildDecorations()` call creates fresh state. Do NOT cache state across calls — dialogue context changes between edits.
+
+### Don't use npm/yarn
+Package-lock.json conflicts. pnpm-lock.yaml is canonical. Use `pnpm` for all dep operations.
+
+### Don't set styles on .cm-line directly
+All token styles target `.cm-fountain-*` classes. Direct `.cm-line` styling conflicts with themes and Obsidian's style engine.
+
+### Don't add tokens overlapping Markdown syntax
+Fountain-first means Fountain wins on conflict. Adding syntax that overlaps Markdown (e.g., `#` for headings vs sections) creates user confusion. Document overlap explicitly.
