@@ -40,8 +40,7 @@ Currently, **no automated tests exist**. Testing is manual:
 |---|---|
 | `pnpm dev` | Watch mode — auto-builds on any file change. Outputs to test vault. |
 | `pnpm build` | Production build to `build/` directory. |
-| `pnpm changeset` | Create a changeset for version bumping. |
-| `pnpm version` | Apply changesets and bump version. |
+| `pnpm version patch|minor|major` | Bump version in package.json, sync manifest.json + versions.json. |
 
 ### Rollup Plugins Used
 
@@ -53,12 +52,29 @@ Currently, **no automated tests exist**. Testing is manual:
 
 ### Version Bump Process
 
-1. Run `pnpm changeset` to create a changeset file
-2. Run `pnpm version` which:
-   - Uses `@changesets/cli` to update versions
-   - Runs `version-bump.mjs` to update `versions.json` with the new version and min app version
-3. Merge the PR with the version bumps
-4. Create a GitHub release with the built files
+The release workflow is triggered by pushing a semver tag (e.g. `1.4.9`). Tags are bare semver (no `v` prefix) per Obsidian plugin spec.
+
+1. Manually update `CHANGELOG.md` with curated release notes
+2. Stage CHANGELOG.md: `git add CHANGELOG.md`
+3. Run `pnpm version patch` (or `minor`/`major`) which:
+   - Bumps `version` in `package.json`
+   - Runs `version-bump.mjs` to sync `manifest.json` and `versions.json`
+   - Creates a git commit + tag
+4. Push commit and tag: `git push --follow-tags`
+5. GitHub Actions release workflow triggers on the tag:
+   - Runs `pnpm build` to produce `main.js`, `styles.css`, `manifest.json`
+   - Creates a GitHub release via `gh release create` with auto-generated release notes
+   - Uploads `main.js`, `manifest.json`, `styles.css` as release assets
+6. Optionally add a CHANGELOG.md link to the release body in GitHub UI
+
+### CI Workflow
+
+Every pull request to `master` and every push to `master` runs:
+- **Typecheck:** `tsc --noEmit`
+- **Lint:** `xo`
+- **Build:** `pnpm build`
+
+This ensures code quality before merging.
 
 ## Contribution Guidelines
 

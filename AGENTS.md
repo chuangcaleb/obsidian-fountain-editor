@@ -55,5 +55,5 @@ Please load `00-project.md` and `03-concepts.md` to understand the project and i
 - **Add new files as needed** — if a topic becomes large enough to warrant its own file, create a new numbered file and update this router.
 - **Keep the token estimates in the table above realistic** — rough estimates help agents decide which files to load.
 
-*Last updated: 2025-04-14*
+*Last updated: 2026-05-27*
 *This file is agent-agnostic and compatible with any AI coding assistant.*
