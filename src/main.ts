@@ -1,4 +1,3 @@
-import {Compartment} from "@codemirror/state";
 import {Plugin, type TFile} from "obsidian";
 import {fountainPlugin} from "./editor/plugin.js";
 import {
