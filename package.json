@@ -35,6 +35,7 @@
 		"typescript": "6.0.3",
 		"xo": "^2.0.2"
 	},
+	"packageManager": "pnpm@11.3.0",
 	"engines": {
 		"node": ">=18.20.8"
 	}
