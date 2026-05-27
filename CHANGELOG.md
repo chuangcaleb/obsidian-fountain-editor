@@ -1,5 +1,17 @@
 # obsidian-fountain-editor
 
+## 1.4.8
+
+- [#42](https://github.com/chuangcaleb/obsidian-fountain-editor/issues/42): Allow wikilinks as valid Fountain!Character syntax.
+
+```
+CALEB
+Used to require all-uppercase here for valid Character + Dialogue.
+
+[[Caleb]]
+These are now valid Character and Dialogue syntax tags. Capitalisation not required. Let me know if anything breaks.
+```
+
 ## 1.4.7
 
 ### Patch Changes
