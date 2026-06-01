@@ -48,14 +48,12 @@ export function updateClass(app: App) {
 
 function toggleClass(app: App, add: boolean) {
 	const view = app.workspace.getActiveViewOfType(MarkdownView);
-	const sourceView = view?.containerEl.querySelector('.markdown-source-view');
+	const entryPoint = view?.containerEl.querySelector('.node-insert-event');
 
 	updateFileState({app, hasTag: add});
-	if (!sourceView) {
-		return;
+	if (entryPoint) {
+		entryPoint.classList.toggle('fountain', add);
 	}
-
-	sourceView.classList.toggle('fountain', add);
 }
 
 function getActiveMarkdownFile(app: App): TFile | undefined {
