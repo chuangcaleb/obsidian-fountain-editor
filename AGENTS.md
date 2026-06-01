@@ -1,31 +1,12 @@
-# Obsidian Fountain Editor — Agent Context Router
+# Agent Context Router
 
-> This file is the **top-level entry point** for AI agents working with this project.
-> It is **agent-agnostic** — not tied to Continue, Cursor, Copilot, or any specific AI tool.
 > Each section references a context file in `docs/src/content/ai/` containing focused information.
 
 ---
 
-## How to Use This
+## Context Files
 
 When starting a new task, load only the context files relevant to your work.
-This avoids bloating the context window with irrelevant information.
-
-**Quick reference for choosing context files:**
-
-| If you are... | Load these files |
-|---|---|
-| New to the project | `00-project.md`, `02-structure.md`, `03-concepts.md` |
-| Writing code / fixing a bug | `00-project.md`, `02-structure.md`, `03-concepts.md`, `04-workflow.md`, `05-tasks.md` |
-| Debugging syntax highlighting | `00-project.md`, `03-concepts.md`, `06-troubleshooting.md` |
-| Adding a new feature | `00-project.md`, `02-structure.md`, `03-concepts.md`, `04-workflow.md`, `05-tasks.md` |
-| Setting up the dev environment | `01-setup.md` |
-| Writing documentation | `02-structure.md`, `04-workflow.md` |
-| Reviewing a PR / contributing | `04-workflow.md` |
-
----
-
-## Context Files
 
 | File | Focus | Tokens (cl100k_base) |
 |---|---|---|

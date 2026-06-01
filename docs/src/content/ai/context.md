@@ -2,6 +2,11 @@
 
 Domain glossary for the Fountain screenplay syntax plugin. Terms specific to hybrid Fountain+Markdown editing in Obsidian.
 
+## Project
+
+**Obsidian**: A markdown-based note-taking app.
+**Fountain**: A plain text markup language for screenwriting. (<fountain.io>)
+
 ## Fountain Screenplay Elements
 
 **Scene Heading**: Location+time detection via multilingual prefix set (INT, EXT, ИНТ, НАТ, etc.). `iu` flag regex.
@@ -125,4 +130,5 @@ _Avoid_: Preview mode
 ## Design Decisions
 
 The following decisions are documented in `adr/`:
+
 - **ADR-001**: Fountain Notes (`[[...]]`) overridden by Obsidian wikilinks. Hard boundary, no setting.
