@@ -8,11 +8,12 @@ An [Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) sy
 
 > 📺 **Youtube Demo**: [Obsidian Fountain - Live Editor (Plugin Showcase)](https://youtu.be/GORryaw32sI)
 
-[![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)](https://obsidian.md/plugins?id=fountain-editor) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
+[![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22fountain-editor%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)](https://community.obsidian.md/plugins/fountain-editor) ![GitHub stars](https://img.shields.io/github/stars/chuangcaleb/obsidian-fountain-editor?logo=github&style=flat)
 
 ## 🔗 Quicklinks
 
-- [Install plugin](https://obsidian.md/plugins?search=fountain-editor)
+- [Install](obsidian://show-plugin?id=fountain-editor)
+- [Community Page](https://community.obsidian.md/plugins/fountain-editor)
 - [Wiki](https://obsidian-fountain-editor.chuangcaleb.com)
   - [Overview](https://obsidian-fountain-editor.chuangcaleb.com/start-here/overview)
   - [Contributing](https://obsidian-fountain-editor.chuangcaleb.com/contributing/)
@@ -22,9 +23,9 @@ An [Obsidian](https://obsidian.md) plugin for [Fountain](https://fountain.io) sy
 
 ### 🏁 Quickstart
 
-1. 📥 [Open the installation prompt in Obsidian](https://obsidian.md/plugins?id=fountain-editor) (recommended)
-   1. How to install Obsidian plugins (beginner) [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
-   2. Manual installation (advanced) [Link →](#-manual-installation)
+1. 📥 [⭐ Recommended] [Open the installation prompt in Obsidian](obsidian://show-plugin?id=fountain-editor)
+   1. [🟢 Beginner] How to install Obsidian plugins [Link →](https://help.obsidian.md/Extending+Obsidian/Community+plugins)
+   2. [🔴 Advanced] Manual installation [Link →](#-manual-installation)
 2. 📄 [Mark a markdown note for Fountain](/references/marking-fountain) formatting by one of the following:
    1. Use a `.fountain.md` extension
    2. Add a `fountain` tag to the Properties frontmatter
