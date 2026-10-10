@@ -57,3 +57,4 @@ Please load `00-project.md` and `03-concepts.md` to understand the project and i
 
 - **Glossary:** `docs/src/content/ai/CONTEXT.md` — domain terminology (pure glossary, no implementation)
 - **ADRs:** `docs/src/content/ai/adr/` — architecture decision records (created when needed)
+- Obsidian API: <https://docs.obsidian.md/Reference/TypeScript+API/Plugin>
